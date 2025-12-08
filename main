@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>My Favorite Teams</title>
+
+  <!-- 외부 CSS 연결 -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<!-- 메인 화면이라는 의미로 home 클래스를 지정 -->
+<body class="home">
+
+  <!-- 페이지 상단 제목 영역 -->
+  <header class="main-header">
+    <h1>My Favorite Teams</h1>
+    <!-- 부제목: 사용자가 왜 페이지를 만들었는지 표현 -->
+    <p>두산 베어스, 기아 타이거즈, T1 경기일정은 꼭 챙겨보기!</p>
+  </header>
+
+  <!-- 팀 카드들을 3개 나열하는 메인 콘텐츠 영역 -->
+  <main class="team-grid">
+
+    <!-- 팀 1 : 두산 베어스 카드 -->
+    <!-- a태그로 만들었기 때문에 클릭하면 상세 페이지로 이동 -->
+    <a href="team-doosan.html" class="team-card doosan">
+      <!-- 카드 안의 큰 글자(아이콘 역할) -->
+      <div class="team-icon">BEARS</div>
+
+      <!-- 팀 이름 + 리그 표시 -->
+      <div class="team-info">
+        <h2>두산 베어스</h2>
+        <span class="tag">KBO</span>
+      </div>
+    </a>
+
+    <!-- 팀 2 : 기아 타이거즈 -->
+    <a href="team-kia.html" class="team-card kia">
+      <div class="team-icon">TIGERS</div>
+      <div class="team-info">
+        <h2>기아 타이거즈</h2>
+        <span class="tag">KBO</span>
+      </div>
+    </a>
+
+    <!-- 팀 3 : T1 -->
+    <a href="team-t1.html" class="team-card t1">
+      <div class="team-icon">T1</div>
+      <div class="team-info">
+        <h2>T1</h2>
+        <span class="tag">LCK</span>
+      </div>
+    </a>
+  </main>
+</body>
+</html>
