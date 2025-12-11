@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>KIA 타이거즈 팬사이트 | V12 KBO 명문 구단</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="KIA 타이거즈의 V12 우승 기록, 역사, 영구 결번 선수를 소개하는 팬사이트입니다.">
 
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Noto+Sans+KR:wght@300;400;700&family=Orbit:wght@400;700&display=swap" rel="stylesheet">
     
@@ -264,13 +263,17 @@
             100% { border-color: var(--accent-gold); box-shadow: 0 0 25px rgba(200, 163, 60, 0.8); }
         }
         
+        /* [수정된 부분]: img 태그에 적용되도록 수정 */
         .player-image {
-            width: 100%; max-width: 150px; height: 180px; background: var(--kia-red); 
-            border-radius: 10px; border: 3px solid var(--kia-black);
-            margin: 0 auto 1rem; display: flex; justify-content: center; align-items: center;
-            color: white; font-family: "Cinzel", serif; font-size: 1.2rem; opacity: 0.6;
+            width: 100%; max-width: 150px; height: 180px; /* 고정 크기 유지 */
+            object-fit: cover; /* 이미지가 잘리지 않고 채워지도록 설정 */
+            border-radius: 10px; 
+            border: 3px solid var(--kia-red); /* 테두리 색상 강조 */
+            margin: 0 auto 1rem; 
+            display: block; /* img 태그에 맞게 block으로 변경 */
         }
-        .player-image::before { content: "UNIFORM"; } 
+        /* 이전 코드에 있던 플레이스홀더 텍스트 생성 CSS 제거 */
+        /* .player-image::before { content: "UNIFORM"; } */
         
         .player-number {
             font-family: "Orbit", sans-serif; font-size: 4rem; font-weight: bold;
@@ -405,10 +408,7 @@
             <section id="history" class="card card-accent">
                 <h2 class="section-title">타이거즈 역사: 해태 왕조에서 KIA 왕조까지</h2>
                 <p class="section-subtitle">
-                    KBO 리그의 시작부터 현재까지, 한국 야구의 역사를 써 내려온 타이거즈의 주요 연대기를 살펴봅니다. 
-
-[Image of History Timeline Example]
-
+                    KBO 리그의 시작부터 현재까지, 한국 야구의 역사를 써 내려온 타이거즈의 주요 연대기를 살펴봅니다.
                 </p>
                 
                 <ul class="history-list">
@@ -487,7 +487,7 @@
             <section id="records" class="card card-accent">
                 <h2 class="section-title">🏆 KIA 타이거즈 (해태 포함) 우승 기록</h2>
                 <p class="section-subtitle">
-                    타이거즈가 달성한 총 12번의 한국시리즈 우승 기록을 연도별로 정리했습니다. 
+                    타이거즈가 달성한 총 12번의 한국시리즈 우승 기록을 연도별로 정리했습니다.
                 </p>
                 
                 <div class="table-container">
@@ -530,7 +530,7 @@
                     <article class="player-card sun-dong-yeol">
                         <div class="player-number">18</div>
                         <p class="player-name">선동열 (SUN Dong Yeol)</p>
-                        <div class="https://i.namu.wiki/i/F94jdI983GHQ7XqAKvlbimWK8JuXo4WURqyYyA2WMmLmC47o8-XjuVYKWyhde6fyAbha_lORqWXzm0yTd8XvW3em7jNIcUfKNH_udJ6jKX2pU1kx_NxqqTw7OjGn-rFWxooxNKtbJ02iDqZy2o2elA.webp" aria-label="선동열 선수 유니폼"></div>
+                        <img src="https://i.namu.wiki/i/F94jdI983GHQ7XqAKvlbimWK8JuXo4WURqyYyA2WMmLmC47o8-XjuVYKWyhde6fyAbha_lORqWXzm0yTd8XvW3em7jNIcUfKNH_udJ6jKX2pU1kx_NxqqTw7OjGn-rFWxooxNKtbJ02iDqZy2o2elA.webp" alt="선동열 선수 영구 결번 유니폼 이미지" class="player-image">
                         
                         <h4>국보 투수 (The National Treasure Pitcher)</h4>
                         <p class="detail-text">
@@ -557,11 +557,11 @@
                     <article class="player-card lee-jong-beom">
                         <div class="player-number">7</div>
                         <p class="player-name">이종범 (LEE Jong Beom)</p>
-                        <div class="https://i.namu.wiki/i/duA38TGX5zotbiTinh0UpIBmyCNF3qRsjaagxGRmELOnNPT49HjCBZokrWAYo8Msipj4SQZHhSYKx9VnsS4b8A.webp" aria-label="이종범 선수 유니폼"></div>
+                        <img src="https://i.namu.wiki/i/duA38TGX5zotbiTinh0UpIBmyCNF3qRsjaagxGRmELOnNPT49HjCBZokrWAYo8Msipj4SQZHhSYKx9VnsS4b8A.webp" alt="이종범 선수 영구 결번 유니폼 이미지" class="player-image">
 
                         <h4>바람의 아들 (The Son of the Wind)</h4>
                         <p class="detail-text">
-                            KBO 역사상 최고의 5툴 플레이어(타격, 파워, 주루, 수비, 송구)이자, 폭발적인 스피드로 '바람의 아들'이라는 별명을 얻은 타이거즈 팬들의 영원한 아이콘입니다.
+                            KBO 역사상 최고의 5툴 플레이어이자, 폭발적인 스피드로 '바람의 아들'이라는 별명을 얻은 타이거즈 팬들의 영원한 아이콘입니다.
                         </p>
                         
                         <div class="player-stats">
