@@ -157,7 +157,7 @@
         flex-wrap: wrap;
     }
     .person-card {
-        flex: 1 1 45%; /* 반응형을 위해 너비 설정 */
+        flex: 1 1 45%; 
         min-width: 300px;
         background: rgba(20, 20, 40, 0.9);
         border: 2px solid var(--t1-red);
@@ -191,6 +191,54 @@
         color: var(--text-sub);
     }
 
+    /* 새로운 Faker 세부 섹션 스타일 */
+    #faker-detail .card {
+        border: 2px solid var(--lol-gold);
+        background: rgba(10, 14, 25, 0.95);
+        padding: 2.5rem;
+    }
+    #faker-detail h3 {
+        font-size: 1.6rem;
+        color: #ffe9bf;
+        margin-bottom: 1rem;
+        border-bottom: 3px solid var(--t1-red);
+        padding-bottom: 0.7rem;
+    }
+    .faker-stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1.5rem;
+        margin-top: 1.5rem;
+    }
+    .faker-stat-item {
+        background: rgba(200, 155, 60, 0.15);
+        border-left: 5px solid var(--lol-gold);
+        padding: 1rem;
+        border-radius: 6px;
+    }
+    .faker-stat-item strong {
+        display: block;
+        font-size: 1.8rem;
+        color: var(--t1-red);
+        font-family: "Cinzel", serif;
+        line-height: 1;
+        margin-bottom: 0.4rem;
+    }
+    .faker-stat-item span {
+        font-size: 0.9rem;
+        color: var(--text-main);
+    }
+    .faker-paragraph {
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px dashed var(--divider-color);
+    }
+    .faker-paragraph p {
+        font-size: 1rem;
+        color: var(--text-sub);
+        margin-bottom: 0.8rem;
+    }
+    
     /* 기타 기록 목록 스타일 */
     .stat-list {
         list-style: none;
@@ -243,6 +291,12 @@
       .person-card {
           min-width: unset;
       }
+      #faker-detail .card {
+          padding: 1.5rem;
+      }
+      .faker-stats-grid {
+          grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -258,9 +312,9 @@
       <nav>
         <ul>
           <li><a href="#history">T1 역사</a></li>
+          <li><a href="#faker-detail">Faker</a></li>
           <li><a href="#records">압도적 기록</a></li>
           <li><a href="#trophy">주요 경력</a></li>
-          <li><a href="#people">핵심 인물</a></li>
         </ul>
       </nav>
     </div>
@@ -294,9 +348,51 @@
         </p>
       </div>
     </section>
+    
+    <section id="faker-detail">
+        <h2 class="section-title">🌟 GOAT, The Unkillable Demon King: Faker</h2>
+        <p class="section-subtitle">
+            T1의 역사 그 자체이자 리그 오브 레전드의 상징. Faker 선수가 세운 개인 커리어의 금자탑입니다.
+        </p>
+        
+        <div class="card">
+            <h3>미드 라인의 살아있는 전설, 이상혁</h3>
+            <p>
+                2013년 데뷔 이래 단 한 번도 팀을 옮기지 않고 T1에서 활동하며 팀의 모든 영광을 함께했습니다. 그의 커리어는 e스포츠를 넘어 스포츠 역사상 가장 위대한 선수 중 한 명으로 평가받습니다.
+            </p>
+            
+            <div class="faker-stats-grid">
+                <div class="faker-stat-item">
+                    <strong>6</strong>
+                    <span>Worlds Championship 우승 (단독 최다)</span>
+                </div>
+                <div class="faker-stat-item">
+                    <strong>10+</strong>
+                    <span>LCK 우승 (LCK 최다 우승 미드 라이너)</span>
+                </div>
+                <div class="faker-stat-item">
+                    <strong>2000+</strong>
+                    <span>LCK/Worlds 통산 킬 (최초 달성)</span>
+                </div>
+                <div class="faker-stat-item">
+                    <strong>100+</strong>
+                    <span>Worlds에서 사용한 챔피언 수</span>
+                </div>
+            </div>
+            
+            <div class="faker-paragraph">
+                <p>
+                    **압도적인 기록**: 메이저 국제 대회인 Worlds, MSI, EWC를 모두 우승하며 **'그랜드 슬램'**을 달성한 유일한 미드 라이너이며, LCK에서는 **최초로 2년 연속 All-Pro 퍼스트 팀**에 선정되는 등 롱런의 대명사입니다. 
+                </p>
+                <p>
+                    **상징성**: 그의 이름은 T1을 넘어 한국 e스포츠의 얼굴이며, **불사대마왕(The Unkillable Demon King)**이라는 별명은 그의 강력함과 끈기를 상징합니다.
+                </p>
+            </div>
+        </div>
+    </section>
 
     <section id="people">
-      <h2 class="section-title">👑 T1의 심장: 핵심 로스터와 상징</h2>
+      <h2 class="section-title">✨ T1의 심장: 핵심 로스터와 상징</h2>
       <p class="section-subtitle">T1의 역사를 관통하며 왕조를 이끈 상징적인 선수들과 로스터입니다.</p>
         
       <div class="person-card-container">
@@ -419,3 +515,4 @@
 
 </body>
 </html>
+
