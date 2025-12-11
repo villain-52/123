@@ -461,15 +461,7 @@
     <img
         src="https://i.namu.wiki/i/GCAjiFjshQo5zXfoaW3k0LNdP6eBEG1GBqazq_NT42lWvfoNokOOBJxcRQNqkURcMuz7ZTEUb8y40Yd8sH5IUw.svg"
         alt="두산 베어스 로고"
-        class="nav-logo-image"
-    />
-/* ------------------------------
-  헤더 / 상단 네비게이션
------------------------------- */
-/* ... (생략된 기존 CSS 코드) ... */
-
-/* [새로 추가하거나 수정할 부분: .nav-logo-image] */
-.nav-logo-image {
+    .nav-logo-image {
   width: 32px;
   height: 32px;
   border-radius: 999px; /* 이미지를 원형으로 만듦 */
@@ -933,6 +925,7 @@
   </div>
 </body>
 </html>
+
 
 
 
