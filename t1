@@ -1,354 +1,360 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>T1 LEGENDS - T1 왕조의 귀환</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
-    <style>
-        /* 전체 스타일 및 초기화 */
-        body {
-            background-color: #121212; /* 다크 모드 배경 */
-            color: #ffffff; /* 기본 텍스트 색상 */
-            font-family: 'Noto Sans KR', sans-serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-        }
+  <meta charset="UTF-8" />
+  <title>T1 소개 | Faker와 제오페구케 시대</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        a {
-            color: #ffffff;
-            text-decoration: none;
-        }
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
 
-        main {
-            padding: 20px 5%; /* 좌우 여백 */
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+  <style>
+    /* CSS 변수 설정 */
+    :root{
+      --t1-red: #e01930;
+      --lol-gold: #c89b3c;
+      --bg-dark: #050816;
+      --card-bg: rgba(10, 14, 25, 0.9);
+      --text-main: #e4e7f5;
+      --text-sub: #9da3c4;
+      --divider-color: rgba(200, 155, 60, 0.2);
+    }
+    /* 기본 리셋 및 전역 스타일 */
+    *{box-sizing: border-box; margin:0; padding:0;}
+    body{
+      font-family: "Noto Sans KR", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: radial-gradient(circle at top, #1b2735 0%, #090a0f 45%, #050816 100%);
+      color:var(--text-main);
+      line-height:1.6;
+      min-height:100vh;
+    }
+    a{color:inherit; text-decoration:none;}
+    
+    /* 헤더 및 네비게이션 */
+    header{
+      position: sticky;
+      top:0;
+      z-index:999;
+      background: linear-gradient(to right, rgba(5,8,22,0.95), rgba(10,10,20,0.95));
+      border-bottom: 1px solid var(--divider-color);
+      backdrop-filter: blur(10px);
+    }
+    .nav-inner{
+      max-width:1100px;
+      margin:0 auto;
+      padding:0.75rem 1.5rem;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .logo{display:flex; align-items:center; gap:0.6rem; font-family:"Cinzel", serif; letter-spacing:0.06em; text-transform:uppercase; font-size:1.1rem;}
+    .logo-mark{width:32px; height:18px; background: linear-gradient(120deg, var(--t1-red), #ff4b6b); clip-path: polygon(0 0, 75% 0, 100% 50%, 75% 100%, 0 100%, 20% 50%);}
+    nav ul{display:flex; gap:1.2rem; list-style:none; font-size:0.95rem;}
+    nav a{position:relative; padding-bottom:0.2rem; color:var(--text-sub); transition: color .2s ease;}
+    nav a::after{content:""; position:absolute; left:0; bottom:0; width:0; height:2px; background:linear-gradient(90deg, var(--lol-gold), var(--t1-red)); transition: width .2s ease;}
+    nav a:hover{color:var(--text-main);}
+    nav a:hover::after{width:100%;}
+    
+    /* 메인 콘텐츠 영역 */
+    main{max-width:1100px; margin:0 auto; padding:2.5rem 1.5rem 3rem;}
+    
+    /* Hero 섹션 (메인 배너) */
+    .hero{display:grid; grid-template-columns: minmax(0,3fr) minmax(0,2fr); gap:2rem; align-items:center; margin-bottom:3rem;}
+    .hero-text{position:relative;}
+    .badge{display:inline-flex; align-items:center; gap:0.5rem; font-size:0.8rem; text-transform:uppercase; letter-spacing:0.12em; color:var(--lol-gold); margin-bottom:0.6rem;}
+    .badge-dot{width:7px; height:7px; border-radius:50%; background: radial-gradient(circle, #ffecb3, var(--lol-gold)); box-shadow:0 0 12px rgba(255,236,179,0.7);}
+    .hero-title{font-family:"Cinzel", serif; font-size:clamp(2rem, 3vw + 1rem, 2.8rem); letter-spacing:0.04em; text-transform:uppercase; margin-bottom:1rem;}
+    .hero-title span{color:var(--t1-red);}
+    .hero-sub{color:var(--text-sub); font-size:0.98rem; max-width:35rem; margin-bottom:1.5rem;}
+    .hero-tags{display:flex; flex-wrap:wrap; gap:0.5rem; margin-bottom:1.5rem;}
+    .tag{border-radius:999px; border:1px solid rgba(200,155,60,0.4); padding:0.25rem 0.75rem; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--text-sub);}
+    .hero-cta{display:inline-flex; align-items:center; gap:0.5rem; background: radial-gradient(circle at 0 0, #ff7f7f, var(--t1-red)); border:1px solid rgba(255,255,255,0.2); border-radius:999px; padding:0.75rem 1.25rem; font-size:0.9rem; font-weight:600; cursor:pointer; box-shadow:0 0 18px rgba(224,25,48,0.5); margin-bottom:0.5rem; transition: transform .2s ease, box-shadow .2s ease;}
+    .hero-cta:hover{transform:translateY(-2px); box-shadow:0 5px 20px rgba(224,25,48,0.7);}
+    .hero-cta span{font-size:1.1rem;}
+    .hero-note{font-size:0.75rem; color:var(--text-sub);}
+    
+    /* 통계 비주얼 박스 */
+    .hero-visual{position:relative; min-height:220px; border-radius:24px; border:1px solid rgba(200,155,60,0.65); background:
+      radial-gradient(circle at 20% 0%, rgba(255,255,255,0.05) 0, transparent 40%),
+      radial-gradient(circle at 80% 100%, rgba(224,25,48,0.23) 0, transparent 50%),
+      radial-gradient(circle at 0% 100%, rgba(50,150,255,0.2) 0, transparent 55%),
+      #050816; box-shadow:0 0 40px rgba(0,0,0,0.8), 0 0 60px rgba(224,25,48,0.4); overflow:hidden;}
+    .hero-frame{position:absolute; inset:14px; border-radius:18px; border:1px solid rgba(255,255,255,0.08); display:flex; flex-direction:column; justify-content:space-between; padding:1rem;}
+    .hero-frame-top{display:flex; justify-content:space-between; align-items:center; font-size:0.8rem; color:var(--text-sub);}
+    .hero-frame-title{font-family:"Cinzel", serif; font-size:1.1rem; letter-spacing:0.06em;}
+    .hero-frame-body{display:grid; grid-template-columns:1fr 1fr; gap:0.8rem; font-size:0.75rem;}
+    .hero-stat{padding:0.5rem; border-radius:10px; border:1px solid rgba(200,155,60,0.5); background: radial-gradient(circle at 0 0, rgba(255,255,255,0.06), transparent 40%);}
+    .hero-stat-label{font-size:0.7rem; color:var(--text-sub);}
+    .hero-stat-value{font-size:1rem; color:#ffefe0;}
+    .hero-frame-footer{display:flex; justify-content:space-between; align-items:center; font-size:0.75rem;}
+    .role-pill{padding:0.25rem 0.6rem; border-radius:999px; border:1px solid rgba(200,155,60,0.8); color:#ffefd5;}
+    
+    /* 공통 섹션 스타일 */
+    section{margin-bottom:3.5rem;}
+    .section-title{font-family:"Cinzel", serif; font-size:1.4rem; letter-spacing:0.06em; text-transform:uppercase; margin-bottom:0.75rem; display:inline-flex; align-items:center; gap:0.6rem;}
+    .section-title::before{content:""; width:18px; height:2px; background:linear-gradient(90deg, var(--lol-gold), var(--t1-red)); display:inline-block;}
+    .section-subtitle{font-size:0.9rem; color:var(--text-sub); margin-bottom:1.5rem;}
+    
+    /* 카드 스타일 */
+    .card{background:var(--card-bg); border-radius:18px; border:1px solid rgba(200,155,60,0.35); padding:1.5rem; box-shadow:0 0 25px rgba(0,0,0,0.9), 0 0 25px rgba(5,8,22,0.9);}
+    .card + .card{margin-top:1rem;}
+    .card h3{font-size:1.05rem; margin-bottom:0.4rem; color:#ffe9bf;}
+    .card p{font-size:0.92rem; color:var(--text-main);}
+    .pill-row{display:flex; flex-wrap:wrap; gap:0.45rem; margin-top:0.7rem; font-size:0.8rem;}
+    .pill{padding:0.2rem 0.6rem; border-radius:999px; border:1px solid rgba(255,255,255,0.15); color:var(--text-sub);}
+    
+    /* 라인업 그리드 */
+    .lineup-grid{display:grid; grid-template-columns:repeat(5, minmax(0,1fr)); gap:0.75rem; margin-top:0.8rem; font-size:0.8rem;}
+    .player-card{border-radius:12px; border:1px solid rgba(200,155,60,0.5); padding:0.6rem 0.5rem; background: radial-gradient(circle at 0 0, rgba(255,255,255,0.06), transparent 40%); text-align:center; transition: transform .2s ease, background .2s ease;}
+    .player-card:hover{transform:translateY(-5px); background: radial-gradient(circle at 0 0, rgba(224,25,48,0.2), transparent 50%);}
+    .player-name{font-weight:600; color:#ffefe0; margin-bottom:0.15rem;}
+    .player-role{color:var(--text-sub); font-size:0.73rem;}
+    .player-note{margin-top:0.25rem; font-size:0.7rem; color:var(--t1-red);} 
 
-        /* 네비게이션 바 (Navbar) */
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 5%;
-            border-bottom: 1px solid #333;
-            background-color: #121212;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .logo {
-            font-size: 1.5em;
-            font-weight: 700;
-            color: #e5002c; /* T1 Red */
-        }
-
-        .navbar nav a {
-            margin-left: 20px;
-            font-size: 0.9em;
-            font-weight: 300;
-            padding: 5px 0;
-            transition: color 0.3s;
-        }
-
-        .navbar nav a:hover {
-            color: #e5002c;
-        }
-
-
-        /* 메인 정보 섹션 */
-        .t1-main-info {
-            display: flex;
-            justify-content: space-between;
-            gap: 40px;
-            padding: 50px 0;
-        }
-
-        .intro-content {
-            flex: 2;
-        }
-
-        .subtitle {
-            color: #e5002c;
-            font-weight: 400;
-            font-size: 0.9em;
-            margin-bottom: 10px;
-        }
-
-        h1 {
-            font-size: 3em;
-            margin-top: 0;
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
-
-        .intro-content p {
-            font-size: 1.1em;
-            color: #ccc;
-            margin-bottom: 25px;
-        }
-
-        /* 태그 스타일 */
-        .tags {
-            margin-bottom: 30px;
-        }
-
-        .tag {
-            display: inline-block;
-            background-color: #2a2a2a;
-            color: #ffffff;
-            padding: 8px 15px;
-            margin-right: 10px;
-            border-radius: 5px;
-            font-size: 0.9em;
-            font-weight: 300;
-        }
-
-        /* 스토리 버튼 */
-        .store-button {
-            background-color: #e5002c;
-            color: #ffffff;
-            border: none;
-            padding: 12px 25px;
-            font-size: 1em;
-            font-weight: 700;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            margin-bottom: 15px;
-        }
-
-        .store-button:hover {
-            background-color: #b3001f;
-        }
-
-        .disclaimer {
-            font-size: 0.8em;
-            color: #888;
-            margin: 0;
-        }
-
-        /* 통계 박스 (Stats Box) */
-        .t1-stats-box {
-            flex: 1;
-            background-color: #1e1e1e;
-            border: 1px solid #333;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            height: fit-content;
-        }
-
-        .stats-header {
-            border-bottom: 1px solid #333;
-            padding-bottom: 10px;
-            margin-bottom: 15px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .stats-header h2 {
-            font-size: 1.2em;
-            font-weight: 700;
-            margin: 0;
-        }
-
-        .region {
-            font-size: 0.8em;
-            color: #888;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-        }
-
-        .stat-item {
-            background-color: #2a2a2a;
-            padding: 15px;
-            border-radius: 5px;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .stat-item.primary {
-            grid-column: span 1;
-            background-color: #e5002c; /* T1 Red 강조 */
-            color: #ffffff;
-        }
-
-        .stat-item.secondary {
-            grid-column: span 1;
-        }
-
-        .stat-title {
-            font-size: 0.8em;
-            color: #ccc;
-            margin-bottom: 5px;
-        }
-
-        .stat-item.primary .stat-title,
-        .stat-item.primary .stat-detail {
-            color: #f7f7f7;
-        }
-
-        .stat-value {
-            font-size: 1.2em;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .stat-detail {
-            font-size: 0.75em;
-            color: #888;
-        }
-
-
-        /* 역사 섹션 */
-        .t1-history {
-            padding: 50px 0;
-        }
-
-        .t1-history h2 {
-            font-size: 1.8em;
-            font-weight: 400;
-            color: #ccc;
-            margin-bottom: 20px;
-        }
-
-        .history-intro {
-            font-size: 1em;
-            color: #999;
-            margin-bottom: 40px;
-            border-bottom: 1px solid #2a2a2a;
-            padding-bottom: 20px;
-        }
-
-        .history-item {
-            margin-bottom: 30px;
-            padding: 20px;
-            background-color: #1e1e1e;
-            border-left: 5px solid #e5002c;
-            border-radius: 5px;
-        }
-
-        .history-item h3 {
-            font-size: 1.4em;
-            font-weight: 700;
-            margin-top: 0;
-            margin-bottom: 10px;
-        }
-
-        .history-item p {
-            font-size: 0.95em;
-            color: #ccc;
-            margin-bottom: 15px;
-        }
-
-        .tag-small {
-            display: inline-block;
-            background-color: #333;
-            color: #ddd;
-            padding: 5px 10px;
-            margin-right: 8px;
-            border-radius: 3px;
-            font-size: 0.75em;
-            font-weight: 300;
-        }
-
-        /* 반응형 디자인 (선택 사항이지만 권장) */
-        @media (max-width: 900px) {
-            .t1-main-info {
-                flex-direction: column;
-            }
-
-            .t1-stats-box {
-                margin-top: 30px;
-                width: auto;
-            }
-        }
-    </style>
+    .zofgk-note {
+        font-size: 0.9rem;
+        color: var(--t1-red);
+        font-weight: 500;
+        margin-top: 2rem;
+        padding-top: 1rem;
+        border-top: 1px solid var(--divider-color);
+    }
+    .zofgk-detail-list {
+        list-style: none;
+        padding: 0;
+        margin-top: 1.5rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1rem;
+    }
+    .zofgk-detail-list li {
+        background: rgba(10, 14, 25, 0.5);
+        border-left: 3px solid var(--lol-gold);
+        padding: 0.75rem 1rem;
+        font-size: 0.9rem;
+        color: var(--text-sub);
+    }
+    .zofgk-detail-list li strong {
+        color: var(--t1-red);
+        font-weight: 700;
+        display: block;
+        margin-bottom: 0.3rem;
+    }
+    /* 반응형 디자인 */
+    @media (max-width:840px){
+      .hero{grid-template-columns:1fr;}
+      .hero-visual{order:-1;}
+      nav ul{display:none;} 
+      main{padding:1.8rem 1.2rem 2.4rem;}
+      .section-title{font-size:1.2rem;}
+      .hero-title{font-size:clamp(1.8rem, 4vw + 1rem, 2.5rem);}
+      .zofgk-detail-list {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width:640px){
+      .lineup-grid{grid-template-columns:repeat(2, minmax(0,1fr));} 
+      .hero-frame-body{grid-template-columns:1fr;}
+    }
+  </style>
 </head>
 <body>
+  <a href="#main-content" style="position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;">Skip to content</a>
 
-    <header class="navbar">
-        <div class="logo">T1 LEGENDS</div>
-        <nav>
-            <a href="#">T1 역사</a>
-            <a href="#">Faker</a>
-            <a href="#">전성기 & 함께</a>
-            <a href="#">제오페구케</a>
-        </nav>
-    </header>
+  <header>
+    <div class="nav-inner">
+      <div class="logo">
+        <div class="logo-mark" aria-hidden="true"></div>
+        <span>T1 LEGENDS</span>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#history">T1 역사</a></li>
+          <li><a href="#faker">Faker</a></li>
+          <li><a href="#eras">성적</a></li>
+          <li><a href="#zofgk">ZOFGK</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-    <main>
-        <section class="t1-main-info">
-            <div class="intro-content">
-                <p class="subtitle">● LEAGUE OF LEGENDS - LCK</p>
-                <h1>T1 왕조의 귀환</h1>
-                <p>SK Telecom T1 시절부터 시작된 왕조, 암흑기를 지나 다시 월드컵을 제패한 전설의 팀 T1. 그리고 그 중심에는 늘 Faker와, 제우스-오너-페이커-구마유시-케리아로 이어지는 '제오페구케' 라인업이 있었습니다.</p>
-                <div class="tags">
-                    <span class="tag">WORLDS CHAMPION</span>
-                    <span class="tag">FAKER</span>
-                    <span class="tag">ZOFGK ERA</span>
-                    <span class="tag">LCK DYNASTY</span>
-                </div>
-                <button class="store-button">
-                    T1 스토리부터 보기 ▶
-                </button>
-                <p class="disclaimer">* 이 페이지는 팬이 만든 비공식 팬페이지입니다.</p>
+  <main id="main-content">
+    <section class="hero">
+      <div class="hero-text">
+        <div class="badge">
+          <div class="badge-dot" aria-hidden="true"></div>
+          <span>League of Legends · LCK</span>
+        </div>
+        <h1 class="hero-title">T1 <span>왕조의 귀환</span></h1>
+        <p class="hero-sub">
+          SK Telecom T1 시절부터 시작된 왕조, 암흑기를 지나 다시 롤드컵을 제패한
+          전설의 팀 T1. 그리고 그 중심에는 늘 Faker와, **2022년부터 2024년까지** 3년간 유지되었던 제우스–오너–페이커–구마유시–케리아의 ‘제오페구케’ 라인업이 있었다.
+        </p>
+        <div class="hero-tags">
+          <div class="tag">Worlds Champion</div>
+          <div class="tag">Faker</div>
+          <div class="tag">ZOFGK Era</div>
+          <div class="tag">LCK Dynasty</div>
+        </div>
+        <a href="#history" class="hero-cta">T1 스토리부터 보기 <span>▶</span></a>
+        <p class="hero-note">* 이 페이지는 팬이 만든 비공식 팬페이지입니다.</p>
+      </div>
+
+      <div class="hero-visual" aria-hidden="false">
+        <div class="hero-frame">
+          <div class="hero-frame-top">
+            <div class="hero-frame-title">T1 · SKT T1</div>
+            <div>Region : LCK (KR)</div>
+          </div>
+
+          <div class="hero-frame-body">
+            <div class="hero-stat">
+              <div class="hero-stat-label">Worlds Titles (팬 추산)</div>
+              <div class="hero-stat-value">6x</div>
+              <div class="hero-stat-label">2013 · 2015 · 2016 · 2023 · 2024 · 2025</div>
             </div>
-
-            <aside class="t1-stats-box">
-                <div class="stats-header">
-                    <h2>T1 · SKT T1</h2>
-                    <span class="region">Region : LCK (KR)</span>
-                </div>
-                <div class="stats-grid">
-                    <div class="stat-item primary">
-                        <span class="stat-title">Worlds Titles</span>
-                        <span class="stat-value">4x</span>
-                        <span class="stat-detail">2013 · 2015 · 2016 · 2023</span>
-                    </div>
-                    <div class="stat-item secondary">
-                        <span class="stat-title">MSI & LCK</span>
-                        <span class="stat-value">MSI 2x</span>
-                        <span class="stat-detail">+ LCK 최다 우승 기록 보유</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-title">Iconic Mid</span>
-                        <span class="stat-value">Faker</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-title">Era</span>
-                        <span class="stat-value">ZOFGK</span>
-                    </div>
-                </div>
-            </aside>
-        </section>
-
-        <section class="t1-history">
-            <h2>— T1의 시작과 이름의 변화</h2>
-            <p class="history-intro">스타크래프트 프로팀에서 출발해, 리그 오브 레전드 시대를 지배한 SKT T1. 그리고 지금의 T1까지 이어지는 흐름을 정리한 섹션입니다.</p>
-
-            <div class="history-item">
-                <h3>1) SK Telecom T1에서 LoL로</h3>
-                <p>T1의 역사는 SK텔레콤이 창단한 e스포츠 팀 SK Telecom T1에서 시작되었습니다. 2012년 LoL 종목에 본격 진출하며 SKT T1 S와 K 로스터를 운영하였고, 2013년 Faker를 중심으로 한 SKT T1 K가 등장하며 밴트가 완전히 바뀌었습니다.</p>
-                <div class="tags">
-                    <span class="tag-small">2012 LoL 진출</span>
-                    <span class="tag-small">SKT T1 S / K</span>
-                    <span class="tag-small">Season 3 우승</span>
-                </div>
+            <div class="hero-stat">
+              <div class="hero-stat-label">MSI &amp; LCK</div>
+              <div class="hero-stat-value">MSI 2x</div>
+              <div class="hero-stat-label">+ LCK 최다 우승 기록 보유</div>
             </div>
-            </section>
+            <div class="hero-stat">
+              <div class="hero-stat-label">Iconic Mid</div>
+              <div class="hero-stat-value">Faker</div>
+              <div class="hero-stat-label">왕조의 시작부터 현재까지</div>
+            </div>
+            <div class="hero-stat">
+              <div class="hero-stat-label">Era</div>
+              <div class="hero-stat-value">ZOFGK</div>
+              <div class="hero-stat-label">Zeus · Oner · Faker · Gumayusi · Keria</div>
+            </div>
+          </div>
 
-    </main>
+          <div class="hero-frame-footer">
+            <div class="role-pill">Team · Legendary</div>
+            <div>“Still, T1.”</div>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <section id="history">
+      <h2 class="section-title">T1의 시작과 이름의 변화</h2>
+      <p class="section-subtitle">스타크래프트 프로팀에서 출발해, 리그 오브 레전드 시대를 지배한 SKT T1. 그리고 지금의 T1까지 이어지는 흐름을 간단히 정리한 섹션입니다.</p>
+
+      <div class="card">
+        <h3>1) SK Telecom T1에서 LoL로</h3>
+        <p>
+          T1의 역사는 SK텔레콤이 창단한 e스포츠 팀 <strong>SK Telecom T1</strong>에서 시작됩니다. 2012년 LoL 종목에 본격 진출하며 SKT T1 S와 K 로스터를 운영하였고, 2013년 Faker를 중심으로 한 SKT T1 K가 등장하면서 판도가 완전히 바뀌었습니다.
+        </p>
+        <div class="pill-row">
+          <span class="pill">2012 LoL 진출</span>
+          <span class="pill">SKT T1 S / K</span>
+          <span class="pill">Season 3 Worlds 우승</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="faker">
+      <h2 class="section-title">The Unkillable Demon King, Faker</h2>
+      <p class="section-subtitle">T1의 역사를 관통하는 아이콘이자, 리그 오브 레전드의 GOAT(Greatest Of All Time)로 불리는 전설적인 미드 라이너, 이상혁 선수입니다.</p>
+
+      <div class="card">
+        <h3>리그 오브 레전드의 살아있는 전설</h3>
+        <p>
+          2013년 데뷔 후 지금까지 압도적인 커리어를 쌓았으며, 특히 월드 챔피언십 우승 횟수(4회)는 전무후무한 기록입니다. 그는 **T1 창단 멤버**이며 프로 데뷔부터 지금까지 **12년째 T1에서만 활동**하고 있습니다.
+        </p>
+        <div class="pill-row">
+          <span class="pill">Worlds 4회 우승</span>
+          <span class="pill">LCK 10회 우승</span>
+          <span class="pill">LoL e스포츠 명예의 전당 최초 헌액</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="eras">
+        <h2 class="section-title">제오페구케 (ZOFGK) 주요 성적</h2>
+        <p class="section-subtitle">**2022 시즌부터 2024 시즌까지 3년간 유지**되었던 역사상 가장 강력한 로스터로 평가받습니다. **동일 로스터로 Worlds 2회 연속 우승** 및 3년 연속 결승 진출이라는 대기록을 세웠습니다.</p>
+
+        <ul class="zofgk-detail-list">
+            <li>
+                <strong>Worlds 우승 (2회)</strong>
+                리그 오브 레전드 2023 월드 챔피언십, 리그 오브 레전드 2024 월드 챔피언십
+            </li>
+            <li>
+                <strong>Worlds 준우승 (1회)</strong>
+                리그 오브 레전드 2022 월드 챔피언십
+            </li>
+            <li>
+                <strong>MSI 준우승 (1회)</strong>
+                2022 Mid-Season Invitational
+            </li>
+            <li>
+                <strong>LCK 우승 (1회)</strong>
+                2022 LoL Champions Korea Spring
+            </li>
+            <li>
+                <strong>EWC 우승 (1회)</strong>
+                Esports World Cup 2024
+            </li>
+            <li>
+                <strong>3년 연속 Worlds 결승 진출</strong>
+                LoL e스포츠 역사상 동일 로스터로 3년 연속 월즈 결승 진출은 유일합니다.
+            </li>
+            <li>
+                <strong>러너업 슬램 달성</strong>
+                LoL e스포츠 역사상 논 캘린더 및 커리어 러너업 슬램을 달성한 유일한 로스터입니다.
+            </li>
+        </ul>
+    </section>
+
+
+    <section id="zofgk">
+      <h2 class="section-title">ZOFGK (제오페구케) 로스터의 서사</h2>
+      <p class="section-subtitle">2021년 스토브리그를 거쳐 결성되어 **2022 시즌부터 2024 시즌까지 3년간** T1의 두 번째 전성기를 이끌었던 로스터입니다. **2024년 11월 19일, 제우스 선수의 계약 종료**로 1,082일간의 여정을 마쳤습니다.</p>
+      
+      <div class="lineup-grid">
+        <div class="player-card">
+          <div class="player-name">Zeus (최우제)</div>
+          <div class="player-role">Top Laner</div>
+          <div class="player-note">이적 (2024년 11월)</div>
+        </div>
+        <div class="player-card">
+          <div class="player-name">Oner (문현준)</div>
+          <div class="player-role">Jungler</div>
+          <div class="player-note">Sword</div>
+        </div>
+        <div class="player-card">
+          <div class="player-name">Faker (이상혁)</div>
+          <div class="player-role">Mid Laner</div>
+          <div class="player-note">Legend</div>
+        </div>
+        <div class="player-card">
+          <div class="player-name">Gumayusi (이민형)</div>
+          <div class="player-role">Bot Laner</div>
+          <div class="player-note">이적 (2025년 11월)</div>
+        </div>
+        <div class="player-card">
+          <div class="player-name">Keria (류민석)</div>
+          <div class="player-role">Support</div>
+          <div class="player-note">Mage</div>
+        </div>
+      </div>
+
+      <div class="zofgk-note">
+        **“End of an era. #ZOFGK”**
+        <br>— LoL e스포츠 공식 X. 제우스 선수의 이탈과 함께 3년간 유지된 로스터가 해체되었음을 알리다.
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    이 페이지는 리그 오브 레전드 프로팀 T1과 선수 Faker, 제오페구케 라인업을 사랑하는 팬이 만든 비공식 팬페이지입니다. Riot Games 및 T1과는 무관합니다.
+  </footer>
+
+  <script>
+    console.log("T1 page loaded with updated ZOFGK information");
+  </script>
 </body>
 </html>
 
