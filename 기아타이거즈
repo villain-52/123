@@ -361,14 +361,15 @@
             box-shadow: 0 0 30px rgba(200, 163, 60, 0.5);
         }
         
-        /* 다단 카드 레이아웃 */
+        /* [수정된 부분] 영구 결번 카드 레이아웃: 세로 배열(Stack)로 변경 */
         .retired-number-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 2rem;
+            display: flex; /* Flexbox로 변경 */
+            flex-direction: column; /* 세로로 쌓기 */
+            gap: 2.5rem; /* 카드 사이 간격 유지 */
             margin-top: 2.5rem;
         }
         
+        /* 개별 카드 스타일 유지 */
         .player-card {
             background: var(--bg-dark);
             border: 1px solid var(--kia-red);
@@ -488,7 +489,8 @@
             .nav { flex-direction: column; }
             .nav ul { display: flex; justify-content: center; width: 100%; padding-top: 10px; flex-wrap: wrap; gap: 1rem 1.5rem; }
             .hero { height: 400px; }
-            .retired-number-grid { grid-template-columns: 1fr; } /* 모바일에서는 세로로 쌓기 */
+            /* 미디어 쿼리에서도 세로 배열 유지 */
+            /* .retired-number-grid { grid-template-columns: 1fr; }  이전 코드 주석 처리 */
             .tag-row { justify-content: center; }
         }
         @media (max-width: 640px) {
