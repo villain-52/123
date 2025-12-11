@@ -459,7 +459,7 @@
       <nav class="nav">
         <div class="nav-logo">
     <img
-        src="doosan_bears_logo.png"
+        src="https://i.namu.wiki/i/GCAjiFjshQo5zXfoaW3k0LNdP6eBEG1GBqazq_NT42lWvfoNokOOBJxcRQNqkURcMuz7ZTEUb8y40Yd8sH5IUw.svg"
         alt="두산 베어스 로고"
         class="nav-logo-image"
     />
@@ -915,4 +915,5 @@
   </div>
 </body>
 </html>
+
 
