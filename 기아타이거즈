@@ -6,18 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Orbit:wght@400;700&display=swap" rel="stylesheet"> <style>
+    <link href="https://fonts.googleapis.com/css2?family=Orbit:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
         /* CSS 변수 설정 */
         :root{
             --kia-red: #e03222; /* KIA 타이거즈 상징적인 붉은색 */
-            --kia-dark-red: #a31e15; /* 더 어두운 붉은색 */
-            --kia-black: #1a1a1e; /* 짙은 검정색 (거의 배경색) */
+            --kia-dark-red: #a31e15; 
+            --kia-black: #1a1a1e; 
             --bg-dark: #0d0d12;
             --card-bg: rgba(18, 18, 25, 0.9);
             --text-main: #f0f0f5;
             --text-sub: #b0b0b9;
             --accent-gold: #c8a33c; /* 우승 트로피 느낌의 골드 */
-            --line-gold: #d4af37; /* 약간 더 밝은 골드 */
+            --line-gold: #d4af37;
         }
         
         /* 기본 설정 및 리셋 */
@@ -62,18 +64,17 @@
             max-width: 800px;
         }
 
-        /* --- 1. Hero 영역 스타일 --- */
+        /* --- 1. Hero 영역 스타일 (로고 배경 이미지는 텍스트 없이 유지) --- */
         .hero{
             position:relative;
-            height: 450px; /* 높이 증가 */
+            height: 450px; 
             display:flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            background: url('https://upload.wikimedia.org/wikipedia/commons/e/ee/KIA_Tigers_Emblem_2017.png') no-repeat center 20% / contain, /* 로고를 배경으로 */
-                        url('https://dummyimage.com/1200x450/e03222/e03222.png') no-repeat center center/cover; /* 기본 배경색 */
-            background-blend-mode: multiply; /* 로고와 배경색을 섞어 자연스럽게 */
+            /* 배경 이미지 URL은 텍스트가 없도록 유지 (실제 멋진 KIA 이미지를 넣을 곳) */
+            background: url('https://dummyimage.com/1200x450/e03222/e03222.png') no-repeat center center/cover; 
             overflow:hidden;
             margin-bottom: 2rem;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
@@ -89,7 +90,7 @@
             position:relative;
             z-index:2;
             padding: 0 1rem;
-            text-shadow: 0 0 15px rgba(0,0,0,0.8); /* 텍스트 가독성 향상 */
+            text-shadow: 0 0 15px rgba(0,0,0,0.8); 
         }
         .hero-label{
             font-size:0.9rem;
@@ -100,14 +101,14 @@
         }
         .hero h1{
             font-family: "Cinzel", serif;
-            font-size: clamp(3rem, 5vw + 1rem, 5rem); /* 폰트 크기 증가 */
+            font-size: clamp(3rem, 5vw + 1rem, 5rem); 
             letter-spacing: 0.08em;
             color: var(--text-main);
             text-shadow: 0 0 20px rgba(255,255,255,0.4), 0 0 10px rgba(224,50,34,0.9);
             margin-bottom: 1rem;
         }
         .hero-subtitle{
-            font-size:1.2rem; /* 폰트 크기 증가 */
+            font-size:1.2rem; 
             color: var(--text-sub);
             max-width: 700px;
             margin: 0 auto;
@@ -135,7 +136,7 @@
             background: linear-gradient(to right, #ff6b6b, var(--kia-red));
         }
 
-        /* --- 2. Navigation 스타일 --- */
+        /* --- 2. Navigation 스타일 (제공된 로고 이미지 사용) --- */
         .nav{
             position: sticky;
             top: 0;
@@ -144,7 +145,7 @@
             border-bottom: 1px solid rgba(224, 50, 34, 0.4);
             backdrop-filter: blur(8px);
             display: flex;
-            justify-content: space-between; /* 로고와 메뉴 분리 */
+            justify-content: space-between; 
             align-items: center;
             padding: 0.75rem 1.5rem;
         }
@@ -152,16 +153,14 @@
             display: flex;
             align-items: center;
             gap: 0.6rem;
-            font-family: "Cinzel", serif;
-            font-size: 1.2rem;
-            letter-spacing: 0.05em;
-            color: var(--text-main);
         }
-        .nav-logo-mark{
-            width: 35px; /* 로고 마크 크기 조정 */
-            height: 20px;
-            background: linear-gradient(120deg, var(--kia-red), var(--accent-gold));
-            clip-path: polygon(0 0, 75% 0, 100% 50%, 75% 100%, 0 100%, 20% 50%); /* T1 로고 마크 유지, 또는 KIA 로고 형태 고려 */
+        .nav-logo img {
+            height: 30px; /* 로고 크기 조정 */
+            vertical-align: middle;
+            transition: transform 0.3s ease;
+        }
+        .nav-logo img:hover {
+            transform: scale(1.05);
         }
         .nav ul{
             display:flex;
@@ -262,7 +261,7 @@
         .history-list{
             list-style: none;
             border-left: 2px solid var(--text-sub);
-            padding-left: 25px; /* 약간 더 여유롭게 */
+            padding-left: 25px; 
             position: relative;
         }
         .history-list li{
@@ -272,9 +271,9 @@
         .history-list li::before{
             content: "";
             position: absolute;
-            left: -30px; /* 위치 조정 */
+            left: -30px; 
             top: 5px;
-            width: 16px; /* 크기 조정 */
+            width: 16px; 
             height: 16px;
             border-radius: 50%;
             background: var(--kia-red);
@@ -303,7 +302,7 @@
         /* --- 4. Legend 섹션 스타일 (이종범) --- */
         .legend-card{
             background: radial-gradient(circle at 100% 0%, rgba(200, 163, 60, 0.1), transparent 40%), var(--card-bg);
-            border: 1px solid var(--line-gold); /* 골드 라인으로 강조 */
+            border: 1px solid var(--line-gold); 
             box-shadow: 0 0 30px rgba(200, 163, 60, 0.5);
         }
         .legend-card .section-title {
@@ -324,6 +323,7 @@
             text-align: center;
             position: relative;
         }
+        /* 이종범 선수 이미지 (임시) */
         .player-image {
             width: 100%;
             max-width: 250px;
@@ -345,7 +345,7 @@
             transform: translateX(-50%);
             background-color: var(--kia-red);
             color: white;
-            font-family: "Orbit", sans-serif; /* 새로운 폰트 */
+            font-family: "Orbit", sans-serif; 
             font-size: 2.5rem;
             font-weight: bold;
             padding: 0.2rem 0.8rem;
@@ -382,7 +382,7 @@
             margin-bottom: 0.4rem;
         }
         .legend-highlight li::before{
-            content: "★"; /* 별 모양으로 변경 */
+            content: "★"; 
             position: absolute;
             left: 0;
             color: var(--kia-red);
@@ -392,7 +392,7 @@
         /* --- 5. Current Lineup 섹션 --- */
         .lineup-grid{
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* 반응형 그리드 */
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
             gap: 1.2rem;
             margin-top: 1.5rem;
         }
@@ -409,6 +409,7 @@
             transform: translateY(-5px);
             box-shadow: 0 5px 15px rgba(224,50,34,0.6);
         }
+        /* 선수 이미지 (임시) */
         .player-card img{
             width: 80px;
             height: 80px;
@@ -457,13 +458,13 @@
 
         /* 미디어 쿼리 (반응형 디자인) */
         @media (max-width: 840px) {
-            .nav ul { display: none; } /* 모바일에서 네비게이션 메뉴 숨김 */
-            .nav { justify-content: center; }
+            .nav ul { display: flex; justify-content: center; width: 100%; padding-top: 10px; flex-wrap: wrap; gap: 1rem 1.5rem; }
+            .nav { flex-direction: column; }
             .hero { height: 380px; }
             .hero h1 { font-size: clamp(2.8rem, 8vw, 4rem); }
             .hero-subtitle { font-size: 1rem; }
             .player-info-grid { grid-template-columns: 1fr; }
-            .player-image-container { order: -1; margin-bottom: 2rem;} /* 모바일에서 이미지 먼저 */
+            .player-image-container { order: -1; margin-bottom: 2rem;} 
         }
         @media (max-width: 640px) {
             .container{padding: 2rem 1rem;}
@@ -474,8 +475,7 @@
             .lineup-grid{grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));}
         }
         @media (max-width: 480px) {
-            .nav-logo { font-size: 1rem; }
-            .nav-logo-mark { width: 28px; height: 16px; }
+            .nav-logo img { height: 25px; }
             .history-list{padding-left: 15px;}
             .history-list li::before{left: -22px; width: 12px; height: 12px;}
             .history-list h3 { font-size: 1.1rem; }
@@ -486,6 +486,7 @@
 <body>
     <div class="page">
 
+        
         <header class="hero">
             <div class="hero-overlay"></div>
             <div class="hero-content">
@@ -499,10 +500,10 @@
             </div>
         </header>
 
+        
         <nav class="nav">
             <a href="#" class="nav-logo">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/KIA_Tigers_Emblem_2001-2016.svg/200px-KIA_Tigers_Emblem_2001-2016.svg.png" alt="KIA Tigers 로고" style="height:25px; vertical-align: middle;">
-                <span>KIA Tigers</span>
+                <img src="image_7c66c2.png" alt="KIA TIGERS BASEBALL CLUB 로고">
             </a>
             <ul>
                 <li><a href="#overview">구단 소개</a></li>
@@ -514,6 +515,7 @@
 
         <main class="container">
 
+            
             <section id="overview" class="card">
                 <h2 class="section-title">구단 소개</h2>
                 <p class="section-subtitle">
@@ -543,6 +545,7 @@
                 </div>
             </section>
 
+            
             <section id="history" class="card card-accent">
                 <h2 class="section-title">타이거즈 역사: 해태 왕조에서 KIA 왕조까지</h2>
                 <p class="section-subtitle">
@@ -599,7 +602,7 @@
                         <h3>2009년 – KIA 왕조의 부활</h3>
                         <p>
                             윤석민, 김상현, 로페즈 등 새롭게 떠오른 스타들과 베테랑들이 조화를 이루며 정규 시즌 1위,
-                            한국시리즈에서는 SK 와이번스를 꺾고 **12년 만에 우승**을 차지하며 'KIA 왕조'의 부활을 알렸습니다.
+                            한국시리즈에서는 SK 와이번스를 꺾고 **12년 만에 우승(V10)**을 차지하며 'KIA 왕조'의 부활을 알렸습니다.
                         </p>
                         <div class="tag-row">
                             <span class="tag">V10</span>
@@ -609,8 +612,205 @@
                      <li>
                         <h3>2017년 – 통합 우승과 최강 KIA</h3>
                         <p>
-                            양현종, 헥터, 버나디나, 최형우 등을 앞세워 정규 시즌과 한국시리즈를 모두 제패하는 **통합 우승**을 달성했습니다.
+                            양현종, 헥터, 버나디나, 최형우 등을 앞세워 정규 시즌과 한국시리즈를 모두 제패하는 **통합 우승(V11)**을 달성했습니다.
                             압도적인 경기력으로 KBO 리그에 다시 한번 KIA 타이거즈의 시대를 각인시켰습니다.
                         </p>
                         <div class="tag-row">
-                            <span class="tag">V11
+                            <span class="tag">V11</span>
+                            <span class="tag">통합 우승</span>
+                            <span class="tag">양현종 MVP</span>
+                        </div>
+                    </li>
+                    <li>
+                        <h3>현재 – 영광의 V12를 향한 도전</h3>
+                        <p>
+                            젊은 선수들과 베테랑들이 조화를 이루며 끊임없이 리그 상위권을 목표로 도전하고 있습니다.
+                            광주-KIA 챔피언스 필드의 뜨거운 함성 속에 새로운 영광의 V12를 준비하고 있습니다.
+                        </p>
+                        <div class="tag-row">
+                            <span class="tag">새로운 도전</span>
+                            <span class="tag">챔피언스 필드</span>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+
+            
+            <section id="legend" class="card legend-card">
+                <h2 class="section-title">레전드: 바람의 아들, 이종범</h2>
+                <p class="section-subtitle">
+                    등번호 7번, 이종범은 해태와 KIA 타이거즈를 넘어 KBO 리그 역사상 가장 역동적이고 위대한 선수로 기억됩니다.
+                </p>
+                
+                <div class="player-info-grid">
+                    <div class="player-image-container">
+                        <img src="https://dummyimage.com/250x350/a31e15/ffffff.png&text=LEE+JONG+BEOM" alt="이종범 선수 사진" class="player-image">
+                        <div class="player-number-overlay">7</div>
+                    </div>
+                    <div>
+                        <h3>무등산 폭격기 이후 최고의 스타</h3>
+                        <p>
+                            이종범은 KBO 통산 타율 **0.342**, 510도루, 100홈런을 기록하며 5툴 플레이어의 정석을 보여주었습니다.
+                            특히 1994년에는 단일 시즌 84도루를 기록하며 '바람의 아들'이라는 별명을 확고히 했습니다.
+                        </p>
+                        
+                        <h3>타이거즈 DNA의 상징</h3>
+                        <p>
+                            그의 플레이는 언제나 공격적이고 예측 불가능했으며, 승부처에서 강한 면모를 보였습니다.
+                            일본 프로야구 진출 후 복귀해서도 타이거즈를 굳건히 지키며, 현재까지도 타이거즈 팬들에게는 영원한 리더이자 자부심의 상징으로 남아있습니다.
+                        </p>
+                        
+                        <p class="legend-detail-text">
+                            **주요 기록:** 타격왕 1회, 도루왕 4회, 정규시즌 MVP 1회, 한국시리즈 MVP 1회. <br>
+                            **특징:** KBO 역사상 가장 뛰어난 유격수 중 한 명.
+                        </p>
+
+                        <div class="legend-highlight">
+                            <h3>이종범이 남긴 기록의 가치</h3>
+                            <ul>
+                                <li>★ 공수주를 모두 갖춘 대한민국 야구의 아이콘</li>
+                                <li>★ 타이거즈 역사상 유이한 영구결번 (선동열 18번, 이종범 7번)</li>
+                                <li>★ 2017년 우승의 주역 이정후 선수의 아버지</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="current-lineup" class="card">
+                <h2 class="section-title">현재 라인업: 2024 V12의 주역들</h2>
+                <p class="section-subtitle">
+                    투타의 완벽한 조화를 이루며, 타이거즈의 새로운 전성기를 이끌어갈 현재 최강의 주전 선수들을 소개합니다.
+                </p>
+
+                <div class="lineup-grid">
+                    <div class="player-card">
+                        <img src="https://dummyimage.com/80x80/000000/ffffff.png&text=YHJ" alt="양현종 이미지">
+                        <p class="player-number">54</p>
+                        <p class="player-name">양현종</p>
+                        <p class="player-position">좌완 에이스</p>
+                        <p class="player-stats">KBO 대표 좌완, 통산 170승+</p>
+                    </div>
+
+                    <div class="player-card">
+                        <img src="https://dummyimage.com/80x80/e03222/ffffff.png&text=CHW" alt="최형우 이미지">
+                        <p class="player-number">25</p>
+                        <p class="player-name">최형우</p>
+                        <p class="player-position">지명타자/LF</p>
+                        <p class="player-stats">KBO 통산 최다 안타 도전</p>
+                    </div>
+                    
+                    <div class="player-card">
+                        <img src="https://dummyimage.com/80x80/2a2a2a/ffffff.png&text=NSB" alt="나성범 이미지">
+                        <p class="player-number">47</p>
+                        <p class="player-name">나성범</p>
+                        <p class="player-position">우익수</p>
+                        <p class="player-stats">강력한 장타력과 수비</p>
+                    </div>
+                    
+                    <div class="player-card">
+                        <img src="https://dummyimage.com/80x80/c8a33c/000000.png&text=HJS" alt="한준수 이미지">
+                        <p class="player-number">44</p>
+                        <p class="player-name">한준수</p>
+                        <p class="player-position">포수</p>
+                        <p class="player-stats">공수 겸장 차세대 안방마님</p>
+                    </div>
+                    
+                    <div class="player-card">
+                        <img src="https://dummyimage.com/80x80/e03222/ffffff.png&text=PCH" alt="박찬호 이미지">
+                        <p class="player-number">3</p>
+                        <p class="player-name">박찬호</p>
+                        <p class="player-position">유격수</p>
+                        <p class="player-stats">바람 같은 주루와 넓은 수비</p>
+                    </div>
+
+                    <div class="player-card">
+                        <img src="https://dummyimage.com/80x80/1a1a1e/e03222.png&text=FWP" alt="외국인 선수 이미지">
+                        <p class="player-number">33</p>
+                        <p class="player-name">제임스</p>
+                        <p class="player-position">1루수</p>
+                        <p class="player-stats">파워히터, 클린업의 핵심</p>
+                    </div>
+                </div>
+                
+                <p style="margin-top: 2rem; color: var(--accent-gold); text-align: center;">
+                    **V12, 우승을 향한 모든 선수들의 뜨거운 열정을 응원합니다!**
+                </p>
+            </section>
+
+        </main>
+
+        
+        <footer class="footer">
+            <p>⚾ Fan made page – KIA 타이거즈를 사랑하는 마음으로 제작한 비공식 소개 페이지입니다.</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav a');
+
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    const id = entry.target.getAttribute('id');
+                    const currentLink = document.querySelector(`.nav a[href="#${id}"]`);
+
+                    // 섹션이 뷰포트 상단 30%에 도달하면 활성화 (스크롤 감도 조정)
+                    if (entry.isIntersecting) {
+                        navLinks.forEach(link => {
+                             // 로고 링크(href="#")는 제외하고 active 클래스 제거
+                            if (link.getAttribute('href') !== '#') {
+                                link.classList.remove('active');
+                            }
+                        });
+                        if (currentLink) {
+                            currentLink.classList.add('active');
+                        }
+                    }
+                });
+            }, { 
+                rootMargin: '0px 0px -70% 0px' 
+            });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+            
+            // 로고 링크 클릭 시 상단으로 이동 (앵커 문제 해결)
+            document.querySelector('.nav-logo').addEventListener('click', function(e) {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+             // 네비게이션 링크 클릭 시 스크롤 부드럽게
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href.startsWith('#') && href.length > 1) {
+                        e.preventDefault();
+                        const targetId = href.substring(1);
+                        const targetElement = document.getElementById(targetId);
+                        if (targetElement) {
+                            // 네비게이션 바 높이만큼 조정
+                            const navHeight = document.querySelector('.nav').offsetHeight + 10;
+                            const elementPosition = targetElement.getBoundingClientRect().top;
+                            const offsetPosition = elementPosition + window.pageYOffset - navHeight;
+
+                            window.scrollTo({
+                                top: offsetPosition,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+        });
+        
+        console.log("KIA Tigers fan page loaded with logo and fixed anchors.");
+    </script>
+</body>
+</html>
