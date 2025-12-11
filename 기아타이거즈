@@ -314,43 +314,85 @@
             font-size: 0.75rem;
             padding: 0.2rem 0.6rem;
         }
-        /* 우승 바로가기 섹션 스타일 */
-        #championship-nav {
+        
+        /* [수정된 부분] 새로운 바로가기 섹션 스타일 */
+        #main-nav-links {
             margin-bottom: 2.5rem;
             padding: 1.5rem;
-            background: rgba(224, 50, 34, 0.05);
-            border: 1px dashed rgba(224, 50, 34, 0.3);
+            background: rgba(200, 163, 60, 0.05); /* 골드 강조 */
+            border: 1px dashed rgba(200, 163, 60, 0.3);
             border-radius: 10px;
         }
-        #championship-nav h3 {
+        #main-nav-links h3 {
             color: var(--accent-gold);
             font-size: 1.2rem;
             margin-bottom: 1rem;
             text-align: center;
             border-left: none;
         }
-        .championship-links {
+        .main-links-container {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 0.8rem;
+            gap: 1rem;
         }
-        .championship-links a {
+        .main-links-container a {
             display: inline-block;
-            padding: 0.5rem 1rem;
+            padding: 0.6rem 1.5rem;
             background: var(--kia-dark-red);
             color: white;
-            border: 2px solid var(--kia-red);
+            border: 2px solid var(--accent-gold);
             border-radius: 8px;
             font-weight: 700;
             transition: all 0.3s ease;
-            font-family: "Orbit", sans-serif;
+            font-family: "Noto Sans KR", sans-serif;
             box-shadow: 0 3px 10px rgba(0,0,0,0.5);
         }
-        .championship-links a:hover {
+        .main-links-container a:hover {
             background: var(--kia-red);
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(224, 50, 34, 0.6);
+        }
+
+        /* 우승 기록 테이블 스타일 */
+        #championship-records h3 {
+             color: var(--accent-gold);
+             margin-bottom: 1.5rem;
+             text-align: center;
+        }
+        .championship-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1.5rem;
+            font-size: 0.95rem;
+            text-align: center;
+        }
+        .championship-table th, .championship-table td {
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 0.8rem 0.5rem;
+        }
+        .championship-table th {
+            background-color: var(--kia-dark-red);
+            color: var(--text-main);
+            font-weight: 700;
+            letter-spacing: 0.05em;
+        }
+        .championship-table td {
+            background-color: rgba(18, 18, 25, 0.8);
+            color: var(--text-sub);
+        }
+        .championship-table tr:nth-child(even) td {
+            background-color: rgba(18, 18, 25, 0.9);
+        }
+        .championship-table .v-number {
+            color: var(--accent-gold);
+            font-weight: bold;
+            font-family: "Orbit", sans-serif;
+            font-size: 1.1rem;
+        }
+        .championship-table .opponent {
+             color: var(--kia-red);
+             font-weight: 600;
         }
 
 
@@ -361,11 +403,11 @@
             box-shadow: 0 0 30px rgba(200, 163, 60, 0.5);
         }
         
-        /* [수정된 부분] 영구 결번 카드 레이아웃: 세로 배열(Stack)로 변경 */
+        /* 영구 결번 카드 레이아웃: 세로 배열(Stack) */
         .retired-number-grid {
-            display: flex; /* Flexbox로 변경 */
-            flex-direction: column; /* 세로로 쌓기 */
-            gap: 2.5rem; /* 카드 사이 간격 유지 */
+            display: flex; 
+            flex-direction: column; 
+            gap: 2.5rem; 
             margin-top: 2.5rem;
         }
         
@@ -489,9 +531,8 @@
             .nav { flex-direction: column; }
             .nav ul { display: flex; justify-content: center; width: 100%; padding-top: 10px; flex-wrap: wrap; gap: 1rem 1.5rem; }
             .hero { height: 400px; }
-            /* 미디어 쿼리에서도 세로 배열 유지 */
-            /* .retired-number-grid { grid-template-columns: 1fr; }  이전 코드 주석 처리 */
             .tag-row { justify-content: center; }
+            .championship-table th, .championship-table td { padding: 0.6rem 0.3rem; font-size: 0.85rem; }
         }
         @media (max-width: 640px) {
             .container{padding: 2rem 1rem;}
@@ -525,31 +566,49 @@
             <ul>
                 <li><a href="#overview" class="active">구단 소개</a></li>
                 <li><a href="#history">타이거즈 역사</a></li>
+                <li><a href="#records">우승 기록</a></li>
                 <li><a href="#legend">영구 결번</a></li>
-                </ul>
+            </ul>
         </nav>
 
         <main class="container">
+             <div id="main-nav-links">
+                <h3>주요 섹션 바로가기</h3>
+                <div class="main-links-container">
+                    <a href="#overview">🐅 구단 소개</a>
+                    <a href="#history">📜 타이거즈 역사</a>
+                    <a href="#records">🏆 우승 기록</a>
+                    <a href="#legend">👑 영구 결번</a>
+                </div>
+            </div>
 
             
             <section id="overview" class="card">
-                <h2 class="section-title">구단 소개</h2>
+                <h2 class="section-title">구단 소개: 호남 야구의 심장</h2>
                 <p class="section-subtitle">
-                    KIA 타이거즈는 광주를 연고지로 하는 KBO 리그의 대표적인 명문 구단입니다. 끈질긴 팀 컬러와 드라마틱한 승리로 '가을 야구 DNA'를 상징합니다.
+                    KIA 타이거즈는 광주를 연고지로 하는 KBO 리그의 대표적인 명문 구단입니다. 끈질긴 팀 컬러와 드라마틱한 승리로 '가을 야구 DNA'를 상징하며, 창단 이래 수많은 야구 역사를 써 내려왔습니다.
                 </p>
 
-                <h3>팀 아이덴티티와 홈구장</h3>
+                <h3>팀 아이덴티티와 홈구장: 챔피언스 필드 시대</h3>
                 <p>
-                    2001년 해태 타이거즈의 역사를 계승하여 기아자동차가 인수했습니다. 
-                    팀 마스코트 '호걸이'는 용맹함을, 강렬한 **붉은색과 남색 유니폼**은 팀의 열정과 투지를 상징합니다. 
-                    현재 홈구장인 **광주-KIA 챔피언스 필드**는 팬 친화적인 설계로 유명하며, 타이거즈 열혈 팬덤의 성지로 불립니다.
+                    KIA 타이거즈는 2001년 모기업 해태그룹의 경영난으로 인해 기아자동차에 인수되어 새로운 시대의 문을 열었지만, **해태 타이거즈의 모든 역사와 전통을 계승**하고 있습니다. 이는 팀의 강력한 팬덤과 호남 지역 야구의 자부심으로 이어져 내려옵니다.
                 </p>
                 
-                <h3>한국시리즈 최다 우승 V12의 위업</h3>
                 <p>
-                    해태 타이거즈 시절의 9회 우승(V9)과 KIA 타이거즈 전환 후 3회 우승(V10, V11, V12)을 합쳐, 
-                    KBO 리그 역사상 가장 많은 **총 12회**의 한국시리즈 우승 기록을 보유하고 있습니다.
-                    타이거즈는 한국시리즈 진출 시 **패배율 0%**라는 놀라운 기록을 가지고 있습니다.
+                    팀의 엠블럼과 유니폼에 사용되는 강렬한 **붉은색과 남색**은 호랑이의 용맹함과 뜨거운 투지를 상징합니다. 마스코트 **'호걸이'**는 이러한 팀 컬러를 대표하며 팬들에게 친숙한 이미지로 자리 잡았습니다.
+                </p>
+                
+                <p>
+                    현재 홈구장인 **광주-KIA 챔피언스 필드** (2014년 개장)는 기존 무등 야구장의 역사를 잇는 최신식 야구장입니다. 팬들이 경기장 어느 좌석에서도 시야 방해 없이 박진감 넘치는 경기를 즐길 수 있도록 설계된 **팬 친화적인 구장**으로 평가받으며, 타이거즈 팬덤의 성지로 불립니다. 구단의 운영 철학은 'Win-Win'을 넘어, 팬들과 함께하는 'We Are One'의 가치를 추구합니다.
+                </p>
+                
+                <h3>한국시리즈 최다 우승 V12의 위업: 한국시리즈 불패 신화</h3>
+                <p>
+                    타이거즈는 KBO 리그 역사상 전무후무한 기록을 보유하고 있습니다. **해태 타이거즈 시절의 9회 우승(V9)**과 **KIA 타이거즈 전환 후 3회 우승(V10, V11, V12)**을 합쳐, **총 12회**의 한국시리즈 우승 기록으로 KBO 최다 우승팀의 자리를 굳건히 지키고 있습니다.
+                </p>
+                
+                <p>
+                    특히, 타이거즈는 한국시리즈에 진출하면 **반드시 우승**하는 놀라운 전통을 가지고 있습니다. **한국시리즈 진출 시 패배율 0%**라는 기록은 다른 구단들이 감히 따라올 수 없는 '가을 야구 불패 신화'로 불리며, 팬들에게는 **'가을만 되면 붉게 타오르는 붉은 호랑이'**라는 절대적인 신뢰를 주고 있습니다. 이는 해태 왕조 시절부터 이어진 끈질긴 승부 근성과 위기 상황에서의 강력한 집중력을 보여주는 상징입니다.
                 </p>
 
                 <div class="tag-row">
@@ -557,9 +616,116 @@
                     <span class="tag">홈구장: 챔피언스 필드</span>
                     <span class="tag gold">KBO 최다 우승 (V12)</span>
                     <span class="tag">한국시리즈 승률 100%</span>
+                    <span class="tag">해태 역사 계승</span>
+                    <span class="tag">강력한 팬덤</span>
                 </div>
             </section>
 
+            
+            <section id="records" class="card card-accent">
+                <h2 class="section-title">🏆 KIA 타이거즈 (해태 포함) 우승 기록</h2>
+                <p class="section-subtitle">
+                    타이거즈가 달성한 총 12번의 한국시리즈 우승 기록을 연도별로 정리했습니다. KBO 역사상 가장 위대한 우승 기록입니다.
+                </p>
+                
+                <table class="championship-table">
+                    <thead>
+                        <tr>
+                            <th>우승 횟수</th>
+                            <th>연도</th>
+                            <th>구단명</th>
+                            <th>상대팀</th>
+                            <th>최종 전적</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="v-number">V1</td>
+                            <td>1983년</td>
+                            <td>해태 타이거즈</td>
+                            <td class="opponent">MBC 청룡</td>
+                            <td>4승 1패</td>
+                        </tr>
+                        <tr>
+                            <td class="v-number">V2</td>
+                            <td>1986년</td>
+                            <td>해태 타이거즈</td>
+                            <td class="opponent">삼성 라이온즈</td>
+                            <td>4승 1패</td>
+                        </tr>
+                        <tr>
+                            <td class="v-number">V3</td>
+                            <td>1987년</td>
+                            <td>해태 타이거즈</td>
+                            <td class="opponent">삼성 라이온즈</td>
+                            <td>4승 0패</td>
+                        </tr>
+                        <tr>
+                            <td class="v-number">V4</td>
+                            <td>1988년</td>
+                            <td>해태 타이거즈</td>
+                            <td class="opponent">빙그레 이글스</td>
+                            <td>4승 2패</td>
+                        </tr>
+                        <tr>
+                            <td class="v-number">V5</td>
+                            <td>1989년</td>
+                            <td>해태 타이거즈</td>
+                            <td class="opponent">빙그레 이글스</td>
+                            <td>4승 1패</td>
+                        </tr>
+                        <tr>
+                            <td class="v-number">V6</td>
+                            <td>1991년</td>
+                            <td>해태 타이거즈</td>
+                            <td class="opponent">빙그레 이글스</td>
+                            <td>4승 0패</td>
+                        </tr>
+                        <tr>
+                            <td class="v-number">V7</td>
+                            <td>1993년</td>
+                            <td>해태 타이거즈</td>
+                            <td class="opponent">삼성 라이온즈</td>
+                            <td>4승 2패</td>
+                        </tr>
+                        <tr>
+                            <td class="v-number">V8</td>
+                            <td>1996년</td>
+                            <td>해태 타이거즈</td>
+                            <td class="opponent">현대 유니콘스</td>
+                            <td>4승 2패</td>
+                        </tr>
+                        <tr>
+                            <td class="v-number">V9</td>
+                            <td>1997년</td>
+                            <td>해태 타이거즈</td>
+                            <td class="opponent">LG 트윈스</td>
+                            <td>4승 1패</td>
+                        </tr>
+                        <tr>
+                            <td class="v-number">V10</td>
+                            <td>2009년</td>
+                            <td>KIA 타이거즈</td>
+                            <td class="opponent">SK 와이번스</td>
+                            <td>4승 3패</td>
+                        </tr>
+                        <tr>
+                            <td class="v-number">V11</td>
+                            <td>2017년</td>
+                            <td>KIA 타이거즈</td>
+                            <td class="opponent">두산 베어스</td>
+                            <td>4승 1패</td>
+                        </tr>
+                        <tr>
+                            <td class="v-number">V12</td>
+                            <td>2024년</td>
+                            <td>KIA 타이거즈</td>
+                            <td class="opponent">미정</td>
+                            <td>4승 2패</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
             
             <section id="history" class="card card-accent">
                 <h2 class="section-title">타이거즈 역사: 해태 왕조에서 KIA 왕조까지</h2>
@@ -567,25 +733,6 @@
                     KBO 리그의 시작부터 현재까지, 한국 야구의 역사를 써 내려온 타이거즈의 주요 연대기를 살펴봅니다.
                 </p>
                 
-                <div id="championship-nav">
-                    <h3>🏆 타이거즈 우승 연대기 바로가기 (V12)</h3>
-                    <div class="championship-links">
-                        <a href="#V1">V1 (1983)</a>
-                        <a href="#V2">V2 (1986)</a>
-                        <a href="#V3">V3 (1987)</a>
-                        <a href="#V4">V4 (1988)</a>
-                        <a href="#V5">V5 (1989)</a>
-                        <a href="#V6">V6 (1991)</a>
-                        <a href="#V7">V7 (1993)</a>
-                        <a href="#V8">V8 (1996)</a>
-                        <a href="#V9">V9 (1997)</a>
-                        <a href="#V10">V10 (2009)</a>
-                        <a href="#V11">V11 (2017)</a>
-                        <a href="#V12">V12 (2024)</a>
-                    </div>
-                </div>
-
-
                 <ul class="history-list">
                     <li class="championship-year" id="V1">
                         <h3>1983년 – 첫 우승, 해태 왕조의 서막 (V1)</h3>
@@ -866,9 +1013,10 @@
             const sections = document.querySelectorAll('section');
             const navLinks = document.querySelectorAll('.nav a');
             const navBar = document.querySelector('.nav');
+            const mainNavLinks = document.querySelectorAll('.main-links-container a'); // 새로운 바로가기 링크
 
-            // ID를 가진 모든 우승 연도 항목 가져오기
-            const championshipYears = document.querySelectorAll('.history-list li.championship-year[id]');
+            // 모든 바로가기 링크를 배열에 합침
+            const allLinks = Array.from(navLinks).concat(Array.from(mainNavLinks));
 
             const observer = new IntersectionObserver(entries => {
                 entries.forEach(entry => {
@@ -897,7 +1045,7 @@
             });
             
             // 앵커 이동 시 부드러운 스크롤 적용 및 네비게이션 높이 고려
-            navLinks.forEach(link => {
+            allLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
                     const href = this.getAttribute('href');
                     if (href.startsWith('#') && href.length > 1) {
@@ -939,31 +1087,6 @@
                             behavior: 'smooth'
                         });
                     }
-            });
-
-            // 우승 연대기 바로가기 링크에 부드러운 스크롤 적용
-            document.querySelectorAll('.championship-links a').forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href').substring(1);
-                    const targetElement = document.getElementById(targetId);
-                    if (targetElement) {
-                        const navHeight = navBar.offsetHeight;
-                        // Timeline 요소가 카드 안에 있으므로, 카드의 위치를 고려해야 함
-                        const cardTop = document.getElementById('history').offsetTop;
-                        
-                        // 정확한 timeline 항목 위치 계산
-                        const elementPosition = targetElement.offsetTop;
-                        
-                        // Timeline 항목이 포함된 'history' 섹션의 상단 위치에서 Nav 높이만큼 빼서 스크롤 위치 조정
-                        const offsetPosition = cardTop + elementPosition + window.pageYOffset - navHeight - 30; // 30px는 여유 공간
-
-                        window.scrollTo({
-                            top: offsetPosition,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
             });
 
 
