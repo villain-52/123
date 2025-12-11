@@ -211,6 +211,24 @@
         .history-list h3{ border-left: none; padding-left: 0; }
         .history-list .tag-row { margin-top: 0.8rem; gap: 0.4rem; }
         .history-list .tag { font-size: 0.75rem; padding: 0.2rem 0.6rem; }
+
+        /* 추가된 역사 내용 상세 스타일 */
+        .history-detail {
+            margin-top: 1rem;
+            padding-left: 1rem;
+            border-left: 2px dotted rgba(255, 255, 255, 0.1);
+        }
+        .history-detail p {
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            color: var(--text-sub);
+        }
+        .history-detail strong {
+            color: var(--kia-red);
+        }
+        .history-detail .gold-text {
+            color: var(--accent-gold);
+        }
         
         /* ==================== 7. Championship Table 스타일 ==================== */
         .championship-table {
@@ -265,7 +283,27 @@
         .player-stats li { font-size: 0.95rem; color: var(--text-sub); margin-bottom: 0.5rem; position: relative; padding-left: 15px; }
         .player-stats li::before { content: "•"; position: absolute; left: 0; color: var(--kia-red); font-weight: bold; }
         .player-card h4 { font-size: 1.1rem; color: var(--kia-red); margin-top: 1.2rem; margin-bottom: 0.5rem; }
-        
+
+        /* 추가된 영구결번 내용 상세 스타일 */
+        .player-bio {
+            text-align: left;
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            border-top: 2px solid var(--kia-red);
+        }
+        .player-bio h5 {
+            color: var(--accent-gold);
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        .player-bio p {
+            font-size: 0.9rem;
+            color: var(--text-sub);
+            margin-bottom: 0.75rem;
+        }
+
         /* ==================== 9. Footer 스타일 ==================== */
         .footer{
             border-top: 1px solid rgba(224, 50, 34, 0.3); padding: 1.5rem;
@@ -374,44 +412,73 @@
                 </p>
                 
                 <ul class="history-list">
+                    <li>
+                        <h3>1982년 – 해태 타이거즈의 창단과 프로야구 시작</h3>
+                        <p>KBO 프로야구 출범과 함께 광주를 연고지로 해태 타이거즈가 창단되었습니다. 초대 감독은 김동엽이었으나, 시즌 중 김응룡 감독이 부임하며 팀의 기틀을 다지기 시작했습니다. 창단 첫 해에는 4위로 마쳤습니다.</p>
+                        <div class="tag-row"><span class="tag">KBO 출범</span><span class="tag">김응룡 감독 부임</span></div>
+                    </li>
                     <li class="championship-year" id="V1">
                         <h3>1983년 – 첫 우승, 해태 왕조의 서막 (V1)</h3>
-                        <p>김응룡 감독이 이끄는 해태 타이거즈는 MBC 청룡을 꺾고 창단 첫 우승을 차지했습니다. 김성한 선수가 투타겸업으로 활약하며 왕조의 기틀을 다졌습니다.</p>
+                        <p>김응룡 감독 체제 하에서 팀은 빠르게 성장하여 MBC 청룡과의 한국시리즈에서 4승 1패로 승리하며 창단 2년 만에 V1을 달성했습니다. **김성한** 선수가 타격왕과 투타겸업으로 맹활약하며 팀의 중심 선수로 자리매김했습니다.</p>
+                        <div class="history-detail">
+                            <p><strong>상세:</strong> 해태의 첫 우승은 호남 야구팬들에게 엄청난 자부심을 선사했습니다. 당시 열악한 환경 속에서도 끈기와 투지로 승리하는 '해태 정신'이 탄생했습니다.</p>
+                        </div>
                         <div class="tag-row"><span class="tag gold">V1</span><span class="tag">김응룡 감독</span><span class="tag">김성한</span></div>
                     </li>
                     <li class="championship-year" id="V3">
-                        <h3>1987년 – 드라마틱한 2년 연속 우승 (V3)</h3>
-                        <p>한국시리즈에서 삼성 라이온즈를 상대로 4전 전승을 거두며 '가을 야구 DNA'를 팬들에게 각인시켰습니다.</p>
-                        <div class="tag-row"><span class="tag gold">V3</span><span class="tag">KS 4전 전승</span><span class="tag">가을 DNA</span></div>
+                        <h3>1986년 ~ 1988년 – KBO 최초의 3년 연속 우승 (V2, V3, V4)</h3>
+                        <p>1986년, 1987년, 1988년 연속으로 한국시리즈를 제패하며 KBO 역사상 전무후무한 **최초의 3년 연속 우승**이라는 대기록을 세웠습니다. 특히 **선동열** 투수가 이 기간 동안 압도적인 투구로 마운드를 지배했습니다.</p>
+                        <div class="history-detail">
+                            <p><strong>상세:</strong> 1987년에는 삼성 라이온즈를 상대로 4전 전승 스윕을 기록하며 불패 신화를 더욱 공고히 했습니다. **한대화** 선수의 결정적인 클러치 능력도 빛을 발했습니다. 이 시기부터 '타이거즈'는 '우승'과 동의어가 되기 시작했습니다.</p>
+                        </div>
+                        <div class="tag-row"><span class="tag gold">V4 달성</span><span class="tag">최초 3연패</span><span class="tag">선동열 시대 개막</span></div>
                     </li>
-                    <li class="championship-year" id="V4">
-                        <h3>1988년 – 최초의 3년 연속 우승 (V4)</h3>
-                        <p>빙그레 이글스를 물리치고 KBO 리그 **최초로 한국시리즈 3년 연속 우승**이라는 금자탑을 쌓았습니다. 한대화 선수가 팀 타선을 이끌었습니다.</p>
-                        <div class="tag-row"><span class="tag gold">V4</span><span class="tag">KBO 최초 3연패</span><span class="tag">한대화</span></div>
+                    <li class="championship-year" id="V6">
+                        <h3>1989년 ~ 1991년 – 5년 연속 우승 도전과 V6 완성 (V5, V6)</h3>
+                        <p>1989년과 1991년, 빙그레 이글스를 상대로 다시 한번 한국시리즈 우승을 차지했습니다. 1991년에는 KS 4전 전승을 기록하며 압도적인 전력을 과시했습니다. 이로써 해태는 창단 후 10년 동안 6번의 우승(V6)을 달성하는 놀라운 역사를 썼습니다.</p>
+                        <div class="history-detail">
+                             <p><strong>상세:</strong> 1990년에 잠시 주춤했지만, 곧바로 재정비하여 91년에 우승을 차지하며 왕조의 저력을 보여주었습니다. **김성한, 선동열** 등의 주축 선수들이 건재했습니다.</p>
+                        </div>
+                        <div class="tag-row"><span class="tag gold">V6 달성</span><span class="tag">2차 왕조 기반</span></div>
                     </li>
                     <li class="championship-year" id="V9">
-                        <h3>1997년 – 불멸의 V9 달성</h3>
-                        <p>해태 타이거즈의 **마지막 우승**이자, KBO 리그 역사상 단일팀 **V9**이라는 전무후무한 대기록을 완성했습니다. 이종범의 괴물 같은 활약이 돋보였습니다.</p>
-                        <div class="tag-row"><span class="tag gold">V9 달성</span><span class="tag">이종범 최고 전성기</span></div>
+                        <h3>1993년 ~ 1997년 – 이종범 시대와 불멸의 V9 완성 (V7, V8, V9)</h3>
+                        <p>**'바람의 아들' 이종범** 선수가 입단하며 해태 야구는 새로운 전성기를 맞았습니다. 1993년, 1996년, 1997년에 다시 우승 트로피를 들어 올리며 **총 V9**라는 전무후무한 대기록을 완성했습니다. 특히 1997년 LG 트윈스와의 KS는 해태 왕조의 마지막 불꽃이었습니다.</p>
+                        <div class="history-detail">
+                             <p><strong>상세:</strong> 1997년 우승까지, 해태 타이거즈는 **한국시리즈에 진출하면 무조건 우승**하는 **9전 9승**의 신화를 완성했습니다. 이는 끈질긴 '해태 정신'과 선수들의 압도적인 실력이 결합된 결과였습니다. 이종범은 이 시기 최고의 스타였습니다.</p>
+                        </div>
+                        <div class="tag-row"><span class="tag gold">V9 완성</span><span class="tag">KS 9전 9승</span><span class="tag">이종범 전성기</span></div>
                     </li>
                     <li>
-                        <h3>1998~2000년대 초 – 암흑기와 KIA 인수</h3>
-                        <p>IMF 외환 위기와 해태그룹의 재정난으로 어려운 시기를 겪었으며, 2001년 최종적으로 기아자동차에 인수되어 **KIA 타이거즈**로 재탄생했습니다.</p>
-                        <div class="tag-row"><span class="tag">IMF 위기</span><span class="tag">KIA 인수</span></div>
+                        <h3>1998년 ~ 2000년대 초 – 암흑기와 KIA 타이거즈로의 재탄생</h3>
+                        <p>IMF 외환 위기와 해태 그룹의 재정난으로 인해 팀은 큰 어려움을 겪었습니다. 주축 선수들이 해외 또는 타 팀으로 이적하며 팀 성적은 급격히 하락했습니다. 2001년, 해태 타이거즈는 기아자동차에 인수되어 **KIA 타이거즈**로 팀명이 공식 변경되었습니다.</p>
+                        <div class="history-detail">
+                            <p><strong>상세:</strong> 팀 이름은 바뀌었지만, KIA 구단은 해태 타이거즈의 **역사와 전통을 공식적으로 승계**했습니다. 이는 팬들에게 큰 의미를 주었으며, '타이거즈'의 붉은 유산은 계속 이어지게 되었습니다.</p>
+                        </div>
+                        <div class="tag-row"><span class="tag">IMF 위기</span><span class="tag">2001년 KIA 인수</span></div>
                     </li>
                     <li class="championship-year" id="V10">
-                        <h3>2009년 – 12년 만의 부활 (V10)</h3>
-                        <p>나지완의 끝내기 홈런이라는 드라마틱한 승리로 12년 만에 감격적인 V10을 달성하며 KIA 왕조 부활의 서막을 알렸습니다.</p>
-                        <div class="tag-row"><span class="tag gold">V10</span><span class="tag">나지완 끝내기</span><span class="tag">12년 만의 우승</span></div>
+                        <h3>2009년 – 12년 만의 감격적인 부활 (V10)</h3>
+                        <p>김상현, 로페즈, 윤석민 등 새로운 주축 선수들과 레전드 **이종범**의 노련미가 더해져 정규시즌 1위를 차지했습니다. SK 와이번스와의 한국시리즈 7차전에서 **나지완의 극적인 끝내기 홈런**으로 4승 3패 승리하며 12년 만에 V10을 달성했습니다. 이는 KIA 시대의 첫 우승이었습니다.</p>
+                        <div class="history-detail">
+                            <p><strong>상세:</strong> 7차전 연장 10회말 나지완의 끝내기 홈런은 KBO 역사상 가장 드라마틱한 순간 중 하나로 회자됩니다. 이 우승은 오랜 암흑기를 보낸 타이거즈 팬들에게 큰 기쁨을 선사했습니다.</p>
+                        </div>
+                        <div class="tag-row"><span class="tag gold">V10</span><span class="tag">나지완 끝내기</span><span class="tag">KIA 첫 우승</span></div>
                     </li>
                     <li class="championship-year" id="V11">
-                        <h3>2017년 – 통합 우승, 최강 KIA (V11)</h3>
-                        <p>정규 시즌-한국시리즈 **통합 우승**을 달성했습니다. 양현종이 한국시리즈 MVP를 차지하며 명실상부한 에이스임을 증명했습니다.</p>
+                        <h3>2017년 – 통합 우승, 최강 KIA의 재림 (V11)</h3>
+                        <p>김기태 감독 체제 하에 압도적인 전력으로 정규시즌 우승을 차지했습니다. 한국시리즈에서 두산 베어스를 4승 1패로 꺾고 **통합 우승**을 달성하며 V11을 기록했습니다. **양현종** 투수가 KS 2차전 완봉승과 5차전 마무리 투수로 활약하며 MVP를 차지했습니다.</p>
+                        <div class="history-detail">
+                            <p><strong>상세:</strong> 2017년은 타이거즈 역사상 가장 완벽한 시즌 중 하나로, 타선의 폭발력과 마운드의 안정감이 최고조에 달했습니다. 이는 KBO 리그 역사상 11번째 한국시리즈 진출 및 11번째 우승으로 **KS 불패 신화**를 이어갔다는 의미가 있습니다.</p>
+                        </div>
                         <div class="tag-row"><span class="tag gold">V11</span><span class="tag">통합 우승</span><span class="tag">양현종 MVP</span></div>
                     </li>
                     <li class="championship-year" id="V12">
                         <h3>2024년 – 위기를 딛고 V12 달성</h3>
-                        <p>이범호 감독 체제 하에 젊은 선수들의 폭발적인 성장으로 정규시즌 우승 후, 한국시리즈에서 V12 우승을 달성했습니다. 김도영의 활약이 돋보인 시즌이었습니다.</p>
+                        <p>이범호 감독 체제 하에 **김도영** 등 젊은 선수들의 폭발적인 성장과 베테랑들의 조화로 정규시즌 우승을 차지했습니다. 한국시리즈에서 상대팀을 꺾고 V12 우승을 달성하며 새로운 KIA 왕조의 서막을 열었습니다. 김도영이 통합 우승의 주역으로 우뚝 섰습니다.</p>
+                        <div class="history-detail">
+                            <p><strong>상세:</strong> 이범호 감독은 타이거즈의 프랜차이즈 스타로서 감독 부임 첫 해에 우승을 이끌며 팬들에게 기쁨을 안겨주었습니다. 이는 타이거즈가 전통과 혁신을 동시에 추구하는 구단임을 다시 한번 증명하는 사건이었습니다.</p>
+                        </div>
                         <div class="tag-row"><span class="tag gold">V12</span><span class="tag">이범호 감독</span><span class="tag">김도영 MVP</span></div>
                     </li>
                 </ul>
@@ -455,7 +522,7 @@
             <section id="legend" class="card legend-card">
                 <h2 class="section-title">영구 결번 (Retired Numbers)</h2>
                 <p class="section-subtitle">
-                    타이거즈는 구단의 역사와 명예를 빛낸 두 선수의 등번호를 영구 결번으로 지정했습니다. 
+                    타이거즈는 구단의 역사와 명예를 빛낸 두 선수의 등번호를 영구 결번으로 지정했습니다.
                 </p>
                 
                 <div class="retired-number-grid">
@@ -467,16 +534,23 @@
                         
                         <h4>국보 투수 (The National Treasure Pitcher)</h4>
                         <p class="detail-text">
-                            KBO 역사상 가장 위대한 투수이자, V9 왕조의 핵심이었습니다. 그의 등번호 18번은 **KBO 최초의 영구 결번**입니다.
+                            KBO 역사상 가장 위대한 투수로 평가받으며, 해태 왕조 V9의 핵심 기둥이었습니다. 그의 등번호 18번은 KBO 리그 **최초의 영구 결번**으로 지정되었습니다.
                         </p>
                         
                         <div class="player-stats">
                             <ul>
                                 <li>• 포지션: 투수 (P)</li>
                                 <li>• 주요 수상: 정규시즌 MVP 3회 (86, 89, 90)</li>
+                                <li>• 주요 수상: 투수 부문 골든글러브 6회</li>
                                 <li>• 통산 기록: **평균자책점 1.20 (KBO 역대 1위)**, 146승, 132세이브</li>
+                                <li>• 통산 기록: 1646이닝, 탈삼진 1698개</li>
                                 <li>• 영구 결번 지정: 1996년</li>
                             </ul>
+                        </div>
+                        <div class="player-bio">
+                            <h5>선동열의 위대한 유산</h5>
+                            <p>선동열은 150km/h 중반의 강속구와 역대급 슬라이더를 구사하며 '**무등산 폭격기**'라는 별명을 얻었습니다. 특히 통산 평균자책점 **1.20**은 KBO 역사에 다시 나오기 힘든 불멸의 기록입니다. 1993년에는 무려 **0.78**이라는 충격적인 시즌 평균자책점을 기록하기도 했습니다. </p>
+                            <p>90년대 초반에는 완투형 선발투수로, 후반에는 리그 최고의 마무리 투수로 활약하며 마운드의 모든 역할을 완벽하게 수행했습니다. 1996년 일본 프로야구 주니치 드래건스로 이적하여 마무리 투수로 성공적인 활약을 펼치며 KBO를 넘어선 실력을 증명했습니다. 그의 18번은 타이거즈의 붉은 역사 그 자체입니다.</p>
                         </div>
                     </article>
                     
@@ -487,7 +561,7 @@
 
                         <h4>바람의 아들 (The Son of the Wind)</h4>
                         <p class="detail-text">
-                            KBO 역사상 최고의 5툴 플레이어이자, 폭발적인 스피드로 '바람의 아들'이라는 별명을 얻은 타이거즈 팬들의 영원한 아이콘입니다.
+                            KBO 역사상 최고의 5툴 플레이어(타격, 파워, 주루, 수비, 송구)이자, 폭발적인 스피드로 '바람의 아들'이라는 별명을 얻은 타이거즈 팬들의 영원한 아이콘입니다.
                         </p>
                         
                         <div class="player-stats">
@@ -495,8 +569,15 @@
                                 <li>• 포지션: 유격수 (SS) / 외야수 (OF)</li>
                                 <li>• 주요 수상: 정규시즌 MVP 1회 (94), 한국시리즈 MVP 1회 (93)</li>
                                 <li>• 통산 기록: 타율 0.297, **510도루 (KBO 역대 2위)**</li>
+                                <li>• 단일 시즌 기록: **84도루 (KBO 단일 시즌 역대 1위)** (1994년)</li>
+                                <li>• 단일 시즌 기록: 1994년 **유격수 최초 타율 3할-30홈런-30도루** 달성</li>
                                 <li>• 영구 결번 지정: 2012년</li>
                             </ul>
+                        </div>
+                        <div class="player-bio">
+                            <h5>이종범, 야구 천재의 족적</h5>
+                            <p>이종범은 1993년 입단하여 팀의 V7 우승을 이끌고 KS MVP를 차지하며 혜성처럼 등장했습니다. 1994년에는 유격수 포지션으로 타율 0.393을 기록하며 타격왕에 올랐고, 84개의 도루로 리그를 지배하며 만장일치 MVP를 수상했습니다. 이는 KBO 역사상 가장 위대한 시즌 중 하나로 꼽힙니다.</p>
+                            <p>그의 플레이는 언제나 팬들을 흥분시켰으며, 수비와 주루에서 보여준 압도적인 능력은 '**야구 천재**'라는 수식어가 아깝지 않았습니다. 1998년 일본 프로야구 주니치 드래건스로 진출하여 활약했으며, 2000년대 중반 KIA로 복귀하여 V10 우승을 경험하는 등 타이거즈 역사의 중요한 순간들을 함께 했습니다. 그의 등번호 7번은 타이거즈의 영원한 영웅을 상징합니다.</p>
                         </div>
                     </article>
                 </div>
@@ -517,7 +598,12 @@
             const mainNavLinks = document.querySelectorAll('.main-links-container a');
             const allLinks = Array.from(navLinks).concat(Array.from(mainNavLinks));
 
-            const navHeight = navBar.offsetHeight;
+            let navHeight = navBar.offsetHeight;
+             // 페이지 로드 후 nav 높이를 다시 계산하여 변수에 저장
+            window.addEventListener('load', () => {
+                navHeight = navBar.offsetHeight; 
+            });
+
 
             // Intersection Observer를 이용한 네비게이션 활성화
             const observer = new IntersectionObserver(entries => {
@@ -525,6 +611,7 @@
                     const id = entry.target.getAttribute('id');
                     const currentNavLink = document.querySelector(`.nav-menu a[href="#${id}"]`);
 
+                    // Intersection Observer가 인식할 때 네비게이션 활성화
                     if (entry.isIntersecting) {
                         navLinks.forEach(link => link.classList.remove('active'));
                         if (currentNavLink) {
