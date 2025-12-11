@@ -163,7 +163,7 @@
             /* KIA 공식 엠블럼 이미지 대체 (실제 이미지 URL 사용 권장) */
             width: 30px;
             height: 30px;
-            background: url('https://upload.wikimedia.org/wikipedia/commons/e/ee/KIA_Tigers_Emblem_2017.png') no-repeat center center/contain;
+            background: url('https://i.namu.wiki/i/xBO8lp2WWX8VndvqqEpTDerYzlZwdWcDx4Ne1Q-8_MMvff1M52TElDedTFiId8Vhm5N6HHM_iY02AyxY7gUqfm8Mo6cgoQI-Mv-ty2PdIyNRBRtqU8-vVA6HZoN4bDXMGtJfsE1a3nlqMz02Whmb4A.svg') no-repeat center center/contain;
             display: inline-block;
             filter: drop-shadow(0 0 5px rgba(255,255,255,0.4));
         }
