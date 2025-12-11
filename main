@@ -1,438 +1,140 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <title>My Favorite Teams</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Favorite Sports Teams</title>
+    <link rel="stylesheet" href="styles.css"> </head>
+<body>
+    <header>
+        <h1>내가 좋아하는 스포츠 팀들</h1>
+    </header>
 
-  <!-- 메인/상세 페이지 공통 스타일 -->
-  <link rel="stylesheet" href="style.css">
-</head>
+    <main class="team-selection">
+        <a href="doosan.html" class="team-card doosan-theme">
+            <img src="doosan_logo.png" alt="두산 베어스 로고">
+            <h2>두산 베어스</h2>
+        </a>
 
-<!-- 메인 화면이라는 의미로 home 클래스 사용 -->
-<body class="home">
+        <a href="kia.html" class="team-card kia-theme">
+            <img src="kia_logo.png" alt="KIA 타이거즈 로고">
+            <h2>KIA 타이거즈</h2>
+        </a>
 
-  <!-- 상단 제목 영역 -->
-  <header class="main-header">
-    <h1>My Favorite Teams</h1>
-    <p>두산 베어스, 기아 타이거즈, T1 경기일정을 늘 챙겨보는 팬의 페이지</p>
-  </header>
+        <a href="t1.html" class="team-card t1-theme">
+            <img src="t1_logo.png" alt="T1 로고">
+            <h2>T1</h2>
+        </a>
+    </main>
 
-  <!-- 팀 카드들을 나열하는 그리드 -->
-  <main class="team-grid">
-
-    <!-- 두산 베어스 카드 -->
-    <a href="team-doosan.html" class="team-card doosan">
-      <!-- 로고 이미지: 실제 파일 경로에 맞게 src 수정 -->
-      <div class="team-logo-wrapper">
-        <img src="img/doosan-logo.png" alt="두산 베어스 로고" class="team-logo">
-      </div>
-
-      <!-- 팀 정보 텍스트 -->
-      <div class="team-info">
-        <h2>두산 베어스</h2>
-        <span class="tag">KBO</span>
-      </div>
-    </a>
-
-    <!-- 기아 타이거즈 카드 -->
-    <a href="team-kia.html" class="team-card kia">
-      <div class="team-logo-wrapper">
-        <img src="img/kia-logo.png" alt="기아 타이거즈 로고" class="team-logo">
-      </div>
-      <div class="team-info">
-        <h2>기아 타이거즈</h2>
-        <span class="tag">KBO</span>
-      </div>
-    </a>
-
-    <!-- T1 카드 -->
-    <a href="team-t1.html" class="team-card t1">
-      <div class="team-logo-wrapper">
-        <img src="img/t1-logo.png" alt="T1 로고" class="team-logo">
-      </div>
-      <div class="team-info">
-        <h2>T1</h2>
-        <span class="tag">LCK</span>
-      </div>
-    </a>
-
-  </main>
+    <footer>
+        <p>경기 일자는 항상 체크합니다!</p>
+    </footer>
 </body>
 </html>
-/* 기본 세팅: 여백 제거 + 폰트 설정 */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4; /* 전체 배경색 */
+    color: #333;
+    text-align: center;
+    margin: 0;
+    padding: 0;
 }
 
-/* ───────────────────────────── */
-/* 1. 메인(home) 화면 스타일     */
-/* ───────────────────────────── */
-
-body.home {
-  min-height: 100vh;
-
-  /* 밝은 배경 + 운동장/경기장 느낌 나는 그라디언트 */
-  background:
-    /* 위쪽에서 내려오는 조명 같은 효과 */
-    radial-gradient(circle at top, rgba(255, 255, 255, 1) 0, rgba(230, 235, 245, 0.95) 40%, #dde3f0 100%);
-  color: #111;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+header {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
 }
 
-/* 상단 헤더 영역 */
-.main-header {
-  text-align: center;
-  padding: 3rem 1.5rem 2rem;
+.team-selection {
+    display: flex;
+    justify-content: center;
+    gap: 40px; /* 카드 사이 간격 */
+    padding: 50px 20px;
 }
 
-.main-header h1 {
-  font-size: 2.4rem;
-  font-weight: 800;
-  letter-spacing: .05em;
-  margin-bottom: .6rem;
-}
-
-.main-header p {
-  opacity: .75;
-}
-
-/* 팀 카드 그리드 영역 */
-.team-grid {
-  width: min(1000px, 100%);
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.5rem;
-  padding: 0 1.5rem 3rem;
-}
-
-/* 카드 공통 스타일 */
 .team-card {
-  position: relative;
-  padding: 1.6rem 1.4rem;
-  border-radius: 1.1rem;
-  text-decoration: none;
-  color: inherit;
-
-  /* 흰색 카드 + 약간의 그림자 (스포츠 카드/포토카드 느낌) */
-  background: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  box-shadow: 0 10px 22px rgba(15, 30, 60, 0.12);
-
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  cursor: pointer;
-
-  transition: transform .16s ease, box-shadow .16s ease, border .16s ease;
+    text-decoration: none; /* 링크 밑줄 제거 */
+    color: inherit;
+    width: 200px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
-/* 마우스를 올렸을 때 살짝 떠오르는 효과 */
 .team-card:hover {
-  transform: translateY(-6px) scale(1.02);
-  box-shadow: 0 18px 40px rgba(15, 30, 60, 0.24);
+    transform: translateY(-5px); /* 호버 시 약간 위로 */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-/* 로고 이미지 영역: 가운데 정렬 */
-.team-logo-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.team-card img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin-bottom: 10px;
 }
 
-/* 실제 로고 이미지 스타일 */
-.team-logo {
-  max-width: 120px;   /* 로고 최대 가로 크기 */
-  max-height: 80px;   /* 로고 최대 세로 크기 */
-  object-fit: contain;/* 로고 비율 유지 */
+/* 🍎 두산 베어스 테마 (네이비/레드/화이트) */
+.doosan-theme {
+    background-color: #132448; /* 네이비 */
+    color: white;
+    border: 3px solid #E6002A; /* 레드 포인트 */
 }
 
-/* 팀 이름 + 태그 텍스트 */
-.team-info h2 {
-  font-size: 1.3rem;
-  font-weight: 700;
-  margin-bottom: .35rem;
+/* 🐯 KIA 타이거즈 테마 (레드/블랙/화이트) */
+.kia-theme {
+    background-color: #C02026; /* 레드 */
+    color: white;
+    border: 3px solid #000000; /* 블랙 포인트 */
 }
 
-.tag {
-  display: inline-block;
-  font-size: .75rem;
-  text-transform: uppercase;
-  padding: .2rem .6rem;
-  border-radius: 999px;
-  background: rgba(15, 30, 60, 0.06);
-  color: rgba(15, 30, 60, 0.9);
+/* ⚡️ T1 테마 (레드/블랙/화이트 - e스포츠의 날렵함) */
+.t1-theme {
+    background-color: #E7002C; /* T1 레드 */
+    color: white;
+    border: 3px solid #000000; /* 블랙 포인트 */
 }
 
-/* ─ 팀별 포인트 컬러 (테두리/태그 색만 다르게) ─ */
-
-/* 두산 베어스 색감 */
-.team-card.doosan {
-  border-top: 4px solid #002b5c; /* 딥 네이비 포인트 */
+footer {
+    padding: 15px 0;
+    background-color: #333;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
-.team-card.doosan .tag {
-  background: rgba(0, 43, 92, 0.12);
-  color: #002b5c;
+/* doosan-detail.css (별도 파일로 가정) */
+.doosan-detail-page {
+    background-color: #132448; /* 네이비 주 배경 */
+    color: white;
 }
-
-/* 기아 타이거즈 색감 */
-.team-card.kia {
-  border-top: 4px solid #c8102e;
+.doosan-highlight {
+    color: #E6002A; /* 레드 포인트 */
+    border-left: 5px solid #E6002A;
+    padding-left: 10px;
 }
-.team-card.kia .tag {
-  background: rgba(200, 16, 46, 0.12);
-  color: #a00b24;
+/* kia-detail.css (별도 파일로 가정) */
+.kia-detail-page {
+    background-color: #C02026; /* 레드 주 배경 */
+    color: white;
 }
-
-/* T1 색감 */
-.team-card.t1 {
-  border-top: 4px solid #ff0033;
+.kia-section {
+    background-color: rgba(0, 0, 0, 0.4); /* 블랙 반투명 배경으로 가독성 확보 */
+    padding: 20px;
+    border-radius: 5px;
 }
-.team-card.t1 .tag {
-  background: rgba(255, 0, 51, 0.12);
-  color: #b00024;
+/* t1-detail.css (별도 파일로 가정) */
+.t1-detail-page {
+    background-color: #000000; /* 블랙 주 배경 */
+    color: #f0f0f0;
 }
-
-
-/* ───────────────────────────── */
-/* 2. 상세 페이지 공통 레이아웃  */
-/*    (team-doosan, team-kia,    */
-/*     team-t1 등에 공통 사용)   */
-/* ───────────────────────────── */
-
-body[class^="page-"] {
-  min-height: 100vh;
-  /* 상세 페이지도 밝은 배경이 기본 */
-  background: linear-gradient(180deg, #f5f7fc 0, #ffffff 35%, #eef1f8 100%);
-  color: #111;
-  padding: 2rem 1.5rem 3rem;
+.t1-neon-line {
+    border-bottom: 2px solid #E7002C; /* 네온 느낌의 하단 라인 */
+    box-shadow: 0 0 5px #E7002C;
 }
-
-/* 상단 헤더 영역 공통 */
-.team-header {
-  max-width: 960px;
-  margin: 0 auto 1.8rem auto;
-  display: flex;
-  align-items: center;
-  gap: 1.2rem;
+.t1-stat-box {
+    background-color: #1a1a1a;
+    border: 1px solid rgba(231, 0, 44, 0.5); /* 반투명 레드 테두리 */
 }
-
-/* 뒤로가기 */
-.back {
-  font-size: .85rem;
-  text-decoration: none;
-  color: #555;
-  padding: .35rem .7rem;
-  border-radius: 999px;
-  border: 1px solid rgba(0,0,0,0.08);
-  background: rgba(255,255,255,0.9);
-}
-
-/* 헤더 안의 로고 + 팀 이름 묶음 */
-.team-header-main {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-/* 상세 페이지 상단 로고 */
-.team-header-logo {
-  width: 64px;
-  height: 64px;
-  object-fit: contain;
-}
-
-/* 팀 이름 */
-.team-header-main h1 {
-  font-size: 2rem;
-  font-weight: 800;
-}
-
-/* 리그 태그 */
-.team-header span.league-tag {
-  margin-left: auto;
-  font-size: .85rem;
-  text-transform: uppercase;
-  padding: .3rem .7rem;
-  border-radius: 999px;
-  border: 1px solid rgba(0,0,0,0.08);
-  background: rgba(255,255,255,0.9);
-}
-
-/* 본문 레이아웃 (왼쪽 소개 / 오른쪽 카드) */
-.team-layout {
-  max-width: 960px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 2.2fr 1.3fr;
-  gap: 1.8rem;
-}
-
-/* 팀 소개 섹션 */
-.team-about h2 {
-  margin-bottom: 1rem;
-  font-size: 1.3rem;
-}
-.team-about p {
-  line-height: 1.7;
-  font-size: .98rem;
-}
-
-/* 오른쪽 정보 카드 묶음 */
-.team-facts {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-/* 정보 카드 */
-.fact-card {
-  padding: 1rem 1.1rem;
-  border-radius: .9rem;
-  background: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  box-shadow: 0 8px 18px rgba(15, 30, 60, 0.12);
-}
-.fact-card h3 {
-  font-size: 1rem;
-  margin-bottom: .3rem;
-}
-
-/* 일정 보기 버튼 */
-.schedule-btn {
-  margin-top: .5rem;
-  display: inline-block;
-  text-align: center;
-  padding: .7rem 1rem;
-  border-radius: 999px;
-  text-decoration: none;
-  font-size: .9rem;
-  font-weight: 700;
-  border: none;
-}
-
-/* ───────────────────────────── */
-/* 3. 팀별 상세 페이지 테마      */
-/* ───────────────────────────── */
-
-/* 두산 베어스 테마 */
-.page-doosan .team-header-main h1 {
-  color: #002b5c;
-}
-.page-doosan .team-header-logo {
-  /* 필요하면 로고에 그림자 */
-  filter: drop-shadow(0 4px 8px rgba(0, 43, 92, 0.3));
-}
-.page-doosan .schedule-btn {
-  background: #002b5c;
-  color: #ffffff;
-  box-shadow: 0 10px 22px rgba(0, 43, 92, 0.5);
-}
-
-/* 기아 타이거즈 테마 */
-.page-kia .team-header-main h1 {
-  color: #c8102e;
-}
-.page-kia .team-header-logo {
-  filter: drop-shadow(0 4px 8px rgba(200, 16, 46, 0.3));
-}
-.page-kia .schedule-btn {
-  background: #c8102e;
-  color: #ffffff;
-  box-shadow: 0 10px 22px rgba(200, 16, 46, 0.5);
-}
-
-/* T1 테마 */
-.page-t1 .team-header-main h1 {
-  color: #ff0033;
-}
-.page-t1 .team-header-logo {
-  filter: drop-shadow(0 4px 8px rgba(255, 0, 51, 0.4));
-}
-.page-t1 .schedule-btn {
-  background: linear-gradient(90deg, #ff0033, #ff3355);
-  color: #ffffff;
-  box-shadow: 0 10px 22px rgba(255, 0, 51, 0.6);
-}
-
-
-/* ───────────────────────────── */
-/* 4. 반응형: 화면이 좁아질 때   */
-/* ───────────────────────────── */
-
-@media (max-width: 768px) {
-  .team-layout {
-    grid-template-columns: 1fr; /* 한 줄로 쌓이게 */
-  }
-
-  .team-header {
-    flex-wrap: wrap;
-  }
-
-  .team-header span.league-tag {
-    margin-left: 0;
-  }
-}
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <title>두산 베어스</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-
-<!-- 두산 페이지라는 의미로 page-doosan 클래스 사용 -->
-<body class="page-doosan">
-
-  <!-- 상단 헤더 -->
-  <header class="team-header">
-    <!-- 뒤로가기 -->
-    <a href="index.html" class="back">&larr; 홈으로</a>
-
-    <!-- 로고 + 팀 이름 묶음 -->
-    <div class="team-header-main">
-      <!-- 상단 로고 (경로는 실제 파일에 맞게 변경) -->
-      <img src="img/doosan-logo.png" alt="두산 베어스 로고" class="team-header-logo">
-      <h1>두산 베어스</h1>
-    </div>
-
-    <!-- 리그 태그 -->
-    <span class="league-tag">KBO</span>
-  </header>
-
-  <!-- 본문 레이아웃 -->
-  <main class="team-layout">
-
-    <!-- 왼쪽: 팀 소개 -->
-    <section class="team-about">
-      <h2>팀 소개</h2>
-      <p>
-        두산 베어스는 KBO 리그를 대표하는 전통의 강호로, 꾸준한 가을야구와 탄탄한 선수층으로 유명한 팀입니다.
-        사용자는 경기 일정이 있을 때마다 챙겨보며, 경기 흐름과 선수들의 플레이 스타일을 보는 재미를 느낍니다.
-      </p>
-    </section>
-
-    <!-- 오른쪽: 정보 카드들 -->
-    <aside class="team-facts">
-      <div class="fact-card">
-        <h3>홈 구장</h3>
-        <p>잠실 야구장</p>
-      </div>
-
-      <div class="fact-card">
-        <h3>응원 포인트</h3>
-        <p>짙은 네이비 컬러의 유니폼, 응원가, 뒷심 있는 경기 운영이 매력 포인트.</p>
-      </div>
-
-      <a class="schedule-btn" href="https://www.koreabaseball.com" target="_blank">
-        두산 경기 일정 보러가기
-      </a>
-    </aside>
-
-  </main>
-</body>
-</html>
