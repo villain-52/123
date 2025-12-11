@@ -519,11 +519,7 @@
                         <img src="https://i.namu.wiki/i/lXk-QGwNN1SozkiftTC4o-hyHa9TFic6zqSKOU_Pr0zm03WnqwNiV7a29-RRSK5NzizWKxkUlh5pQ0fxDjU3OA.webp" alt="페이커 선수 단독 프로필 사진" id="faker-profile-image">
                         <figcaption>이상혁(Faker) 선수: 불멸의 전설 **(예시 이미지)**</figcaption>
                     </figure>
-                    <figure>
-                        <img src="ex_faker_zed.jpg" alt="페이커 선수 제드 플레이 장면" id="faker-zed-image">
-                        <figcaption>페이커의 상징적인 챔피언, 제드 **(예시 이미지)**</figcaption>
-                    </figure>
-                </div>
+                    </div>
             
                 <div class="card">
                     <h3>미드 라인의 살아있는 전설, 이상혁</h3>
