@@ -30,6 +30,23 @@
     }
     a{color:inherit; text-decoration:none;}
     
+    /* 이미지 및 캡션 스타일 추가 */
+    img{
+      max-width:100%; 
+      height:auto; 
+      display:block; 
+      border-radius: 8px;
+    } 
+    figure{
+      margin: 1.5rem 0;
+      text-align: center;
+    }
+    figcaption{
+      font-size: 0.85rem; 
+      color: var(--lol-gold); 
+      margin-top: 0.5rem;
+    }
+
     /* 헤더 및 네비게이션 */
     header{
       position: sticky;
@@ -48,7 +65,22 @@
       justify-content:space-between;
     }
     .logo{display:flex; align-items:center; gap:0.6rem; font-family:"Cinzel", serif; letter-spacing:0.06em; text-transform:uppercase; font-size:1.1rem;}
-    .logo-mark{width:32px; height:18px; background: linear-gradient(120deg, var(--t1-red), #ff4b6b); clip-path: polygon(0 0, 75% 0, 100% 50%, 75% 100%, 0 100%, 20% 50%);}
+    /* T1 로고 마크 (이미지 사용) */
+    .logo-mark{
+        width:32px; 
+        height:32px;
+        /* 요청에 따라 'ex.jpg' 경로를 사용합니다. */
+        background-image: url("ex.jpg");
+        background-size: cover;
+        background-position: center;
+        border-radius: 50%;
+        margin-right: 0.5rem;
+        /* 기존 스타일 제거 후 이미지 대체 */
+        clip-path: none; 
+    }
+    .logo-mark img {
+        display: none; /* 배경 이미지 사용 시 내부 img 태그 숨김 */
+    }
     nav ul{display:flex; gap:1.2rem; list-style:none; font-size:0.95rem;}
     nav a{position:relative; padding-bottom:0.2rem; color:var(--text-sub); transition: color .2s ease;}
     nav a::after{content:""; position:absolute; left:0; bottom:0; width:0; height:2px; background:linear-gradient(90deg, var(--lol-gold), var(--t1-red)); transition: width .2s ease;}
@@ -236,11 +268,30 @@
     }
     
     /* Faker 세부 섹션 스타일 */
-    #faker-detail .card {
+    /* 이미지를 위해 Flexbox 컨테이너 추가 */
+    #faker-detail-content {
+        display: flex;
+        gap: 2rem;
+        align-items: flex-start;
+    }
+    #faker-detail-content .card {
+        flex: 2; /* 텍스트 부분이 더 많은 공간 차지 */
         border: 2px solid var(--lol-gold);
         background: rgba(10, 14, 25, 0.95);
         padding: 2.5rem;
     }
+    #faker-detail-image {
+        flex: 1; /* 이미지 부분이 남은 공간 차지 */
+        max-width: 300px;
+        min-width: 200px;
+        margin-top: 0;
+        padding-top: 2.5rem; /* 카드 패딩에 맞춤 */
+    }
+    #faker-detail-image img {
+        border: 2px solid var(--t1-red);
+        box-shadow: 0 0 15px rgba(224, 25, 48, 0.5);
+    }
+
     #faker-detail h3 {
         font-size: 1.6rem;
         color: #ffe9bf;
@@ -321,6 +372,19 @@
     .note-block strong {
         color: var(--t1-red);
     }
+
+    /* 트로피 섹션 이미지 스타일 */
+    #trophy-image-container {
+        margin-top: 2rem;
+        padding: 1rem;
+        background: rgba(20, 20, 40, 0.9);
+        border-radius: 12px;
+        border: 1px solid var(--lol-gold);
+    }
+    #trophy-image-container img {
+        border-radius: 6px;
+        box-shadow: 0 0 20px rgba(200, 155, 60, 0.5);
+    }
     
     /* 반응형 디자인 */
     @media (max-width:840px){
@@ -335,7 +399,18 @@
       .person-card {
           min-width: unset;
       }
-      #faker-detail .card {
+      /* Faker 섹션 모바일 레이아웃 */
+      #faker-detail-content {
+          flex-direction: column;
+          gap: 1rem;
+      }
+      #faker-detail-image {
+          order: -1; /* 이미지를 상단으로 이동 */
+          max-width: 100%;
+          min-width: 100%;
+          padding-top: 0.5rem;
+      }
+      #faker-detail-content .card {
           padding: 1.5rem;
       }
       .faker-stats-grid {
@@ -350,7 +425,9 @@
   <header>
     <div class="nav-inner">
       <div class="logo">
-        <div class="logo-mark" aria-hidden="true"></div>
+        <div class="logo-mark" aria-hidden="true">
+            <img src="ex.jpg" alt="T1 로고" style="width:100%; height:100%; object-fit: cover; border-radius: 50%;">
+        </div>
         <span>T1 LEGENDS</span>
       </div>
       <nav>
@@ -400,38 +477,45 @@
             T1의 역사 그 자체이자 리그 오브 레전드의 상징. Faker 선수가 세운 개인 커리어의 금자탑입니다.
         </p>
         
-        <div class="card">
-            <h3>미드 라인의 살아있는 전설, 이상혁</h3>
-            <p>
-                2013년 데뷔 이래 단 한 번도 팀을 옮기지 않고 T1에서 활동하며 팀의 모든 영광을 함께했습니다. 그의 커리어는 e스포츠를 넘어 스포츠 역사상 가장 위대한 선수 중 한 명으로 평가받습니다.
-            </p>
-            
-            <div class="faker-stats-grid">
-                <div class="faker-stat-item">
-                    <strong>6</strong>
-                    <span>Worlds Championship 우승 (단독 최다)</span>
-                </div>
-                <div class="faker-stat-item">
-                    <strong>10+</strong>
-                    <span>LCK 우승 (LCK 최다 우승 미드 라이너)</span>
-                </div>
-                <div class="faker-stat-item">
-                    <strong>2000+</strong>
-                    <span>LCK/Worlds 통산 킬 (최초 달성)</span>
-                </div>
-                <div class="faker-stat-item">
-                    <strong>100+</strong>
-                    <span>Worlds에서 사용한 챔피언 수</span>
-                </div>
-            </div>
-            
-            <div class="faker-paragraph">
+        <div id="faker-detail-content">
+            <figure id="faker-detail-image">
+                <img src="https://i.namu.wiki/i/lXk-QGwNN1SozkiftTC4o-hyHa9TFic6zqSKOU_Pr0zm03WnqwNiV7a29-RRSK5NzizWKxkUlh5pQ0fxDjU3OA.webp" alt="페이커 선수 단독 프로필 사진" id="faker-profile-image">
+                <figcaption>이상혁(Faker) 선수: 불멸의 전설</figcaption>
+            </figure>
+        
+            <div class="card">
+                <h3>미드 라인의 살아있는 전설, 이상혁</h3>
                 <p>
-                    **압도적인 기록**: 메이저 국제 대회인 Worlds, MSI, EWC를 모두 우승하며 **'그랜드 슬램'**을 달성한 유일한 미드 라이너이며, LCK에서는 **최초로 2년 연속 All-Pro 퍼스트 팀**에 선정되는 등 롱런의 대명사입니다. 
+                    2013년 데뷔 이래 단 한 번도 팀을 옮기지 않고 T1에서 활동하며 팀의 모든 영광을 함께했습니다. 그의 커리어는 e스포츠를 넘어 스포츠 역사상 가장 위대한 선수 중 한 명으로 평가받습니다.
                 </p>
-                <p>
-                    **상징성**: 그의 이름은 T1을 넘어 한국 e스포츠의 얼굴이며, **불사대마왕(The Unkillable Demon King)**이라는 별명은 그의 강력함과 끈기를 상징합니다.
-                </p>
+                
+                <div class="faker-stats-grid">
+                    <div class="faker-stat-item">
+                        <strong>6</strong>
+                        <span>Worlds Championship 우승 (단독 최다)</span>
+                    </div>
+                    <div class="faker-stat-item">
+                        <strong>10+</strong>
+                        <span>LCK 우승 (LCK 최다 우승 미드 라이너)</span>
+                    </div>
+                    <div class="faker-stat-item">
+                        <strong>2000+</strong>
+                        <span>LCK/Worlds 통산 킬 (최초 달성)</span>
+                    </div>
+                    <div class="faker-stat-item">
+                        <strong>100+</strong>
+                        <span>Worlds에서 사용한 챔피언 수</span>
+                    </div>
+                </div>
+                
+                <div class="faker-paragraph">
+                    <p>
+                        **압도적인 기록**: 메이저 국제 대회인 Worlds, MSI, EWC를 모두 우승하며 **'그랜드 슬램'**을 달성한 유일한 미드 라이너이며, LCK에서는 **최초로 2년 연속 All-Pro 퍼스트 팀**에 선정되는 등 롱런의 대명사입니다. 
+                    </p>
+                    <p>
+                        **상징성**: 그의 이름은 T1을 넘어 한국 e스포츠의 얼굴이며, **불사대마왕(The Unkillable Demon King)**이라는 별명은 그의 강력함과 끈기를 상징합니다.
+                    </p>
+                </div>
             </div>
         </div>
     </section>
@@ -449,10 +533,10 @@
           </p>
           
           <div class="zofgk-stats">
-              <div><strong>3</strong><span>Worlds 연속 결승 진출</span></div>
-              <div><strong>2</strong><span>Worlds 연속 우승 (23, 24)</span></div>
-              <div><strong>1</strong><span>LCK 전승 우승 (22 S)</span></div>
-              <div><strong>1</strong><span>EWC 우승 (24)</span></div>
+            <div><strong>3</strong><span>Worlds 연속 결승 진출</span></div>
+            <div><strong>2</strong><span>Worlds 연속 우승 (23, 24)</span></div>
+            <div><strong>1</strong><span>LCK 전승 우승 (22 S)</span></div>
+            <div><strong>1</strong><span>EWC 우승 (24)</span></div>
           </div>
 
           <ul>
@@ -524,6 +608,11 @@
         <h2 class="section-title">🥇 주요 우승 및 준우승 경력</h2>
         <p class="section-subtitle">창단부터 2025년까지 T1이 달성한 주요 메이저 대회 경력입니다.</p>
 
+        <figure id="trophy-image-container">
+            <img src="trophy-group-image.jpg" alt="T1의 주요 우승 트로피들 (Worlds, LCK, MSI 등)" id="trophy-group-image">
+            <figcaption>T1의 전설적인 우승 트로피 그룹 (교체 필수)</figcaption>
+        </figure>
+
         <div class="card">
             <h3>우승 경력 (메이저 대회 중심)</h3>
             <div class="trophy-list-grid">
@@ -557,3 +646,4 @@
 
 </body>
 </html>
+
