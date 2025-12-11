@@ -22,6 +22,7 @@
     *{box-sizing: border-box; margin:0; padding:0;}
     body{
       font-family: "Noto Sans KR", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      /* 배경: 중앙을 기준으로 어두운 우주 느낌의 그라데이션 */
       background: radial-gradient(circle at top, #1b2735 0%, #090a0f 45%, #050816 100%);
       color:var(--text-main);
       line-height:1.6;
@@ -139,6 +140,53 @@
         display: block;
         margin-bottom: 0.3rem;
     }
+
+    /* Faker 전용 섹션 스타일 */
+    .faker-stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+        margin-top: 1.5rem;
+    }
+    .faker-stat-item {
+        background: rgba(40, 40, 60, 0.3);
+        padding: 1rem;
+        border-radius: 8px;
+        border: 1px solid var(--t1-red);
+        text-align: center;
+    }
+    .faker-stat-item h4 {
+        color: var(--lol-gold);
+        font-size: 1.5rem;
+        margin-bottom: 0.3rem;
+        font-family: 'Cinzel', serif;
+    }
+    .faker-stat-item p {
+        font-size: 0.85rem;
+        color: var(--text-sub);
+    }
+    .faker-record-list {
+        list-style: none;
+        padding: 0;
+        margin-top: 1rem;
+    }
+    .faker-record-list li {
+        padding: 0.5rem 0;
+        border-bottom: 1px dotted rgba(255, 255, 255, 0.1);
+        font-size: 0.95rem;
+    }
+    .faker-record-list li:last-child {
+        border-bottom: none;
+    }
+    .faker-quote {
+        border-left: 4px solid var(--lol-gold);
+        padding-left: 1.5rem;
+        margin: 2rem 0;
+        font-style: italic;
+        font-size: 1.1rem;
+        color: #ffefe0;
+    }
+
     /* 반응형 디자인 */
     @media (max-width:840px){
       .hero{grid-template-columns:1fr;}
@@ -149,6 +197,9 @@
       .hero-title{font-size:clamp(1.8rem, 4vw + 1rem, 2.5rem);}
       .zofgk-detail-list {
         grid-template-columns: 1fr;
+      }
+      .faker-stats {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
       }
     }
     @media (max-width:640px){
@@ -255,20 +306,53 @@
     </section>
 
     <section id="faker">
-      <h2 class="section-title">The Unkillable Demon King, Faker</h2>
-      <p class="section-subtitle">T1의 역사를 관통하는 아이콘이자, 리그 오브 레전드의 GOAT(Greatest Of All Time)로 불리는 전설적인 미드 라이너, 이상혁 선수입니다.</p>
+      <h2 class="section-title">The Unkillable Demon King, Faker (이상혁)</h2>
+      <p class="section-subtitle">T1의 역사를 관통하는 아이콘이자, 리그 오브 레전드의 GOAT(Greatest Of All Time)로 불리는 전설적인 미드 라이너입니다. 2013년 데뷔 이후 12년 넘게 T1 원 클럽 플레이어로 활동 중입니다.</p>
+
+      <div class="faker-stats">
+          <div class="faker-stat-item">
+              <h4>4회</h4>
+              <p>Worlds Championship 우승 (최다)</p>
+          </div>
+          <div class="faker-stat-item">
+              <h4>10회</h4>
+              <p>LCK 우승 (최다)</p>
+          </div>
+          <div class="faker-stat-item">
+              <h4>12년</h4>
+              <p>원 클럽 플레이어 활동</p>
+          </div>
+          <div class="faker-stat-item">
+              <h4>최초</h4>
+              <p>LoL e스포츠 명예의 전당 헌액자</p>
+          </div>
+      </div>
+
+      <div class="card" style="margin-top: 2rem;">
+        <h3>압도적인 커리어와 영향력</h3>
+        <p>
+          Faker는 압도적인 우승 기록뿐만 아니라, 오랫동안 세계 최고의 미드 라이너 자리를 지키며 LoL e스포츠의 위상을 높인 상징적인 선수입니다. 그의 꾸준함과 자기관리, 그리고 끊임없는 도전 정신은 수많은 후배와 팬들에게 귀감이 되고 있습니다. 특히 그의 플레이 스타일은 '미드 라이너의 교본'으로 불리며, LoL의 메타 자체에 영향을 미쳤습니다.
+        </p>
+        
+        <ul class="faker-record-list">
+            <li>Worlds 우승 외에도 LCK 우승 10회, MSI 우승 2회 등 메이저 대회 최다 우승 기록을 보유하고 있습니다.</li>
+            <li>LoL e스포츠 역사상 최초로 1,000킬, 2,000킬을 달성했으며, LCK 통산 최다 출전 기록도 보유하고 있습니다.</li>
+            <li>2024년, LoL e스포츠 역사상 최초로 명예의 전당 (Hall of Legends)에 헌액되었습니다.</li>
+        </ul>
+      </div>
+
+      <div class="faker-quote">
+        "저는 제 자신이 가장 중요하고, 저를 믿고 플레이합니다."<br>
+        "4번째 우승은 우리 팀을 위한 것입니다." (Worlds 2023 티저 어록)
+      </div>
 
       <div class="card">
-        <h3>리그 오브 레전드의 살아있는 전설</h3>
+        <h3>Faker의 특징과 멘탈리티</h3>
         <p>
-          2013년 데뷔 후 지금까지 압도적인 커리어를 쌓았으며, 특히 월드 챔피언십 우승 횟수(4회)는 전무후무한 기록입니다. 그는 **T1 창단 멤버**이며 프로 데뷔부터 지금까지 **12년째 T1에서만 활동**하고 있습니다.
+          뛰어난 피지컬과 넓은 챔피언 폭은 물론, 경기 중 보여주는 강철 멘탈과 포커 페이스는 '불사대마왕(The Unkillable Demon King)'이라는 별명에 걸맞습니다. 그의 성실함과 검소한 생활 태도는 프로게이머로서의 모범 사례로 꼽히며, 그는 팀의 정신적인 지주로서 T1의 끈끈한 팀워크를 유지하는 데 핵심적인 역할을 수행하고 있습니다.
         </p>
-        <div class="pill-row">
-          <span class="pill">Worlds 4회 우승</span>
-          <span class="pill">LCK 10회 우승</span>
-          <span class="pill">LoL e스포츠 명예의 전당 최초 헌액</span>
-        </div>
       </div>
+
     </section>
 
     <section id="eras">
@@ -353,7 +437,7 @@
   </footer>
 
   <script>
-    console.log("T1 page loaded with updated ZOFGK information");
+    console.log("T1 page loaded with massively updated Faker section");
   </script>
 </body>
 </html>
