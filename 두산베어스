@@ -458,10 +458,13 @@
     <header>
       <nav class="nav">
         <div class="nav-logo">
-          <div class="nav-logo-badge">B</div>
-          <span>Doosan Bears</span>
-        </div>
-
+    <img
+        src="doosan_bears_logo.png"
+        alt="두산 베어스 로고"
+        class="nav-logo-image"
+    />
+    <span>Doosan Bears</span>
+</div>
         <div class="nav-menu">
           <a href="#history">역사</a>
           <a href="#golden-era">전성기</a>
@@ -912,3 +915,4 @@
   </div>
 </body>
 </html>
+
