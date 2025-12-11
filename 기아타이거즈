@@ -35,7 +35,7 @@
             margin:0 auto;
         }
 
-        /* --- 1. Hero 영역 스타일 --- */
+        /* --- 1. Hero 영역 스타일 (배경 이미지 텍스트 충돌 방지) --- */
         .hero{
             position:relative;
             height: 350px;
@@ -44,8 +44,8 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            /* 배경 이미지 설정 (KIA를 상징하는 강력한 이미지로 교체 필요) */
-            background: url('https://dummyimage.com/1200x350/e03222/ffffff.png&text=KIA+TIGERS+HERO') no-repeat center center/cover; 
+            /* 배경 이미지를 텍스트가 없는 단순한 색상으로 변경 */
+            background: url('https://dummyimage.com/1200x350/e03222/e03222.png') no-repeat center center/cover; 
             overflow:hidden;
             margin-bottom: 2rem;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
@@ -345,7 +345,6 @@
                     가을 야구의 기억을 품은 붉은 호랑이
                 </p>
             </div>
-            
         </header>
 
         <nav class="nav">
@@ -353,7 +352,7 @@
                 <li><a href="#overview">구단 소개</a></li>
                 <li><a href="#history">역사</a></li>
                 <li><a href="#legend">레전드 이종범</a></li>
-                </ul>
+            </ul>
         </nav>
 
         <main class="container">
@@ -387,7 +386,6 @@
                     <span class="arrow">→</span>
                     <span>현재</span>
                 </div>
-                
 
                 <ul class="timeline">
                     <li>
@@ -481,6 +479,7 @@
                     const id = entry.target.getAttribute('id');
                     const currentLink = document.querySelector(`.nav a[href="#${id}"]`);
 
+                    // 섹션이 뷰포트 상단 70%에 도달하면 활성화
                     if (entry.isIntersecting) {
                         navLinks.forEach(link => link.classList.remove('active'));
                         if (currentLink) {
@@ -489,7 +488,7 @@
                     }
                 });
             }, { 
-                rootMargin: '0px 0px -70% 0px' // 뷰포트 상단에서 70% 지점에 도달했을 때 감지
+                rootMargin: '0px 0px -70% 0px' 
             });
 
             sections.forEach(section => {
