@@ -2,18 +2,341 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>KIA 타이거즈 소개</title>
-    <!-- 외부 CSS 파일 연결 -->
-    <link rel="stylesheet" href="style.css">
+    <title>KIA 타이거즈 소개 | KBO 명문 구단</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* CSS 변수 설정 */
+        :root{
+            --kia-red: #e03222; /* KIA 타이거즈 상징적인 붉은색 */
+            --kia-black: #2a2a2a; /* 짙은 검정색 */
+            --bg-dark: #0f0f15;
+            --card-bg: rgba(18, 18, 25, 0.9);
+            --text-main: #f0f0f5;
+            --text-sub: #b0b0b9;
+            --accent-gold: #c8a33c; /* 우승 트로피 느낌의 골드 */
+        }
+        
+        /* 기본 설정 및 리셋 */
+        *{box-sizing: border-box; margin:0; padding:0;}
+        body{
+            font-family: "Noto Sans KR", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            background: radial-gradient(circle at top, #151d2e 0%, #0d0d12 45%, var(--bg-dark) 100%);
+            color:var(--text-main);
+            line-height:1.6;
+            min-height:100vh;
+        }
+        a{color:inherit; text-decoration:none;}
+        
+        .page{
+            max-width:1200px;
+            margin:0 auto;
+        }
+
+        /* --- 1. Hero 영역 스타일 --- */
+        .hero{
+            position:relative;
+            height: 350px;
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            /* 배경 이미지 설정 (KIA를 상징하는 강력한 이미지로 교체 필요) */
+            background: url('https://dummyimage.com/1200x350/e03222/ffffff.png&text=KIA+TIGERS+HERO') no-repeat center center/cover; 
+            overflow:hidden;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .hero-overlay{
+            position:absolute;
+            inset:0;
+            background: rgba(0,0,0,0.6);
+            /* 붉은색 그라데이션 오버레이로 강렬함 부여 */
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(224,50,34,0.3), rgba(0,0,0,0.8));
+            z-index:1;
+        }
+        .hero-content{
+            position:relative;
+            z-index:2;
+            padding: 0 1rem;
+        }
+        .hero-label{
+            font-size:0.9rem;
+            color: var(--accent-gold);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+        .hero h1{
+            font-family: "Cinzel", serif;
+            font-size: clamp(3rem, 5vw + 1rem, 4.5rem);
+            letter-spacing: 0.08em;
+            color: var(--text-main);
+            text-shadow: 0 0 10px rgba(224,50,34,0.7);
+            margin-bottom: 0.75rem;
+        }
+        .hero-subtitle{
+            font-size:1.1rem;
+            color: var(--text-sub);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* --- 2. Navigation 스타일 --- */
+        .nav{
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(15, 15, 21, 0.95);
+            border-bottom: 1px solid rgba(224, 50, 34, 0.4);
+            backdrop-filter: blur(8px);
+        }
+        .nav ul{
+            display:flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0.75rem 1.5rem;
+            gap: 2.5rem;
+            font-size: 1rem;
+        }
+        .nav a{
+            position:relative;
+            color: var(--text-sub);
+            padding-bottom: 0.3rem;
+            transition: color .2s ease;
+        }
+        .nav a::after{
+            content:"";
+            position:absolute;
+            left:0;
+            bottom:0;
+            width:0;
+            height:3px;
+            background: linear-gradient(90deg, var(--accent-gold), var(--kia-red));
+            transition: width .3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .nav a:hover, .nav a.active{
+            color: var(--text-main);
+        }
+        .nav a:hover::after{
+            width:100%;
+        }
+
+        /* --- 3. Main Content 및 Card 스타일 --- */
+        .container{
+            padding: 3rem 1.5rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .card{
+            background: var(--card-bg);
+            border-radius: 18px;
+            border: 1px solid rgba(224, 50, 34, 0.3);
+            padding: 2rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+        }
+        .card h2{
+            font-family: "Cinzel", serif;
+            font-size: 1.8rem;
+            letter-spacing: 0.05em;
+            color: var(--kia-red);
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(224, 50, 34, 0.2);
+        }
+        .card p{
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            color: var(--text-main);
+        }
+
+        /* 강조 카드 스타일 (History 섹션) */
+        .card-accent{
+            border: 1px solid var(--accent-gold);
+            background: radial-gradient(circle at 0% 0%, rgba(224,50,34,0.1), transparent 40%), var(--card-bg);
+        }
+        .card-accent h2{
+            color: var(--accent-gold);
+            border-bottom: 2px solid rgba(200, 163, 60, 0.3);
+        }
+
+        /* Tag 스타일 */
+        .tag-row{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+        }
+        .tag{
+            border-radius: 999px;
+            border: 1px solid var(--kia-red);
+            padding: 0.3rem 1rem;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--kia-red);
+            background: rgba(224, 50, 34, 0.1);
+        }
+
+        /* Timeline 스타일 */
+        .history-badge{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            font-family: "Cinzel", serif;
+            font-size: 1.2rem;
+            color: var(--accent-gold);
+            margin-bottom: 2rem;
+        }
+        .history-badge span{padding: 0.3rem 0.6rem;}
+        .timeline{
+            list-style: none;
+            border-left: 2px solid var(--text-sub);
+            padding-left: 20px;
+            position: relative;
+        }
+        .timeline li{
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+        .timeline li::before{
+            content: "";
+            position: absolute;
+            left: -28px;
+            top: 5px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--kia-red);
+            border: 3px solid var(--bg-dark);
+            box-shadow: 0 0 10px rgba(224, 50, 34, 0.7);
+        }
+        .timeline h3{
+            color: var(--text-main);
+            font-size: 1.15rem;
+            margin-bottom: 0.4rem;
+        }
+        .timeline p{
+            font-size: 0.95rem;
+            color: var(--text-sub);
+            margin-bottom: 0;
+        }
+
+        /* --- 4. Legend 섹션 스타일 (이종범) --- */
+        .legend-card{
+            border: 1px solid var(--kia-red);
+            box-shadow: 0 0 30px rgba(224, 50, 34, 0.5);
+        }
+        .legend-header{
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(224, 50, 34, 0.5);
+        }
+        .number-circle{
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--kia-red), #ff4b6b);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 3px solid var(--text-main);
+            box-shadow: 0 0 15px var(--kia-red);
+        }
+        .number-circle span{
+            font-family: "Cinzel", serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        .legend-label{
+            font-size: 0.8rem;
+            color: var(--accent-gold);
+            letter-spacing: 0.1em;
+            margin-bottom: 0.2rem;
+        }
+        .legend-card h2{
+            font-family: "Noto Sans KR", sans-serif;
+            font-size: 2rem;
+            color: var(--text-main);
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+
+        .legend-highlight{
+            margin-top: 2rem;
+            padding: 1.5rem;
+            border-left: 4px solid var(--accent-gold);
+            background: rgba(200, 163, 60, 0.05);
+            border-radius: 8px;
+        }
+        .legend-highlight h3{
+            font-size: 1.1rem;
+            color: var(--accent-gold);
+            margin-bottom: 0.8rem;
+        }
+        .legend-highlight ul{
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .legend-highlight li{
+            position: relative;
+            padding-left: 1.2rem;
+            font-size: 0.95rem;
+            color: var(--text-sub);
+            margin-bottom: 0.4rem;
+        }
+        .legend-highlight li::before{
+            content: "▶";
+            position: absolute;
+            left: 0;
+            color: var(--kia-red);
+            font-size: 0.8rem;
+        }
+
+        /* --- 5. Footer 스타일 --- */
+        .footer{
+            border-top: 1px solid rgba(224, 50, 34, 0.3);
+            padding: 1.5rem;
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-sub);
+            background: radial-gradient(circle at 50% 0, rgba(224, 50, 34, 0.04), transparent 50%);
+        }
+
+        /* 미디어 쿼리 (반응형 디자인) */
+        @media (max-width: 768px) {
+            .hero h1{font-size: clamp(2.5rem, 8vw, 3.5rem);}
+            .hero-subtitle{font-size: 1rem;}
+            .nav ul{gap: 1.5rem; font-size: 0.9rem;}
+            .container{padding: 2rem 1rem;}
+            .card{padding: 1.5rem;}
+            .card h2{font-size: 1.5rem;}
+            .legend-header{flex-direction: column; text-align: center;}
+            .legend-header > div{text-align: center;}
+        }
+
+        @media (max-width: 480px) {
+            .timeline{padding-left: 10px;}
+            .timeline li::before{left: -18px;}
+        }
+    </style>
 </head>
 <body>
-    <!-- 전체 페이지를 감싸는 요소 -->
     <div class="page">
 
-        <!-- 상단 히어로 영역 : 팀 이름 + 간단한 문구 -->
         <header class="hero">
             <div class="hero-overlay"></div>
-
             <div class="hero-content">
                 <p class="hero-label">KBO 명문 구단</p>
                 <h1>KIA 타이거즈</h1>
@@ -22,27 +345,25 @@
                     가을 야구의 기억을 품은 붉은 호랑이
                 </p>
             </div>
+            
         </header>
 
-        <!-- 내비게이션 (같은 페이지 안에서 섹션으로 스크롤) -->
         <nav class="nav">
             <ul>
                 <li><a href="#overview">구단 소개</a></li>
                 <li><a href="#history">역사</a></li>
                 <li><a href="#legend">레전드 이종범</a></li>
-            </ul>
+                </ul>
         </nav>
 
-        <!-- 메인 컨텐츠 영역 -->
         <main class="container">
 
-            <!-- 구단 개요 섹션 -->
             <section id="overview" class="card">
                 <h2>구단 소개</h2>
                 <p>
                     KIA 타이거즈는 광주를 연고로 하는 KBO 리그의 프로야구 구단으로,
                     2001년까지는 해태 타이거즈라는 이름으로 활동했습니다.
-                    해태 시절부터 기아까지 합치면 KBO 최다 한국시리즈 우승을 기록한,
+                    해태 시절부터 기아까지 합치면 **KBO 최다 한국시리즈 우승(V12)**을 기록한,
                     명실상부한 한국 야구의 대표 명문 구단입니다.
                 </p>
                 <p>
@@ -58,7 +379,6 @@
                 </div>
             </section>
 
-            <!-- 역사 섹션 -->
             <section id="history" class="card card-accent">
                 <h2>해태 타이거즈에서 KIA 타이거즈까지</h2>
 
@@ -67,6 +387,7 @@
                     <span class="arrow">→</span>
                     <span>현재</span>
                 </div>
+                
 
                 <ul class="timeline">
                     <li>
@@ -88,7 +409,7 @@
                         <h3>1980~90년대 – 해태 왕조 시대</h3>
                         <p>
                             선동열, 김성한, 이순철 등 레전드 선수들이 합류하며
-                            해태 타이거즈는 9번의 한국시리즈 우승을 차지하는
+                            해태 타이거즈는 **9번의 한국시리즈 우승**을 차지하는
                             최강 명문 구단으로 자리 잡았습니다.
                         </p>
                     </li>
@@ -110,7 +431,6 @@
                 </ul>
             </section>
 
-            <!-- 레전드 이종범 섹션 -->
             <section id="legend" class="card legend-card">
                 <div class="legend-header">
                     <div class="number-circle">
@@ -123,9 +443,9 @@
                 </div>
 
                 <p>
-                    등번호 7번 이종범은 해태–KIA 타이거즈를 상징하는 레전드이자,
+                    등번호 **7번 이종범**은 해태–KIA 타이거즈를 상징하는 레전드이자,
                     KBO 리그 전체를 대표하는 슈퍼스타입니다. 빠른 발과 넓은 수비 범위,
-                    장타력과 교타 능력을 동시에 갖춘 ‘5툴 플레이어’로,
+                    장타력과 교타 능력을 동시에 갖춘 **‘5툴 플레이어’**로,
                     ‘바람의 아들’이라는 별명을 얻었습니다.
                 </p>
                 <p>
@@ -146,10 +466,39 @@
             </section>
         </main>
 
-        <!-- 하단 푸터 -->
         <footer class="footer">
-            <p>⚾ Fan made page – KIA 타이거즈를 사랑하는 마음으로 제작한 기아타이거즈즈 소개 페이지입니다.</p>
+            <p>⚾ Fan made page – KIA 타이거즈를 사랑하는 마음으로 제작한 비공식 소개 페이지입니다.</p>
         </footer>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav a');
+
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    const id = entry.target.getAttribute('id');
+                    const currentLink = document.querySelector(`.nav a[href="#${id}"]`);
+
+                    if (entry.isIntersecting) {
+                        navLinks.forEach(link => link.classList.remove('active'));
+                        if (currentLink) {
+                            currentLink.classList.add('active');
+                        }
+                    }
+                });
+            }, { 
+                rootMargin: '0px 0px -70% 0px' // 뷰포트 상단에서 70% 지점에 도달했을 때 감지
+            });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+        
+        // 아주 간단한 디버그 로그
+        console.log("KIA Tigers fan page loaded");
+    </script>
 </body>
 </html>
