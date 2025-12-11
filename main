@@ -120,8 +120,8 @@
             <h2>KIA 타이거즈</h2>
         </a>
 
-        <a href="https://i.namu.wiki/i/u2hDqv1_seYcyJL9GYhdSHxlJGBkkQ1Bvim91_XiY_AgRasLHhmrB9qaB0YTWV-d8zkhjeiutEiWBYq455vJLai4x5_R_eL6yZQAIe2-Nu93csLXT-UllhJWSgjm1i7ECuUXWsZyx9RF_FwaY2Ggfg.svg" class="team-card t1-theme">
-            <img src="t1_logo.png" alt="T1 로고">
+        <a href="t1.html"team-card t1-theme">
+            <img src="https://i.namu.wiki/i/u2hDqv1_seYcyJL9GYhdSHxlJGBkkQ1Bvim91_XiY_AgRasLHhmrB9qaB0YTWV-d8zkhjeiutEiWBYq455vJLai4x5_R_eL6yZQAIe2-Nu93csLXT-UllhJWSgjm1i7ECuUXWsZyx9RF_FwaY2Ggfg.svg" alt="T1 로고">
             <h2>T1</h2>
         </a>
     </main>
