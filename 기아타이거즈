@@ -275,6 +275,7 @@
         .history-list li:hover {
             background: rgba(224, 50, 34, 0.05); /* 호버 효과 */
         }
+        /* 우승 년도 표시는 특별한 강조 */
         .history-list li.championship-year::before {
             background: var(--accent-gold);
             box-shadow: 0 0 15px rgba(200, 163, 60, 1);
@@ -303,6 +304,7 @@
             font-size: 0.95rem;
             color: var(--text-sub);
             margin-bottom: 0;
+            text-align: justify;
         }
         .history-list .tag-row {
             margin-top: 0.8rem;
@@ -311,6 +313,44 @@
         .history-list .tag {
             font-size: 0.75rem;
             padding: 0.2rem 0.6rem;
+        }
+        /* 우승 바로가기 섹션 스타일 */
+        #championship-nav {
+            margin-bottom: 2.5rem;
+            padding: 1.5rem;
+            background: rgba(224, 50, 34, 0.05);
+            border: 1px dashed rgba(224, 50, 34, 0.3);
+            border-radius: 10px;
+        }
+        #championship-nav h3 {
+            color: var(--accent-gold);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            border-left: none;
+        }
+        .championship-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.8rem;
+        }
+        .championship-links a {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: var(--kia-dark-red);
+            color: white;
+            border: 2px solid var(--kia-red);
+            border-radius: 8px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            font-family: "Orbit", sans-serif;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.5);
+        }
+        .championship-links a:hover {
+            background: var(--kia-red);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(224, 50, 34, 0.6);
         }
 
 
@@ -524,83 +564,209 @@
                 <p class="section-subtitle">
                     KBO 리그의 시작부터 현재까지, 한국 야구의 역사를 써 내려온 타이거즈의 주요 연대기를 살펴봅니다.
                 </p>
+                
+                <div id="championship-nav">
+                    <h3>🏆 타이거즈 우승 연대기 바로가기 (V12)</h3>
+                    <div class="championship-links">
+                        <a href="#V1">V1 (1983)</a>
+                        <a href="#V2">V2 (1986)</a>
+                        <a href="#V3">V3 (1987)</a>
+                        <a href="#V4">V4 (1988)</a>
+                        <a href="#V5">V5 (1989)</a>
+                        <a href="#V6">V6 (1991)</a>
+                        <a href="#V7">V7 (1993)</a>
+                        <a href="#V8">V8 (1996)</a>
+                        <a href="#V9">V9 (1997)</a>
+                        <a href="#V10">V10 (2009)</a>
+                        <a href="#V11">V11 (2017)</a>
+                        <a href="#V12">V12 (2024)</a>
+                    </div>
+                </div>
+
 
                 <ul class="history-list">
-                    <li class="championship-year">
+                    <li class="championship-year" id="V1">
                         <h3>1983년 – 첫 우승, 해태 왕조의 서막 (V1)</h3>
                         <p>
-                            창단 직후 김응룡 감독 체제에서 첫 한국시리즈 우승을 차지하며, 불멸의 **V9** 왕조 시대를 열었습니다.
-                            가난한 구단이었지만 강한 정신력과 호남 팜의 강력한 선수층으로 리그를 지배했습니다.
+                            프로야구 창설 이듬해, **김응룡 감독**이 이끄는 해태 타이거즈는 한국시리즈에서 MBC 청룡을 4승 1패로 꺾고 창단 첫 우승을 차지했습니다. 
+                            이 해 **김성한 선수**가 투타겸업으로 골든글러브 2개를 수상하는 기염을 토하며 왕조의 기틀을 다졌습니다. 가난한 구단이었지만 강한 정신력과 호남 팜의 강력한 선수층이 팀의 핵심이었습니다.
                         </p>
                         <div class="tag-row">
                             <span class="tag gold">V1</span>
                             <span class="tag">김응룡 감독</span>
+                            <span class="tag">김성한</span>
                             <span class="tag">무등경기장</span>
                         </div>
                     </li>
-                    <li>
-                        <h3>1980~90년대 – 불멸의 V9 시대</h3>
+                    
+                    <li class="championship-year" id="V2">
+                        <h3>1986년 – 왕조 3연패의 시작 (V2)</h3>
                         <p>
-                            선동열, 이종범, 김성한 등 기라성 같은 레전드들을 배출하며 KBO 리그 최초로 **단일 팀 9회 우승**이라는 전무후무한 대기록을 수립했습니다.
+                            에이스 **선동열**이 합류하며 투수진이 더욱 강력해졌습니다. 한국시리즈에서 삼성 라이온즈를 상대로 4승 1패로 승리하며 두 번째 우승을 기록했고, 이는 1988년까지 이어지는 **한국시리즈 3연패**의 시작점이 되었습니다. 선동열은 이 해 MVP를 차지했습니다.
                         </p>
                         <div class="tag-row">
-                            <span class="tag">선동열</span>
-                            <span class="tag">이종범</span>
+                            <span class="tag gold">V2</span>
+                            <span class="tag">선동열 합류</span>
+                            <span class="tag">3연패 시작</span>
+                        </div>
+                    </li>
+                    
+                    <li class="championship-year" id="V3">
+                        <h3>1987년 – 드라마틱한 2년 연속 우승 (V3)</h3>
+                        <p>
+                            한국시리즈에서 삼성 라이온즈를 상대로 4전 전승을 거두며 완벽한 승리를 이끌었습니다. 비록 전승이었으나 4경기 모두 1점차 접전이 펼쳐지며 '타이거즈는 강하다'는 인식을 확고히 했습니다. 이 때부터 해태의 **가을 야구 DNA**가 팬들에게 깊이 각인되기 시작했습니다.
+                        </p>
+                        <div class="tag-row">
+                            <span class="tag gold">V3</span>
+                            <span class="tag">KS 4전 전승</span>
+                            <span class="tag">가을 DNA</span>
+                        </div>
+                    </li>
+
+                    <li class="championship-year" id="V4">
+                        <h3>1988년 – 최초의 3년 연속 우승 (V4)</h3>
+                        <p>
+                            해태는 빙그레 이글스를 물리치고 KBO 리그 **최초로 한국시리즈 3년 연속 우승**이라는 금자탑을 쌓았습니다. 이 시기 해태는 압도적인 전력을 바탕으로 80년대 후반을 완벽하게 지배했습니다. **한대화** 선수가 팀 타선을 이끌었습니다.
+                        </p>
+                        <div class="tag-row">
+                            <span class="tag gold">V4</span>
+                            <span class="tag">KBO 최초 3연패</span>
+                            <span class="tag">한대화</span>
+                        </div>
+                    </li>
+                    
+                    <li class="championship-year" id="V5">
+                        <h3>1989년 – 4년 만의 우승 탈환 (V5)</h3>
+                        <p>
+                            비록 1989년 시즌 중후반까지 빙그레 이글스에 밀렸지만, 한국시리즈에서 다시 만나 빙그레를 4승 1패로 꺾고 우승을 차지했습니다. 해태의 **'지면 끝'**이라는 정신력이 가장 잘 드러난 시리즈였습니다.
+                        </p>
+                        <div class="tag-row">
+                            <span class="tag gold">V5</span>
+                            <span class="tag">빙그레 격파</span>
+                            <span class="tag">강한 정신력</span>
+                        </div>
+                    </li>
+
+                    <li class="championship-year" id="V6">
+                        <h3>1991년 – 다시 한번 정상에 서다 (V6)</h3>
+                        <p>
+                            정규시즌 1위를 차지한 후, 한국시리즈에서 빙그레 이글스를 4승 무패로 압도하며 우승을 달성했습니다. 이 시리즈에서 **이순철 선수**가 맹활약하며 MVP를 수상했습니다. 해태는 90년대에도 여전히 최강팀임을 증명했습니다.
+                        </p>
+                        <div class="tag-row">
+                            <span class="tag gold">V6</span>
+                            <span class="tag">이순철 MVP</span>
+                            <span class="tag">KS 4전 전승</span>
+                        </div>
+                    </li>
+
+                    <li class="championship-year" id="V7">
+                        <h3>1993년 – 이종범 시대의 개막 (V7)</h3>
+                        <p>
+                            **이종범 선수**가 입단하며 팀에 새로운 활력을 불어넣었습니다. 해태는 한국시리즈에서 삼성 라이온즈를 4승 2패로 꺾고 우승을 차지했고, 이종범은 신인임에도 불구하고 한국시리즈 MVP에 등극하며 **'바람의 아들'** 시대를 열었습니다.
+                        </p>
+                        <div class="tag-row">
+                            <span class="tag gold">V7</span>
+                            <span class="tag">이종범 입단</span>
+                            <span class="tag">KS MVP</span>
+                        </div>
+                    </li>
+                    
+                    <li class="championship-year" id="V8">
+                        <h3>1996년 – 선동열의 마지막 우승 (V8)</h3>
+                        <p>
+                            선동열이 일본 진출을 앞둔 마지막 시즌, 해태는 현대 유니콘스를 4승 2패로 누르고 우승컵을 들어 올렸습니다. **이강철, 임창용** 등 투수진의 세대교체가 이루어지는 과도기였지만, 베테랑들의 힘으로 우승을 지켜냈습니다.
+                        </p>
+                        <div class="tag-row">
+                            <span class="tag gold">V8</span>
+                            <span class="tag">선동열 고별</span>
+                            <span class="tag">이강철</span>
+                        </div>
+                    </li>
+
+                    <li class="championship-year" id="V9">
+                        <h3>1997년 – 불멸의 V9 달성</h3>
+                        <p>
+                            해태 타이거즈의 **마지막 우승**이자, KBO 리그 역사상 단일팀 **V9**이라는 전무후무한 대기록을 완성한 해입니다. 이종범의 괴물 같은 활약과 탄탄한 팀워크로 LG 트윈스를 4승 1패로 꺾었습니다. 이후 해태는 모기업의 재정 악화로 암흑기에 접어들었습니다.
+                        </p>
+                        <div class="tag-row">
                             <span class="tag gold">V9 달성</span>
+                            <span class="tag">이종범 최고 전성기</span>
+                            <span class="tag">해태 마지막 우승</span>
                         </div>
                     </li>
+                    
                     <li>
-                        <h3>2001년 – KIA 타이거즈로 재탄생</h3>
+                        <h3>1998~2000년대 초 – 암흑기와 해태의 몰락</h3>
                         <p>
-                            모기업 해태의 경영난으로 인해 기아자동차가 구단을 인수하며 새로운 엠블럼과 유니폼으로 재정비했습니다. 해태의 역사를 그대로 계승했습니다.
+                            IMF 외환 위기와 모기업 해태그룹의 경영난으로 인해 팀은 극심한 재정 압박을 받았습니다. 주축 선수들이 떠나가고 팜이 붕괴되는 등 어려운 시기를 보냈으며, 2001년 최종적으로 기아자동차에 인수되어 **KIA 타이거즈**로 재탄생하게 됩니다.
                         </p>
                         <div class="tag-row">
-                            <span class="tag">기아 인수</span>
-                            <span class="tag">팀명 변경</span>
-                            <span class="tag">역사 계승</span>
+                            <span class="tag">IMF 위기</span>
+                            <span class="tag">재정난</span>
+                            <span class="tag">KIA 인수</span>
                         </div>
                     </li>
-                    <li class="championship-year">
+
+                    <li class="championship-year" id="V10">
                         <h3>2009년 – 12년 만의 부활 (V10)</h3>
                         <p>
-                            조범현 감독의 리빌딩 속에 윤석민, 김상현, 나지완 등 새로운 주역들이 등장했습니다. 나지완의 끝내기 홈런으로 12년 만에 감격적인 우승(V10)을 달성했습니다.
+                            **조범현 감독** 체제 하에 오랜 리빌딩이 결실을 맺었습니다. **윤석민, 김상현, 나지완** 등 새로운 주역들이 등장하고, 베테랑 이종범이 복귀해 팀을 이끌었습니다. 한국시리즈 7차전, **나지완의 끝내기 홈런**이라는 드라마틱한 승리로 12년 만에 감격적인 V10을 달성하며 KIA 왕조 부활의 서막을 알렸습니다.
                         </p>
                         <div class="tag-row">
                             <span class="tag gold">V10</span>
-                            <span class="tag">끝내기 홈런</span>
+                            <span class="tag">나지완 끝내기</span>
                             <span class="tag">윤석민 에이스</span>
+                            <span class="tag">12년 만의 우승</span>
                         </div>
                     </li>
-                    <li class="championship-year">
+                    
+                    <li>
+                        <h3>2010년대 중반 – 챔피언스 필드 시대 개막과 재도약</h3>
+                        <p>
+                            2014년 새로운 홈구장인 **광주-KIA 챔피언스 필드**를 개장하며 구단의 인프라가 획기적으로 개선되었습니다. **양현종, 김주찬, 최형우**를 중심으로 전력을 보강하며 다시 한번 강팀으로 도약할 준비를 마쳤습니다.
+                        </p>
+                        <div class="tag-row">
+                            <span class="tag">챔필 개장</span>
+                            <span class="tag">양현종 성장</span>
+                            <span class="tag">전력 보강</span>
+                        </div>
+                    </li>
+                    
+                    <li class="championship-year" id="V11">
                         <h3>2017년 – 통합 우승, 최강 KIA (V11)</h3>
                         <p>
-                            최형우 영입 등 전폭적인 투자와 양현종(KS MVP)의 활약으로 정규 시즌과 한국시리즈를 모두 제패하는 통합 우승(V11)을 차지하며 KIA 왕조 시대를 다시 열었습니다.
+                            정규 시즌을 압도적인 성적으로 1위로 마쳤습니다. 한국시리즈에서는 두산 베어스를 만나 4승 1패로 꺾고 **정규 시즌-한국시리즈 통합 우승**을 달성했습니다. **양현종**은 한국시리즈 MVP를 차지하며 명실상부한 에이스임을 증명했고, KBO의 최강팀으로 군림했습니다.
                         </p>
                         <div class="tag-row">
                             <span class="tag gold">V11</span>
                             <span class="tag">통합 우승</span>
                             <span class="tag">양현종 MVP</span>
+                            <span class="tag">최강팀</span>
                         </div>
                     </li>
-                    <li class="championship-year">
+                    
+                    <li class="championship-year" id="V12">
                         <h3>2024년 – 위기를 딛고 V12 달성</h3>
                         <p>
-                            시즌 초 악재와 주축 선수들의 부상 속에서도 이범호 감독 체제 하에 압도적인 타선과 김도영의 폭발적인 성장으로 V12 우승을 달성했습니다.
+                            시즌 초 악재와 주축 선수들의 부상 속에서도 **이범호 감독** 체제 하에 압도적인 타선과 젊은 선수들의 폭발적인 성장으로 정규시즌 우승을 차지했습니다. 한국시리즈에서도 투타의 완벽한 조화로 V12 우승을 달성했습니다. **김도영**의 눈부신 활약이 돋보인 시즌이었습니다.
                         </p>
                         <div class="tag-row">
                             <span class="tag gold">V12</span>
                             <span class="tag">이범호 감독</span>
                             <span class="tag">김도영 MVP</span>
+                            <span class="tag">젊은 세대교체</span>
                         </div>
                     </li>
+                    
                     <li>
                         <h3>현재 – V13을 향한 전진</h3>
                         <p>
-                            V12 우승을 이끈 젊은 주축 선수들을 중심으로 세대교체를 완성하며, 지속적인 챔피언의 역사를 이어가기 위한 뎁스 강화에 집중하고 있습니다.
+                            V12 우승을 이끈 **김도영, 정해영** 등 젊은 주축 선수들을 중심으로 세대교체를 완성하며, 지속적인 챔피언의 역사를 이어가기 위한 뎁스 강화에 집중하고 있습니다. 타이거즈는 영원히 꺼지지 않는 불꽃처럼 V13을 향해 나아가고 있습니다.
                         </p>
                         <div class="tag-row">
                             <span class="tag">새로운 도전</span>
                             <span class="tag">젊은 뎁스</span>
+                            <span class="tag">V13 목표</span>
                         </div>
                     </li>
                 </ul>
@@ -699,6 +865,9 @@
             const navLinks = document.querySelectorAll('.nav a');
             const navBar = document.querySelector('.nav');
 
+            // ID를 가진 모든 우승 연도 항목 가져오기
+            const championshipYears = document.querySelectorAll('.history-list li.championship-year[id]');
+
             const observer = new IntersectionObserver(entries => {
                 entries.forEach(entry => {
                     const id = entry.target.getAttribute('id');
@@ -769,6 +938,33 @@
                         });
                     }
             });
+
+            // 우승 연대기 바로가기 링크에 부드러운 스크롤 적용
+            document.querySelectorAll('.championship-links a').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                        const navHeight = navBar.offsetHeight;
+                        // Timeline 요소가 카드 안에 있으므로, 카드의 위치를 고려해야 함
+                        const cardTop = document.getElementById('history').offsetTop;
+                        
+                        // 정확한 timeline 항목 위치 계산
+                        const elementPosition = targetElement.offsetTop;
+                        
+                        // Timeline 항목이 포함된 'history' 섹션의 상단 위치에서 Nav 높이만큼 빼서 스크롤 위치 조정
+                        const offsetPosition = cardTop + elementPosition + window.pageYOffset - navHeight - 30; // 30px는 여유 공간
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+
         });
     </script>
 </body>
