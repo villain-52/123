@@ -8,6 +8,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
 
   <style>
+    /* ====================================
+            CSS 스타일 시작 (하나로 통합됨)
+         ==================================== */
     :root{
       --t1-red: #e01930;
       --lol-gold: #c89b3c;
@@ -101,6 +104,9 @@
       .lineup-grid{grid-template-columns:repeat(2, minmax(0,1fr));}
       .hero-frame-body{grid-template-columns:1fr;}
     }
+    /* ====================================
+            CSS 스타일 종료
+         ==================================== */
   </style>
 </head>
 <body>
@@ -202,15 +208,15 @@
 
           </section>
 
-      </main>
+  </main>
 
   <footer>
-    이 페이지는 리그 오브 레전드 프로팀 T1과 선수 Faker, 제오페구케 라인업을 사랑하는 팬이 만든 비공공식 팬페이지입니다. Riot Games 및 T1과는 무관합니다.
+    이 페이지는 리그 오브 레전드 프로팀 T1과 선수 Faker, 제오페구케 라인업을 사랑하는 팬이 만든 비공식 팬페이지입니다. Riot Games 및 T1과는 무관합니다.
   </footer>
 
   <script>
-    // 아주 간단한 디버그 로그 — 브라우저 콘솔(F12)에서 "T1 page loaded"가 보이면 정상 로드
-    console.log("T1 page loaded");
+    // JavaScript는 특별한 오류 없이 작동합니다.
+    console.log("T1 page loaded successfully.");
   </script>
 </body>
 </html>
