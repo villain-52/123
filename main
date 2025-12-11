@@ -14,7 +14,6 @@
             text-align: center;
             margin: 0;
             padding: 0;
-            /* footer가 아래 고정되어 콘텐츠를 가리지 않도록 하단 여백 추가 */
             padding-bottom: 80px; 
         }
 
@@ -29,13 +28,13 @@
         .team-selection {
             display: flex;
             justify-content: center;
-            flex-wrap: wrap; /* 화면이 좁아지면 아래로 내려가게 설정 */
-            gap: 40px; /* 카드 사이 간격 */
+            flex-wrap: wrap; 
+            gap: 40px; 
             padding: 50px 20px;
         }
 
         .team-card {
-            text-decoration: none; /* 링크 밑줄 제거 */
+            text-decoration: none; 
             color: inherit;
             width: 220px;
             padding: 30px 20px;
@@ -48,16 +47,15 @@
         }
 
         .team-card:hover {
-            transform: translateY(-10px); /* 호버 시 위로 쑥 올라감 */
+            transform: translateY(-10px); 
             box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
         }
 
         .team-card img {
-            width: 120px;
-            height: 120px;
+            width: 120px; /* 기본 이미지 크기 */
+            height: 120px; /* 기본 이미지 크기 */
             object-fit: contain;
             margin-bottom: 15px;
-            /* 이미지가 없을 때를 대비한 배경 처리 */
             background-color: rgba(255,255,255,0.1);
             border-radius: 50%;
             padding: 10px;
@@ -68,26 +66,37 @@
             font-size: 1.5rem;
         }
 
-        /* 🍎 두산 베어스 테마 (네이비/레드/화이트) */
+        /* 🍎 두산 베어스 테마 */
         .doosan-theme {
-            background-color: #132448; /* 네이비 */
+            background-color: #132448;
             color: white;
-            border: 4px solid #E6002A; /* 레드 포인트 */
+            border: 4px solid #E6002A;
         }
 
-        /* 🐯 KIA 타이거즈 테마 (레드/블랙/화이트) */
+        /* 🐯 KIA 타이거즈 테마 */
         .kia-theme {
-            background-color: #C02026; /* 레드 */
+            background-color: #C02026;
             color: white;
-            border: 4px solid #000000; /* 블랙 포인트 */
+            border: 4px solid #000000;
         }
 
-        /* ⚡️ T1 테마 (레드/블랙/화이트) */
+        /* ⚡️ T1 테마 */
         .t1-theme {
-            background-color: #E7002C; /* T1 레드 */
+            background-color: #E7002C;
             color: white;
-            border: 4px solid #000000; /* 블랙 포인트 */
+            border: 4px solid #000000;
         }
+        
+        /* ⚡️ [수정 부분]: T1 카드 내 이미지 크기를 100x100으로 고정하여 덮어쓰기 */
+       .t1-theme img {
+    width: 100px;
+    height: 100px;
+    padding: 5px; 
+    
+    /* === 추가할 속성: 브라우저가 이미지를 축소/확대할 때 품질을 최적화하도록 지시 === */
+    image-rendering: -webkit-optimize-contrast; /* Webkit 기반 브라우저 (크롬, 사파리) */
+    image-rendering: crisp-edges; /* Firefox 및 최신 브라우저 */
+}
 
         footer {
             padding: 20px 0;
@@ -110,18 +119,18 @@
     </header>
 
     <main class="team-selection">
-        <a href="doosan.html" class="team-card doosan-theme">
+        <a href="두산베어스.html" class="team-card doosan-theme">
             <img src="https://i.namu.wiki/i/ATeFCxxG--NfLbjqMcXkzt1OlPvsRarQEgVkWUPxm_8gtxt8i06yaV5tDGWdKF3qXBfOGkrosuCKBCFpkum2cHGIqnBRcRftenrR3SPHzo_n6WEdq2rOXwDjoyZy7eUH4mUzfbUNMC64B9loGreG5g.svg" alt="두산 베어스 로고">
             <h2>두산 베어스</h2>
         </a>
 
-        <a href="kia.html" class="team-card kia-theme">
+        <a href="기아타이거즈.html" class="team-card kia-theme">
             <img src="https://i.namu.wiki/i/xBO8lp2WWX8VndvqqEpTDerYzlZwdWcDx4Ne1Q-8_MMvff1M52TElDedTFiId8Vhm5N6HHM_iY02AyxY7gUqfm8Mo6cgoQI-Mv-ty2PdIyNRBRtqU8-vVA6HZoN4bDXMGtJfsE1a3nlqMz02Whmb4A.svg" alt="KIA 타이거즈 로고">
             <h2>KIA 타이거즈</h2>
         </a>
 
-        <a href="t1.html"team-card t1-theme">
-            <img src="" alt="T1 로고">
+        <a href="t1.html" class="team-card t1-theme">
+            <img src="https://image.static.bstage.in/cdn-cgi/image/metadata=none/t1/12992936-9b97-4ecd-952a-31a24954b83f/5cef0f5a-3996-421d-bc34-501b33dc09f6/ori.png" alt="T1 로고">
             <h2>T1</h2>
         </a>
     </main>
