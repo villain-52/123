@@ -2,589 +2,774 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
+    <title>KIA 타이거즈 팬사이트 | V12 KBO 명문 구단</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KIA 타이거즈 역사: V1부터 V12까지</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Noto+Sans+KR:wght@300;400;700&family=Orbit:wght[400;700]&display=swap" rel="stylesheet">
+    
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700;900&display=swap');
-        
-        :root {
-            --kia-red: #da291c;
-            --kia-black: #222222;
-            --kia-yellow: #ffc72c;
-            --background-light: #f5f5f5;
-            --text-dark: #333333;
-        }
-
-        body {
-            font-family: 'Noto Sans KR', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--background-light);
-            color: var(--text-dark);
-            line-height: 1.7;
-        }
-
-        header {
-            background-color: var(--kia-red);
-            color: white;
-            padding: 40px 0;
-            text-align: center;
-            border-bottom: 5px solid var(--kia-black);
-            /* 네비게이션 고정을 위해 헤더 아래에 패딩 추가 */
-            margin-bottom: 60px; 
-        }
-
-        header h1 {
-            font-size: 3.5em;
-            margin: 0;
-            font-weight: 900;
-            letter-spacing: 3px;
-            text-shadow: 2px 2px var(--kia-black);
-        }
-
-        /* 네비게이션 바: 상단 고정 및 순서 변경 적용 */
-        nav {
-            background-color: var(--kia-black);
-            text-align: center;
-            padding: 15px 0;
-            
-            /* 핵심 수정: 상단에 고정 */
-            position: fixed;
-            top: 0; /* 화면 맨 위에 고정 */
-            width: 100%; /* 너비를 꽉 채움 */
-            z-index: 1000; /* 다른 요소 위에 표시 */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 20px;
-            font-weight: 700;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: var(--kia-yellow);
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            /* 네비게이션 고정을 감안하여 상단 마진 추가 */
-            margin: 20px auto; 
-            padding: 20px;
+        /* CSS 변수 설정 */
+        :root{
+            --kia-red: #e03222; /* KIA 타이거즈 상징적인 붉은색 */
+            --kia-dark-red: #a31e15; 
+            --kia-black: #1a1a1e; 
+            --bg-dark: #0d0d12;
+            --card-bg: rgba(18, 18, 25, 0.95); /* 카드 배경 불투명도 증가 */
+            --text-main: #f0f0f5;
+            --text-sub: #b0b0b9;
+            --accent-gold: #c8a33c; /* 우승 트로피 느낌의 골드 */
+            --line-gold: #d4af37;
         }
         
-        /* 컨테이너 상단에 고정된 네비게이션 바 높이만큼 여백 부여 */
-        .container section:first-of-type {
-            padding-top: 80px; 
+        /* 기본 설정 및 리셋 */
+        *{box-sizing: border-box; margin:0; padding:0;}
+        body{
+            font-family: "Noto Sans KR", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            background: radial-gradient(circle at top, #1e283d 0%, #0d0d12 60%, var(--bg-dark) 100%);
+            color:var(--text-main);
+            line-height:1.6;
+            min-height:100vh;
+        }
+        a{color:inherit; text-decoration:none;}
+        
+        .page{
+            max-width:1200px;
+            margin:0 auto;
         }
 
-
-        section {
-            padding: 40px 0;
-            margin-bottom: 40px;
-            border-bottom: 2px solid #ddd;
-        }
-
-        section h2 {
-            font-size: 2.5em;
+        /* --- Global 컴포넌트 스타일 --- */
+        .section-title{
+            font-family: "Cinzel", serif;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            letter-spacing: 0.05em;
             color: var(--kia-red);
-            border-bottom: 3px solid var(--kia-yellow);
-            padding-bottom: 10px;
-            margin-bottom: 30px;
-            font-weight: 800;
-        }
-
-        .era-timeline {
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(224, 50, 34, 0.2);
             display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .section-title::before{
+            content: "";
+            width: 30px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-gold), var(--kia-red));
+        }
+        .section-subtitle{
+            font-size: 1rem;
+            color: var(--text-sub);
+            margin-bottom: 2rem;
+            max-width: 800px;
+        }
+
+        /* --- 1. Hero 영역 스타일 --- */
+        .hero{
+            position:relative;
+            height: 480px; 
+            display:flex;
             flex-direction: column;
-            gap: 50px;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: 
+                radial-gradient(ellipse at center, rgba(224,50,34,0.1) 0%, transparent 80%),
+                linear-gradient(to top, rgba(13, 13, 18, 0.95), rgba(224,50,34,0.5) 40%, rgba(13, 13, 18, 0.95)), 
+                var(--kia-dark-red);
+            overflow:hidden;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+        }
+        .hero-overlay{
+            position:absolute;
+            inset:0;
+            background: rgba(0,0,0,0.3); 
+            z-index:1;
+        }
+        .hero-content{
+            position:relative;
+            z-index:2;
+            padding: 0 1rem;
+            text-shadow: 0 0 15px rgba(0,0,0,0.8); 
+        }
+        .hero-label{
+            font-size:1rem; 
+            color: var(--accent-gold);
+            letter-spacing: 0.15em; 
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        .hero h1{
+            font-family: "Cinzel", serif;
+            font-size: clamp(3.5rem, 6vw + 1rem, 6rem); 
+            letter-spacing: 0.1em;
+            color: var(--text-main);
+            text-shadow: 0 0 25px rgba(255,255,255,0.6), 0 0 15px rgba(224,50,34,1); 
+            margin-bottom: 1rem;
+        }
+        .hero-subtitle{
+            font-size:1.3rem; 
+            color: var(--text-sub);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+        .hero-cta-button {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 1rem 2.5rem; 
+            background: linear-gradient(to right, var(--kia-red), #ff6b6b);
+            color: white;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(224,50,34,0.7);
+            border: none;
+            cursor: pointer;
+        }
+        .hero-cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(224,50,34,0.9);
+            background: linear-gradient(to right, #ff6b6b, var(--kia-red));
         }
 
-        .era-box {
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            position: relative;
-            border-left: 5px solid var(--kia-red);
+        /* --- 2. Navigation 스타일 --- */
+        .nav{
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(15, 15, 21, 0.98); 
+            border-bottom: 1px solid rgba(224, 50, 34, 0.4);
+            backdrop-filter: blur(8px);
+            display: flex;
+            justify-content: space-between; 
+            align-items: center;
+            padding: 0.75rem 1.5rem;
         }
-
-        .era-box h3 {
-            font-size: 1.8em;
-            color: var(--kia-black);
-            margin-top: 0;
-            border-bottom: 1px dashed #ccc;
-            padding-bottom: 10px;
+        .nav-logo{
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-family: "Cinzel", serif;
+            font-weight: 700;
+            color: var(--text-main);
         }
-
-        .era-box ul {
+        .nav-logo-mark{
+            /* KIA 심볼 마크 (SVG 대체 디자인) */
+            width: 35px;
+            height: 35px;
+            background-color: var(--kia-red);
+            clip-path: polygon(0% 0%, 50% 100%, 100% 0%); /* 삼각형 모양으로 KIA의 'ㅅ' 형상화 */
+            display: inline-block;
+            transform: rotate(180deg);
+        }
+        .nav ul{
+            display:flex;
             list-style: none;
-            padding: 0;
+            gap: 2.5rem;
+            font-size: 1rem;
+        }
+        .nav a{
+            position:relative;
+            color: var(--text-sub);
+            padding-bottom: 0.3rem;
+            transition: color .2s ease;
+            font-weight: 500;
+        }
+        .nav a::after{
+            content:"";
+            position:absolute;
+            left:0;
+            bottom:0;
+            width:0;
+            height:3px;
+            background: linear-gradient(90deg, var(--accent-gold), var(--kia-red));
+            transition: width .3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .nav a:hover, .nav a.active{
+            color: var(--text-main);
+        }
+        .nav a:hover::after, .nav a.active::after{
+            width:100%;
         }
 
-        .era-box ul li {
-            margin-bottom: 15px;
-            padding-left: 20px;
+        /* --- 3. Main Content 및 Card 스타일 --- */
+        .container{
+            padding: 3rem 1.5rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .card{
+            background: var(--card-bg);
+            border-radius: 18px;
+            border: 1px solid rgba(224, 50, 34, 0.3);
+            padding: 2rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.7), 0 0 15px rgba(224, 50, 34, 0.3); 
+        }
+        .card h3{
+            font-size: 1.3rem;
+            color: var(--text-main);
+            margin-bottom: 0.8rem;
+            border-left: 4px solid var(--accent-gold);
+            padding-left: 0.8rem;
+        }
+        .card p{
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            color: var(--text-main);
+        }
+        .tag-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-top: 1.5rem;
+        }
+        .tag {
+            font-size: 0.85rem;
+            padding: 0.3rem 0.8rem;
+            border-radius: 5px;
+            background: rgba(224, 50, 34, 0.2);
+            color: var(--kia-red);
+            border: 1px solid var(--kia-red);
+            font-weight: 500;
+        }
+        .tag.gold {
+            background: rgba(200, 163, 60, 0.2);
+            color: var(--accent-gold);
+            border: 1px solid var(--accent-gold);
+        }
+
+        /* 강조 카드 스타일 (History 섹션) */
+        .card-accent{
+            border: 1px solid var(--accent-gold);
+            background: radial-gradient(circle at 0% 0%, rgba(224,50,34,0.1), transparent 40%), var(--card-bg);
+            box-shadow: 0 5px 25px rgba(0,0,0,0.6), 0 0 20px rgba(200, 163, 60, 0.4);
+        }
+        .card-accent .section-title{
+            color: var(--accent-gold);
+            border-bottom-color: rgba(200, 163, 60, 0.3);
+        }
+        .card-accent .section-title::before{
+            background: linear-gradient(90deg, var(--kia-red), var(--accent-gold));
+        }
+
+        /* Timeline 스타일 */
+        .history-list{
+            list-style: none;
+            border-left: 2px solid var(--text-sub);
+            padding-left: 25px; 
+            position: relative;
+        }
+        .history-list li{
+            margin-bottom: 2.5rem;
+            position: relative;
+            padding: 10px; /* 항목 내부 패딩 추가 */
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
+        .history-list li:hover {
+            background: rgba(224, 50, 34, 0.05); /* 호버 효과 */
+        }
+        .history-list li.championship-year::before {
+            background: var(--accent-gold);
+            box-shadow: 0 0 15px rgba(200, 163, 60, 1);
+        }
+        .history-list li::before{
+            content: "";
+            position: absolute;
+            left: -30px; 
+            top: 5px;
+            width: 16px; 
+            height: 16px;
+            border-radius: 50%;
+            background: var(--kia-red);
+            border: 3px solid var(--bg-dark);
+            box-shadow: 0 0 12px rgba(224, 50, 34, 0.8);
+        }
+        .history-list h3{
+            color: var(--text-main);
+            font-size: 1.25rem;
+            margin-bottom: 0.4rem;
+            border-left: none; /* timeline과 중복되므로 제거 */
+            padding-left: 0;
+            font-weight: 700;
+        }
+        .history-list p{
+            font-size: 0.95rem;
+            color: var(--text-sub);
+            margin-bottom: 0;
+        }
+        .history-list .tag-row {
+            margin-top: 0.8rem;
+            gap: 0.4rem;
+        }
+        .history-list .tag {
+            font-size: 0.75rem;
+            padding: 0.2rem 0.6rem;
+        }
+
+
+        /* --- 4. 영구 결번 섹션 스타일 --- */
+        .legend-card{
+            background: radial-gradient(circle at 100% 0%, rgba(200, 163, 60, 0.1), transparent 40%), var(--card-bg);
+            border: 1px solid var(--line-gold); 
+            box-shadow: 0 0 30px rgba(200, 163, 60, 0.5);
+        }
+        
+        /* 다단 카드 레이아웃 */
+        .retired-number-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 2rem;
+            margin-top: 2.5rem;
+        }
+        
+        .player-card {
+            background: var(--bg-dark);
+            border: 1px solid var(--kia-red);
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+            text-align: center;
             position: relative;
         }
 
-        .era-box ul li::before {
-            content: "▶";
+        .player-card.lee-jong-beom {
+             animation: pulse-gold 3s infinite alternate;
+        }
+        .player-card.sun-dong-yeol {
+             border-color: var(--text-sub);
+        }
+
+        @keyframes pulse-gold {
+            0% { border-color: var(--kia-red); box-shadow: 0 0 15px rgba(200, 163, 60, 0.3); }
+            100% { border-color: var(--accent-gold); box-shadow: 0 0 25px rgba(200, 163, 60, 0.8); }
+        }
+        
+        .player-image {
+            width: 100%;
+            max-width: 150px;
+            height: 180px; 
+            background: var(--kia-red); 
+            border-radius: 10px;
+            object-fit: cover;
+            border: 3px solid var(--kia-black);
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.8);
+            margin: 0 auto 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-family: "Cinzel", serif;
+            font-size: 1.2rem;
+            opacity: 0.6;
+        }
+        .player-image::before {
+            content: "UNIFORM"; 
+        }
+        
+        .player-number {
+            font-family: "Orbit", sans-serif; 
+            font-size: 4rem; 
+            font-weight: bold;
+            color: var(--accent-gold); 
+            text-shadow: 0 0 10px rgba(200, 163, 60, 0.5);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+        .player-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 1rem;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+            padding-bottom: 0.5rem;
+        }
+
+        .player-stats ul {
+            list-style: none;
+            text-align: left;
+            padding: 0;
+            margin-top: 1rem;
+        }
+        .player-stats li {
+            font-size: 0.95rem;
+            color: var(--text-sub);
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 15px;
+        }
+        .player-stats li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
             color: var(--kia-red);
             font-weight: bold;
-            display: inline-block;
-            width: 1em;
-            margin-left: -1em;
         }
-
-        .era-box .image-placeholder {
-            width: 100%;
-            height: 300px;
-            background-color: #eee;
-            border: 1px solid #ccc;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #888;
-            font-style: italic;
-            margin-top: 15px;
-            border-radius: 5px;
-        }
-        
-        /* 우승 시즌 특별 강조 스타일 */
-        .championship {
-            background-color: var(--kia-red);
-            color: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-            margin: 40px 0;
-            border: 5px solid var(--kia-yellow);
-        }
-
-        .championship h3 {
-            color: var(--kia-yellow);
-            font-size: 2.2em;
-            font-weight: 900;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        
-        .championship .detail-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-        
-        .championship .detail-box {
-            background-color: rgba(255, 255, 255, 0.9);
-            color: var(--kia-black);
-            padding: 20px;
-            border-radius: 8px;
-        }
-        
-        .championship .detail-box strong {
-            color: var(--kia-red);
-            font-weight: 700;
-        }
-
-        /* 영구결번 섹션 */
-        .retired-numbers {
-            display: flex;
-            flex-direction: column;
-            gap: 40px;
-        }
-
-        .player-card {
-            background-color: white;
-            border: 3px solid var(--kia-black);
-            border-radius: 10px;
-            padding: 30px;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s;
-            display: flex;
-            gap: 30px;
-        }
-        
-        .player-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .player-info {
-            flex-grow: 1;
-        }
-
-        .player-card .number {
-            font-size: 4em;
-            color: var(--kia-red);
-            font-weight: 900;
-            margin: 0 0 10px 0;
-            line-height: 1;
-        }
-
+        /* 영구결번 상세 설명 스타일 */
         .player-card h4 {
-            font-size: 1.8em;
-            color: var(--kia-black);
-            margin: 5px 0 20px 0;
-            border-bottom: 2px solid var(--kia-yellow);
-            padding-bottom: 5px;
+            font-size: 1.1rem;
+            color: var(--kia-red);
+            margin-top: 1.2rem;
+            margin-bottom: 0.5rem;
+            padding: 0.2rem 0;
+            border-bottom: 1px dotted rgba(255, 255, 255, 0.1);
+        }
+        .player-card .detail-text {
+            font-size: 0.95rem;
+            text-align: left;
+            margin-bottom: 1rem;
+            color: var(--text-sub);
+        }
+        .player-card .detail-highlight {
+            color: var(--text-main);
+            font-weight: 600;
         }
 
-        .player-card .image-placeholder {
-            min-width: 250px;
-            height: 350px;
-            background-color: #eee;
-            border: 1px solid #ccc;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #888;
-            font-style: italic;
-            border-radius: 5px;
-        }
         
-        footer {
-            background-color: var(--kia-black);
-            color: white;
+        /* --- 5. Footer 스타일 --- */
+        .footer{
+            border-top: 1px solid rgba(224, 50, 34, 0.3);
+            padding: 1.5rem;
             text-align: center;
-            padding: 20px 0;
-            margin-top: 50px;
-            font-size: 0.9em;
+            font-size: 0.8rem;
+            color: var(--text-sub);
+            background: radial-gradient(circle at 50% 0, rgba(224, 50, 34, 0.04), transparent 50%);
+            margin-top: 3rem;
         }
 
-        /* 반응형 디자인 */
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2.5em;
-            }
-            
-            section h2 {
-                font-size: 2em;
-            }
-
-            nav a {
-                display: block;
-                margin: 10px 0;
-            }
-            
-            .championship .detail-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .player-card {
-                flex-direction: column;
-            }
-            
-            .player-card .image-placeholder {
-                min-width: 100%;
-                height: 200px;
-            }
+        /* 미디어 쿼리 (반응형 디자인) */
+        @media (max-width: 840px) {
+            .nav { flex-direction: column; }
+            .nav ul { display: flex; justify-content: center; width: 100%; padding-top: 10px; flex-wrap: wrap; gap: 1rem 1.5rem; }
+            .hero { height: 400px; }
+            .retired-number-grid { grid-template-columns: 1fr; } /* 모바일에서는 세로로 쌓기 */
+            .tag-row { justify-content: center; }
+        }
+        @media (max-width: 640px) {
+            .container{padding: 2rem 1rem;}
+            .card{padding: 1.5rem;}
         }
     </style>
 </head>
 <body>
+    <div class="page">
 
-    <nav>
-        <a href="#history">역사 일대기</a>
-        <a href="#champions">우승 기록</a>
-        <a href="#v2017">2017년 우승</a>
-        <a href="#v2024">2024년 우승</a>
-        <a href="#retired">영구 결번</a>
-    </nav>
-    
-    <header>
-        <h1>KIA 타이거즈 역사: V1부터 V12까지</h1>
-        <p>대한민국 프로야구, 위대한 타이거즈의 발자취</p>
-    </header>
-
-    <div class="container">
-
-        <section id="history">
-            <h2>📜 타이거즈 역사 일대기</h2>
-
-            <div class="era-timeline">
-                <div class="era-box">
-                    <h3>1982년 ~ 2001년: 해태 타이거즈 시대 (V1 ~ V9)</h3>
-                    <p>
-                        한국프로야구 출범 초기, 해태 타이거즈는 곧바로 리그 최강의 **왕조**로 군림했습니다. 그 배경에는 당대 학생 야구 팜 중 최고의 유망주 산실이던 **호남 지역 연고 선수들을 무제한 지명**하여 싹쓸이할 수 있었던 제도가 있었습니다. 
-                        실력과 개성을 두루 갖춘 선수단을 **김응용 감독**이 일사불란하게 지휘하며, 창단 후 15년 동안 무려 9번의 한국시리즈 우승(V9)이라는 전무후무한 기록을 세웠습니다.
-                        특히 당시에는 막대한 투자가 성적에 직결되지 않았고, 구단 간 연봉 담합으로 예산 격차가 크지 않아 해태는 적은 자금력으로도 최고의 성과를 낼 수 있었습니다.
-                        
-                        그러나 1990년대 중반, 현대그룹의 프로야구 진입 시도와 함께 야구판에 **머니게임 시대**가 열리며 상황이 급변했습니다. 현대와 삼성 같은 재벌 구단들이 신인 계약금과 연봉을 파격적으로 높이자, 재계 서열 하위권이던 해태그룹은 자금력 측면에서 현저하게 뒤처지기 시작했습니다.
-                        
-                        설상가상으로 **1997년 외환 위기(IMF)**가 터지자 모기업인 해태그룹은 심각한 재정 위기에 봉착하며 결국 1998년에 파산하기에 이릅니다. 팀 유지를 위해 **선동열, 이종범** 등 팀의 핵심 전력을 일본에 팔아넘기는(트레이드 머니 확보) 등 뼈아픈 조치를 취해야 했고, 결국 구단 운영의 한계에 직면하게 되었습니다. 포스코, 금호 등 지역 연고 인수 후보도 등장했으나 모두 불발되면서 구단 해체 위기까지 몰렸습니다.
-                    </p>
-                    <ul>
-                        <li>**왕조 구축 (V9):** 호남 팜 싹쓸이, 김응용 감독의 지도력으로 9번의 한국시리즈 우승 달성.</li>
-                        <li>**위기 발생:** 현대그룹 등장 및 KBO 머니게임 시대 개막으로 재정 악화.</li>
-                        <li>**최후의 발악:** IMF로 모기업 파산 후, 선동열/이종범 판매 등 선수 재판매로 연명.</li>
-                    </ul>
-                    <div class="image-placeholder">이미지 삽입 공간: 해태 타이거즈 왕조 시절 (V9 트로피 또는 레전드 선수)</div>
-                </div>
-
-                <div class="era-box">
-                    <h3>2001년 ~ 2004년: KIA 타이거즈 출범과 김성한 체제</h3>
-                    <p>
-                        해태 타이거즈가 해체 위기에 몰려 있을 때, 2001년 **현대자동차그룹**의 **정몽구 회장**이 구단 인수를 선언하며 타이거즈는 기사회생합니다. 광주에 기아 공장(구 아시아자동차)이 있어 지역 연고 요건을 충족했습니다. 인수 대금은 총 210억 원이었으며, KIA는 해체 후 신규 창단이 아닌 **인수 형식**이었기에 해태 타이거즈의 **V9 역사**를 그대로 계승하게 되었습니다.
-                        
-                        KIA 타이거즈로 출범한 후, 모기업의 풍부한 자금력을 바탕으로 해태 시절에는 상상도 할 수 없었던 대규모 현금 트레이드 및 FA 영입에 나섰습니다. **박재홍** (홍현우 트레이드 불발의 한을 풀 듯 영입), **진필중** (현금 8억), **마해영** (FA 28억) 등을 영입하며 '스토브리그의 큰 손'으로 군림했습니다.
-                        
-                        김성한 감독 체제에서 2002년과 2003년, **2년 연속 6할 승률(78승/79승)**을 기록하며 리그 최상위권 전력을 구축했습니다. 그러나 고질적인 마무리 문제(김진우 마무리 전환 실패)와 상대 팀 감독의 전력 분석(김봉근 코치 이탈) 등 악재가 겹치며, 2년 연속 플레이오프에서 탈락하여 한국시리즈 무대를 밟지 못했습니다.
-                    </p>
-                    <ul>
-                        <li>**인수 배경:** 현대자동차그룹 정몽구 회장 주도, 인수 대금 210억 원. V9 역사 계승.</li>
-                        <li>**머니파워:** 박재홍, 진필중, 마해영 등 대형 현금 트레이드/FA 영입 단행.</li>
-                        <li>**성적 한계:** 2년 연속 6할 승률에도 불구하고 마무리 문제 등으로 한국시리즈 진출 실패.</li>
-                    </ul>
-                    <div class="image-placeholder">이미지 삽입 공간: KIA 타이거즈 초기 유니폼 또는 광주 무등 야구장</div>
-                </div>
-
-                <div class="era-box">
-                    <h3>2005년 ~ 2007년: 암흑기 (588 및 엘롯기의 굴욕)</h3>
-                    <p>
-                        2004년 유남호 감독대행 체제에서 가을야구(4위)에 진출했으나, 이후 팀은 다시 급격한 침체기에 빠졌습니다. FA로 영입했던 주축 선수들(마해영 등)이 부진하거나 팀 케미스트리를 저해하는 '실패작'으로 남았습니다. 특히 2005년과 2007년에는 리그 **최하위(8위)**를 기록했습니다.
-                        
-                        가을야구 진출(2004년, 2006년) 바로 다음 해에 최하위를 찍는 **848**의 패턴이 반복되었습니다. 이는 서정환 감독의 무리한 선수 혹사와 부상 악순환, 그리고 당시 **정재공 단장**의 독단적인 프런트 운영(팬 현수막 강제 철거, 팬 커뮤니티 폐쇄 등)이 겹친 결과였습니다. 이 시기, KIA는 롯데, LG와 함께 최하위권을 다투는 팀을 일컫는 불명예스러운 별명인 **'엘롯기'**를 얻게 되었습니다.
-                        
-                        다만, 이 시기 LG와의 트레이드(리오스 ↔ 전병두)를 통해 **이용규**를 얻었고, **윤석민**이 불펜에서 노예투를 하며 성장하는 등 훗날을 기약하는 수확도 있었습니다.
-                    </p>
-                    <ul>
-                        <li>**최하위:** 2005년, 2007년 8위. '엘롯기'의 상징.</li>
-                        <li>**원인:** FA 실패, 투수진 붕괴, 서정환 감독의 혹사와 정재공 단장의 부실 운영.</li>
-                        <li>**수확:** 이용규 영입, 윤석민 불펜 에이스로 성장.</li>
-                    </ul>
-                </div>
-
-                <div class="era-box championship-brief">
-                    <h3>2008년 ~ 2011년: 조범현 체제와 V10 우승</h3>
-                    <p>
-                        2008년 **조범현 감독**이 부임하면서 본격적인 **리빌딩**에 착수했습니다. 최희섭의 부진, 장성호의 잔부상 등 악재 속에서도 **윤석민**이 에이스로 등극했고, 손영민, 양현종 등 젊은 투수들이 급부상했습니다.
-                        
-                        2009년에는 2차 1지명 **안치홍**을 지명하고 **김상현**을 트레이드로 영입하면서 전력이 급상승했습니다. 결국 1997년 이후 **12년 만에 정규시즌 1위**를 달성했습니다. 한국시리즈에서는 나지완이 7차전 끝내기 홈런을 터뜨리며 팬들에게 감격적인 **V10** 우승을 선사했습니다.
-                        
-                        2011년에는 **윤석민이 투수 4관왕**의 대기록을 수립하고, **이범호**를 영입하여 **LCK포**를 완성하는 등 전반기 1위를 달렸습니다. 그러나 불펜진의 과부하로 인해 후반기에 무너져 4위에 그쳤고, 조범현 감독은 성적 부진의 책임을 지고 경질되었습니다.
-                    </p>
-                    <ul>
-                        <li>**성장:** 윤석민, 양현종, 안치홍, 김선빈 등 젊은 뎁스 구축.</li>
-                        <li>**2009년 우승 (V10):** 나지완의 끝내기 홈런으로 12년 만의 감격적인 우승.</li>
-                        <li>**2011년:** 윤석민 4관왕에도 불구하고 불펜 불안으로 준플레이오프 탈락.</li>
-                    </ul>
-                    <div class="image-placeholder">이미지 삽입 공간: 2009년 한국시리즈 우승 세리머니 또는 나지완 끝내기 홈런</div>
-                </div>
-                
-                <div class="era-box">
-                    <h3>2012년 ~ 2014년: 선동열 체제 (두 번째 588 암흑기)</h3>
-                    <p>
-                        조범현 감독의 후임으로 **선동열 감독**이 부임했으나, 팀은 다시 침체기를 겪으며 3년 연속으로 하위권(7위, 8위, 8위)에 머물렀습니다. 팬들은 이 시기를 **'선동열 암흑군주'** 시대라고 부르며 강하게 비판했습니다. 선수단을 새로 짜는 수준의 개혁을 단행했음에도 불구하고, 팀 전력은 오히려 약화되었고, 리빌딩의 성과도 미미했습니다.
-                        
-                        2014시즌 종료 후, 구단은 선동열 감독과의 재계약을 추진했으나, 팬덤의 극에 달한 분노와 퇴진 요구에 밀려 결국 감독이 **자진사퇴**하는 형태로 물러났습니다. 이 시기는 타이거즈 역사에서 가장 큰 논란과 팬들의 실망을 남긴 시기 중 하나로 기록됩니다.
-                    </p>
-                    <ul>
-                        <li>**성적:** 3년 연속 포스트시즌 진출 실패, 특히 2013-2014년 연속 8위.</li>
-                        <li>**결과:** 팬들의 강한 반발로 감독 자진 사퇴.</li>
-                    </ul>
-                </div>
-
-                <div class="era-box">
-                    <h3>2015년 ~ 2019년: 김기태 체제와 V11 우승</h3>
-                    <p>
-                        **김기태 감독**이 부임하며 팀 분위기 쇄신에 나섰고, 2016년 5년 만에 포스트시즌 진출(5위, 와일드카드 결정전 탈락)에 성공하며 반등의 발판을 마련했습니다.
-                        
-                        특히 2017시즌을 앞두고 프런트의 대대적인 투자가 이뤄졌습니다. **최형우**를 영입하고, **양현종**과 **나지완** 등 핵심 FA를 잔류시키는 데 성공하며 전력을 완성했습니다. 이러한 전폭적인 지원을 바탕으로 KIA는 **2017년 V11 우승**을 달성했습니다.
-                        
-                        김기태 감독 체제는 젊은 선수들에게 기회를 부여하며 뎁스를 두텁게 만들었다는 긍정적인 평가도 받습니다. 하지만 2019년 시즌 초반 성적 부진으로 중도 사퇴하며 5년여의 재임 기간을 마무리했습니다.
-                    </p>
-                    <ul>
-                        <li>**프런트의 결단:** 최형우 영입, 양현종/나지완 잔류.</li>
-                        <li>**2017년 우승 (V11):** 압도적인 공격력과 20승 듀오를 바탕으로 우승.</li>
-                        <li>**평가:** 선수들에게 골고루 기회를 제공하며 뎁스 강화에 기여.</li>
-                    </ul>
-                </div>
-
-                <div class="era-box championship-brief">
-                    <h3>2024년: 이범호 체제와 V12 우승</h3>
-                    <p>
-                        2024년 시즌 직전, 장정석 단장과 김종국 감독이 배임수재로 동시 퇴출되는 **초유의 악재**가 발생했습니다. 이후 코치였던 **이범호**가 신임 감독으로 선임되었습니다.
-                        
-                        시즌 내내 **윌 크로우, 이의리, 윤영철, 네일** 등 선발진이 줄부상으로 붕괴하고, KBO 역사상 최다 실책(146개)을 기록하는 등 불안 요소가 산재했으나, 팀 타율/OPS/wRC+ 모두 리그 1위인 **압도적인 타선**이 모든 약점을 상쇄했습니다. 특히 **김도영**은 최연소 30-30 달성 등 경이적인 활약으로 정규시즌 MVP를 사실상 확정하며 팀 우승을 견인했습니다.
-                        
-                        이범호 감독의 전략적 운영과 **황동하, 김도현** 등 젊은 대체 선발, 그리고 한준수, 변우혁 등 **젊은 뎁스**의 힘으로 위기를 극복하고 **V12 우승**을 달성했습니다. 이 우승은 **두터운 뎁스**가 부상을 이겨낸 결과라는 점에서 더욱 고무적이라는 평가를 받았습니다.
-                    </p>
-                    <ul>
-                        <li>**배경:** 단장/감독 동시 퇴출이라는 최악의 악재 속에서 시즌 시작.</li>
-                        <li>**극복:** 김도영의 폭발적인 성장과 압도적인 타격 (리그 1위).</li>
-                        <li>**2024년 우승 (V12):** 부상 위기를 뎁스의 힘으로 극복하고 7년 만에 우승.</li>
-                    </ul>
-                </div>
-
-                <div class="era-box">
-                    <h3>2025년 현재</h3>
-                    <p>
-                        V12 우승을 통해 확인된 젊은 주축 선수들(김도영, 윤영철, 이의리, 정해영 등)의 잠재력과 **양현종, 최형우** 등 베테랑들의 조화는 KIA 타이거즈의 미래를 밝게 하고 있습니다. 다만, 2020년 이후 입단한 주축 젊은 선수들 상당수가 군 미필이라는 과제를 안고 있습니다. **2026년 아시안 게임** 및 국제 대회에서 병역 특례 획득 여부가 향후 KIA 타이거즈의 전력 유지에 매우 중요한 변수가 될 것입니다. 구단은 이들의 공백을 최소화하고 V13을 향해 지속적인 뎁스 강화를 추진하고 있습니다.
-                    </p>
-                    <div class="image-placeholder">이미지 삽입 공간: 2025년 KIA 타이거즈 주요 선수 (예: 양현종, 김도영)</div>
-                </div>
-            </div>
-        </section>
         
-        <section id="champions">
-            <h2>🏆 타이거즈 한국시리즈 우승 기록 (V1 ~ V12)</h2>
-            <table style="width:100%; text-align:center; border-collapse:collapse;">
-                <thead>
-                    <tr style="background-color:var(--kia-black); color:white;">
-                        <th style="padding:10px; border:1px solid white;">우승 연도</th>
-                        <th style="padding:10px; border:1px solid white;">V</th>
-                        <th style="padding:10px; border:1px solid white;">감독</th>
-                        <th style="padding:10px; border:1px solid white;">주요 선수 (MVP)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr><td style="padding:10px; border:1px solid #ccc;">1983</td><td style="padding:10px; border:1px solid #ccc;">V1</td><td style="padding:10px; border:1px solid #ccc;">김응용</td><td style="padding:10px; border:1px solid #ccc;">김봉연 (MVP)</td></tr>
-                    <tr><td style="padding:10px; border:1px solid #ccc;">1986</td><td style="padding:10px; border:1px solid #ccc;">V2</td><td style="padding:10px; border:1px solid #ccc;">김응용</td><td style="padding:10px; border:1px solid #ccc;">김정수 (MVP)</td></tr>
-                    <tr><td style="padding:10px; border:1px solid #ccc;">1987</td><td style="padding:10px; border:1px solid #ccc;">V3</td><td style="padding:10px; border:1px solid #ccc;">김응용</td><td style="padding:10px; border:1px solid #ccc;">김준환 (MVP)</td></tr>
-                    <tr><td style="padding:10px; border:1px solid #ccc;">1988</td><td style="padding:10px; border:1px solid #ccc;">V4</td><td style="padding:10px; border:1px solid #ccc;">김응용</td><td style="padding:10px; border:1px solid #ccc;">문희수 (MVP)</td></tr>
-                    <tr><td style="padding:10px; border:1px solid #ccc;">1989</td><td style="padding:10px; border:1px solid #ccc;">V5</td><td style="padding:10px; border:1px solid #ccc;">김응용</td><td style="padding:10px; border:1px solid #ccc;">유지현 (MVP)</td></tr>
-                    <tr><td style="padding:10px; border:1px solid #ccc;">1991</td><td style="padding:10px; border:1px solid #ccc;">V6</td><td style="padding:10px; border:1px solid #ccc;">김응용</td><td style="padding:10px; border:1px solid #ccc;">장채근 (MVP)</td></tr>
-                    <tr><td style="padding:10px; border:1px solid #ccc;">1993</td><td style="padding:10px; border:1px solid #ccc;">V7</td><td style="padding:10px; border:1px solid #ccc;">김응용</td><td style="padding:10px; border:1px solid #ccc;">이종범 (MVP)</td></tr>
-                    <tr><td style="padding:10px; border:1px solid #ccc;">1996</td><td style="padding:10px; border:1px solid #ccc;">V8</td><td style="padding:10px; border:1px solid #ccc;">김응용</td><td style="padding:10px; border:1px solid #ccc;">이강철 (MVP)</td></tr>
-                    <tr><td style="padding:10px; border:1px solid #ccc;">1997</td><td style="padding:10px; border:1px solid #ccc;">V9</td><td style="padding:10px; border:1px solid #ccc;">김응용</td><td style="padding:10px; border:1px solid #ccc;">이종범 (MVP)</td></tr>
-                    <tr style="background-color:#ffe0b2;"><td style="padding:10px; border:1px solid #ccc;">2009</td><td style="padding:10px; border:1px solid #ccc;">V10</td><td style="padding:10px; border:1px solid #ccc;">조범현</td><td style="padding:10px; border:1px solid #ccc;">나지완 (끝내기 홈런)</td></tr>
-                    <tr style="background-color:var(--kia-yellow);"><td style="padding:10px; border:1px solid #ccc; font-weight: bold;"><a href="#v2017">2017</a></td><td style="padding:10px; border:1px solid #ccc; font-weight: bold;">V11</td><td style="padding:10px; border:1px solid #ccc; font-weight: bold;">김기태</td><td style="padding:10px; border:1px solid #ccc; font-weight: bold;">양현종 (MVP)</td></tr>
-                    <tr style="background-color:var(--kia-yellow);"><td style="padding:10px; border:1px solid #ccc; font-weight: bold;"><a href="#v2024">2024</a></td><td style="padding:10px; border:1px solid #ccc; font-weight: bold;">V12</td><td style="padding:10px; border:1px solid #ccc; font-weight: bold;">이범호</td><td style="padding:10px; border:1px solid #ccc; font-weight: bold;">김도영 (정규시즌 MVP)</td></tr>
-                </tbody>
-            </table>
-        </section>
-
-        <section id="v2017">
-            <h2>⭐ 2017년 V11 우승: 기록의 팀</h2>
-            <div class="championship">
-                <h3>V11, 8년 만의 감격적인 우승</h3>
-                <p>프런트의 과감한 투자와 '동행' 정신으로 이룬 승리. 압도적인 공격력과 20승 듀오가 불펜의 약점을 극복하며 정규시즌 최장기간 1위 기록을 세웠습니다.</p>
-                
-                <div class="detail-grid">
-                    <div class="detail-box">
-                        <strong>주요 전력 보강:</strong>
-                        <ul>
-                            <li>FA: 최형우 (100억), 나지완 (잔류)</li>
-                            <li>해외파: 양현종 (잔류), 외인 듀오 헥터 노에시 & 팻 딘, 로저 버나디나</li>
-                            <li>복귀: 안치홍-김선빈 키스톤 콤비</li>
-                        </ul>
-                    </div>
-                    <div class="detail-box">
-                        <strong>우승의 주역 (기록):</strong>
-                        <ul>
-                            <li>**투수 듀오:** 양현종 & 헥터 노에시 (KBO 32년 만의 동반 **20승** 달성)</li>
-                            <li>**타선:** 7명의 3할 타자, 5명의 20홈런-80타점 타자 배출.</li>
-                            <li>**MVP:** 양현종 (KS 10이닝 무실점 완봉승 포함)</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="image-placeholder" style="height: 350px;">이미지 삽입 공간: 2017년 우승 세리머니 또는 양현종-헥터 듀오</div>
+        <header class="hero">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <p class="hero-label">KBO 명문 구단</p>
+                <h1>KIA TIGERS</h1>
+                <p class="hero-subtitle">
+                    역사와 전통을 자랑하는 대한민국 프로야구의 심장,<br>
+                    총 **V12**의 우승 트로피를 들어 올린 붉은 호랑이들의 위대한 서사.
+                </p>
+                <a href="#overview" class="hero-cta-button">구단 자세히 보기</a>
             </div>
-        </section>
+        </header>
 
-        <section id="v2024">
-            <h2>👑 2024년 V12 우승: 위기를 극복한 뎁스의 힘</h2>
-            <div class="championship">
-                <h3>V12, 이범호호(號)가 이룬 위대한 반전</h3>
-                <p>단장/감독 동시 퇴출과 선발진 붕괴라는 최악의 상황을 극복하고, 압도적인 타선과 젊은 선수들의 폭발적인 성장으로 이룬 우승입니다. 특히 2위 팀들을 상대로 0.889의 압도적인 승률을 기록했습니다.</p>
-                
-                <div class="detail-grid">
-                    <div class="detail-box">
-                        <strong>시즌 특징:</strong>
-                        <ul>
-                            <li>**초유의 사태:** 장정석/김종국 퇴출, 이범호 신임 감독 부임.</li>
-                            <li>**악재:** 윌 크로우 포함 선발진 줄부상, KBO 역사상 최다 실책 (146개).</li>
-                            <li>**원동력:** 팀 타율/OPS/wRC+ 모두 리그 1위의 압도적인 공격력.</li>
-                        </ul>
-                    </div>
-                    <div class="detail-box">
-                        <strong>우승의 주역 (성장):</strong>
-                        <ul>
-                            <li>**MVP:** 김도영 (최연소 30홈런-30도루 달성, 정규시즌 MVP)</li>
-                            <li>**마운드:** 양현종의 역투, 황동하/김도현 등 대체 선발의 활약, 정해영 중심의 탄탄한 불펜.</li>
-                            <li>**미래:** 한준수, 변우혁 등 젊은 뎁스의 동반 성장.</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="image-placeholder" style="height: 350px;">이미지 삽입 공간: 2024년 김도영 선수 (30-30 달성 순간) 또는 우승 기념 이미지</div>
-            </div>
-        </section>
         
-        <section id="retired">
-            <h2>⭐ 영구 결번 선수들: 타이거즈의 심장</h2>
-            <p>타이거즈의 역사를 만들고 팬들의 영원한 사랑을 받는 위대한 선수들입니다. 이들의 번호는 영원히 타이거즈의 상징으로 남습니다.</p>
+        <nav class="nav">
+            <a href="#" class="nav-logo">
+                <span class="nav-logo-mark"></span>
+                <span>KIA TIGERS</span>
+            </a>
+            <ul>
+                <li><a href="#overview" class="active">구단 소개</a></li>
+                <li><a href="#history">타이거즈 역사</a></li>
+                <li><a href="#legend">영구 결번</a></li>
+                </ul>
+        </nav>
+
+        <main class="container">
+
             
-            <div class="retired-numbers">
+            <section id="overview" class="card">
+                <h2 class="section-title">구단 소개</h2>
+                <p class="section-subtitle">
+                    KIA 타이거즈는 광주를 연고지로 하는 KBO 리그의 대표적인 명문 구단입니다. 끈질긴 팀 컬러와 드라마틱한 승리로 '가을 야구 DNA'를 상징합니다.
+                </p>
+
+                <h3>팀 아이덴티티와 홈구장</h3>
+                <p>
+                    2001년 해태 타이거즈의 역사를 계승하여 기아자동차가 인수했습니다. 
+                    팀 마스코트 '호걸이'는 용맹함을, 강렬한 **붉은색과 남색 유니폼**은 팀의 열정과 투지를 상징합니다. 
+                    현재 홈구장인 **광주-KIA 챔피언스 필드**는 팬 친화적인 설계로 유명하며, 타이거즈 열혈 팬덤의 성지로 불립니다.
+                </p>
                 
-                <div class="player-card">
-                    <div class="image-placeholder">이미지 삽입 공간: 김준환 선수 사진</div>
-                    <div class="player-info">
-                        <div class="number">10</div>
-                        <h4>김준환 (해태 타이거즈 원년 멤버)</h4>
-                        <p>
-                            **포지션:** 외야수/내야수<br>
-                            **경력:** 타이거즈 **원년 멤버**이자 팀의 기틀을 다진 캡틴. 1982년 프로야구 출범 당시 광주 지역의 스타였으며, 팀을 하나로 묶는 **정신적 지주** 역할을 수행했습니다. 통산 타율 $.280$을 기록하며 꾸준한 활약을 펼쳤고, 특히 1987년 한국시리즈에서는 팀을 우승으로 이끄는 데 결정적인 기여를 했습니다.
-                            은퇴 후 코치와 감독 대행 등을 역임하며 타이거즈의 정신을 후배들에게 계승하는 데 힘썼습니다. 그의 등번호 10번은 당시 구단의 정신적인 리더십과 끈기를 상징하며 영구결번되었습니다.
-                        </p>
-                        <ul>
-                            <li>**주요 기록:** 1987년 한국시리즈 우승 주역, 해태 타이거즈 초대 주장.</li>
-                            <li>**상징성:** 타이거즈 창단기의 캡틴이자 헌신적인 프랜차이즈 스타.</li>
-                            <li>**결번 사유:** 타이거즈의 역사를 시작한 개척자이자 정신적 지주로서의 공로.</li>
-                        </ul>
-                    </div>
-                </div>
+                <h3>한국시리즈 최다 우승 V12의 위업</h3>
+                <p>
+                    해태 타이거즈 시절의 9회 우승(V9)과 KIA 타이거즈 전환 후 3회 우승(V10, V11, V12)을 합쳐, 
+                    KBO 리그 역사상 가장 많은 **총 12회**의 한국시리즈 우승 기록을 보유하고 있습니다.
+                    타이거즈는 한국시리즈 진출 시 **패배율 0%**라는 놀라운 기록을 가지고 있습니다.
+                </p>
 
-                <div class="player-card">
-                    <div class="image-placeholder">이미지 삽입 공간: 선동열 선수 사진</div>
-                    <div class="player-info">
-                        <div class="number">18</div>
-                        <h4>선동열 (국보 투수, 해태 왕조의 절대자)</h4>
-                        <p>
-                            **포지션:** 투수<br>
-                            **경력:** 한국 야구 역사상 최고의 투수를 논할 때 가장 먼저 언급되는 선수. **'국보 투수'**라는 별명으로 불리며 해태 타이거즈의 절대적인 상징이자 왕조의 중심이었습니다. KBO 통산 기록은 **방어율 1.20**으로 역대 최고 기록이며, 특히 **8회 연속 방어율 1위**라는 전무후무한 기록을 보유하고 있습니다.
-                            MVP 3회, 다승왕 4회, 평균자책점 8회, 탈삼진왕 5회 등 투수 부문 기록을 압도적으로 지배했습니다. 1990년대 초중반, 그의 존재만으로도 해태는 경기를 이기고 들어간다는 평가를 받았으며, 마운드의 지배자였습니다.
-                            1996년 시즌을 끝으로 일본 프로야구 주니치 드래건즈로 이적하며 해태의 재정난을 해소하는 데 일조했지만, 그의 등번호는 해태를 넘어 한국 야구의 상징으로 남았습니다.
-                        </p>
-                        <ul>
-                            <li>**주요 기록:** KBO 통산 평균자책점 **1.20** (역대 1위), MVP 3회, 8회 연속 방어율 1위.</li>
-                            <li>**상징성:** 해태 타이거즈 왕조의 핵심 전력이자 마운드의 절대적인 지배자.</li>
-                            <li>**결번 사유:** 한국 프로야구사에 남을 독보적인 업적과 타이거즈의 위상을 높인 공로.</li>
-                        </ul>
-                    </div>
+                <div class="tag-row">
+                    <span class="tag">연고지: 광주광역시</span>
+                    <span class="tag">홈구장: 챔피언스 필드</span>
+                    <span class="tag gold">KBO 최다 우승 (V12)</span>
+                    <span class="tag">한국시리즈 승률 100%</span>
                 </div>
+            </section>
+
+            
+            <section id="history" class="card card-accent">
+                <h2 class="section-title">타이거즈 역사: 해태 왕조에서 KIA 왕조까지</h2>
+                <p class="section-subtitle">
+                    KBO 리그의 시작부터 현재까지, 한국 야구의 역사를 써 내려온 타이거즈의 주요 연대기를 살펴봅니다.
+                </p>
+
+                <ul class="history-list">
+                    <li class="championship-year">
+                        <h3>1983년 – 첫 우승, 해태 왕조의 서막 (V1)</h3>
+                        <p>
+                            창단 직후 김응룡 감독 체제에서 첫 한국시리즈 우승을 차지하며, 불멸의 **V9** 왕조 시대를 열었습니다.
+                            가난한 구단이었지만 강한 정신력과 호남 팜의 강력한 선수층으로 리그를 지배했습니다.
+                        </p>
+                        <div class="tag-row">
+                            <span class="tag gold">V1</span>
+                            <span class="tag">김응룡 감독</span>
+                            <span class="tag">무등경기장</span>
+                        </div>
+                    </li>
+                    <li>
+                        <h3>1980~90년대 – 불멸의 V9 시대</h3>
+                        <p>
+                            선동열, 이종범, 김성한 등 기라성 같은 레전드들을 배출하며 KBO 리그 최초로 **단일 팀 9회 우승**이라는 전무후무한 대기록을 수립했습니다.
+                        </p>
+                        <div class="tag-row">
+                            <span class="tag">선동열</span>
+                            <span class="tag">이종범</span>
+                            <span class="tag gold">V9 달성</span>
+                        </div>
+                    </li>
+                    <li>
+                        <h3>2001년 – KIA 타이거즈로 재탄생</h3>
+                        <p>
+                            모기업 해태의 경영난으로 인해 기아자동차가 구단을 인수하며 새로운 엠블럼과 유니폼으로 재정비했습니다. 해태의 역사를 그대로 계승했습니다.
+                        </p>
+                        <div class="tag-row">
+                            <span class="tag">기아 인수</span>
+                            <span class="tag">팀명 변경</span>
+                            <span class="tag">역사 계승</span>
+                        </div>
+                    </li>
+                    <li class="championship-year">
+                        <h3>2009년 – 12년 만의 부활 (V10)</h3>
+                        <p>
+                            조범현 감독의 리빌딩 속에 윤석민, 김상현, 나지완 등 새로운 주역들이 등장했습니다. 나지완의 끝내기 홈런으로 12년 만에 감격적인 우승(V10)을 달성했습니다.
+                        </p>
+                        <div class="tag-row">
+                            <span class="tag gold">V10</span>
+                            <span class="tag">끝내기 홈런</span>
+                            <span class="tag">윤석민 에이스</span>
+                        </div>
+                    </li>
+                    <li class="championship-year">
+                        <h3>2017년 – 통합 우승, 최강 KIA (V11)</h3>
+                        <p>
+                            최형우 영입 등 전폭적인 투자와 양현종(KS MVP)의 활약으로 정규 시즌과 한국시리즈를 모두 제패하는 통합 우승(V11)을 차지하며 KIA 왕조 시대를 다시 열었습니다.
+                        </p>
+                        <div class="tag-row">
+                            <span class="tag gold">V11</span>
+                            <span class="tag">통합 우승</span>
+                            <span class="tag">양현종 MVP</span>
+                        </div>
+                    </li>
+                    <li class="championship-year">
+                        <h3>2024년 – 위기를 딛고 V12 달성</h3>
+                        <p>
+                            시즌 초 악재와 주축 선수들의 부상 속에서도 이범호 감독 체제 하에 압도적인 타선과 김도영의 폭발적인 성장으로 V12 우승을 달성했습니다.
+                        </p>
+                        <div class="tag-row">
+                            <span class="tag gold">V12</span>
+                            <span class="tag">이범호 감독</span>
+                            <span class="tag">김도영 MVP</span>
+                        </div>
+                    </li>
+                    <li>
+                        <h3>현재 – V13을 향한 전진</h3>
+                        <p>
+                            V12 우승을 이끈 젊은 주축 선수들을 중심으로 세대교체를 완성하며, 지속적인 챔피언의 역사를 이어가기 위한 뎁스 강화에 집중하고 있습니다.
+                        </p>
+                        <div class="tag-row">
+                            <span class="tag">새로운 도전</span>
+                            <span class="tag">젊은 뎁스</span>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+
+            
+            <section id="legend" class="card legend-card">
+                <h2 class="section-title">영구 결번 (Retired Numbers)</h2>
+                <p class="section-subtitle">
+                    타이거즈는 구단의 역사와 명예를 빛낸 두 선수의 등번호를 영구 결번으로 지정했습니다. 이 번호는 타이거즈의 정신이자 자부심입니다.
+                </p>
                 
-                <div class="player-card">
-                    <div class="image-placeholder">이미지 삽입 공간: 이종범 선수 사진</div>
-                    <div class="player-info">
-                        <div class="number">7</div>
-                        <h4>이종범 (바람의 아들, 타이거즈 부활의 아이콘)</h4>
-                        <p>
-                            **포지션:** 유격수/외야수<br>
-                            **경력:** **'바람의 아들'**로 불린 이종범은 1990년대를 풍미한 만능 플레이어였습니다. 폭발적인 스피드와 정교한 타격, 그리고 KBO 역대 최고의 유격수로 꼽히는 압도적인 수비력을 겸비했습니다. 1994년에는 **타율 $.393$** (역대 단일 시즌 2위), **84도루** (단일 시즌 역대 2위)를 기록하며 **정규시즌 MVP**를 수상했습니다.
-                            해태가 어려움을 겪던 1998년 일본 주니치로 이적했지만, KIA 타이거즈로 팀이 인수된 후인 2001년 팀에 복귀하여 타이거즈의 부활을 이끌었습니다. 특히 2009년 V10 우승 당시 베테랑으로서 젊은 선수들을 이끌며 정신적 지주 역할을 수행했습니다.
-                            통산 타율 $.297$, 510도루를 기록했으며, 은퇴 후에도 타이거즈의 레전드로 팬들의 영원한 사랑을 받고 있습니다.
+                <div class="retired-number-grid">
+                    
+                    <div class="player-card sun-dong-yeol">
+                        <div class="player-number">18</div>
+                        <p class="player-name">선동열 (SUN Dong Yeol)</p>
+                        <div class="player-image"></div>
+                        
+                        <h3>국보 투수 (The National Treasure Pitcher)</h3>
+                        <p class="detail-text"><span class="detail-highlight">KBO 역사상 가장 위대한 투수이자,</span> 해태 타이거즈의 전성기, V9 왕조의 핵심이었습니다. 그의 등번호 18번은 **KBO 최초의 영구 결번**으로, 한국 야구 역사 자체를 상징합니다.</p>
+                        
+                        <h4>압도적인 기록과 영향력</h4>
+                        <p class="detail-text">
+                            선동열은 선발과 마무리를 오가며 믿을 수 없는 성적을 남겼습니다. 특히, **통산 평균자책점 1.20**은 그 어떤 선수도 넘볼 수 없는 불멸의 기록입니다. 
+                            그가 마운드에 오르는 날은 상대 팀의 승리 확률이 0에 수렴한다는 말이 있을 정도로 압도적이었습니다.
                         </p>
-                        <ul>
-                            <li>**주요 기록:** 정규시즌 MVP 1회, 도루왕 4회, KBO 역대 최고의 유격수 중 한 명.</li>
-                            <li>**상징성:** 해태 왕조와 KIA 시대에 걸쳐 활약한 유일무이한 슈퍼스타이자 '타이거즈의 심장'.</li>
-                            <li>**결번 사유:** 팀의 전성기와 부활에 모두 기여한 프랜차이즈 스타로서의 위대한 업적.</li>
-                        </ul>
+                        
+                        <h4>주요 경력 하이라이트</h4>
+                        <div class="player-stats">
+                            <ul>
+                                <li>• 포지션: 투수 (P)</li>
+                                <li>• 주요 수상: 정규시즌 MVP 3회 (86, 89, 90), 골든글러브 6회</li>
+                                <li>• 통산 기록: **평균자책점 1.20 (KBO 역대 1위)**, 146승, 132세이브</li>
+                                <li>• 영구 결번 지정: 1996년 (KBO 최초)</li>
+                                <li>• 별명: 국보 투수, 무등산 폭격기</li>
+                                <li>• 일본 진출: 주니치 드래곤즈 (1996~1998)</li>
+                            </ul>
+                        </div>
+                        
+                        <h4>타이거즈에서의 의의</h4>
+                        <p class="detail-text">
+                            선동열은 해태 왕조의 절대적인 상징이자, 팀의 정신적 지주였습니다. 그의 존재만으로도 상대 팀에게는 큰 부담이었으며, 그가 이룬 기록들은 후배 투수들의 영원한 목표가 되고 있습니다.
+                        </p>
+                    </div>
+                    
+                    <div class="player-card lee-jong-beom">
+                        <div class="player-number">7</div>
+                        <p class="player-name">이종범 (LEE Jong Beom)</p>
+                        <div class="player-image"></div>
+
+                        <h3>바람의 아들 (The Son of the Wind)</h3>
+                        <p class="detail-text">
+                            KBO 역사상 최고의 <span class="detail-highlight">5툴 플레이어(타격, 파워, 주루, 수비, 송구)</span>로, 공수주를 모두 갖춘 유격수의 표본이었습니다. 
+                            폭발적인 스피드와 예측 불가능한 플레이로 '바람의 아들'이라는 별명을 얻었으며, 타이거즈 팬들의 영원한 아이콘입니다.
+                        </p>
+                        
+                        <h4>경이로운 전성기와 5툴 플레이</h4>
+                        <p class="detail-text">
+                            1994년에는 **타율 0.393, 84도루**를 기록하며 리그를 지배했습니다. 도루와 홈런을 동시에 기록하는 호타준족의 대명사였으며, 유격수로서 수비력 또한 최고였습니다. 
+                            그의 플레이는 언제나 경기장을 열광의 도가니로 만들었습니다.
+                        </p>
+                        
+                        <h4>주요 경력 하이라이트</h4>
+                        <div class="player-stats">
+                            <ul>
+                                <li>• 포지션: 유격수 (SS) / 외야수 (OF)</li>
+                                <li>• 주요 수상: 정규시즌 MVP 1회 (94), 한국시리즈 MVP 1회 (93)</li>
+                                <li>• 통산 기록: 타율 0.297, **510도루 (KBO 역대 2위)**, 100홈런-100도루 클럽 가입</li>
+                                <li>• 영구 결번 지정: 2012년</li>
+                                <li>• 별명: 바람의 아들, 야구 천재</li>
+                                <li>• 일본 진출: 주니치 드래곤즈 (1998~2001)</li>
+                            </ul>
+                        </div>
+
+                        <h4>타이거즈에서의 의의</h4>
+                        <p class="detail-text">
+                            이종범은 1990년대 해태 왕조의 공격 첨병이자, 2009년 KIA 타이거즈의 12년 만의 우승(V10) 당시 **정신적인 리더**로서 팀을 이끌었습니다. 
+                            그는 타이거즈 팬들에게 야구의 재미와 열정을 선사한 최고의 스타입니다.
+                        </p>
                     </div>
                 </div>
+            </section>
+            
+            </main>
 
-            </div>
-        </section>
-
+        
+        <footer class="footer">
+            <p>⚾ Fan made page – KIA 타이거즈를 사랑하는 마음으로 제작한 비공식 소개 페이지입니다.</p>
+        </footer>
     </div>
 
-    <footer>
-        <p>&copy; 2025 KIA Tigers History. All rights reserved. | 자료 출처: KBO 및 구단 기록</p>
-        <p>※ 본 페이지는 KIA 타이거즈 소개를 위해 생성된 가상 웹페이지입니다.</p>
-    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav a');
+            const navBar = document.querySelector('.nav');
 
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    const id = entry.target.getAttribute('id');
+                    const currentLink = document.querySelector(`.nav a[href="#${id}"]`);
+
+                    // 섹션이 뷰포트 상단에 진입하면 활성화
+                    if (entry.isIntersecting) {
+                        navLinks.forEach(link => {
+                            if (link.getAttribute('href') !== '#') {
+                                link.classList.remove('active');
+                            }
+                        });
+                        if (currentLink) {
+                            currentLink.classList.add('active');
+                        }
+                    }
+                });
+            }, { 
+                // 네비게이션 바 높이만큼 조정하여 정확한 위치에서 활성화
+                rootMargin: `-${navBar.offsetHeight}px 0px -70% 0px` 
+            });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+            
+            // 앵커 이동 시 부드러운 스크롤 적용 및 네비게이션 높이 고려
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href.startsWith('#') && href.length > 1) {
+                        e.preventDefault();
+                        const targetId = href.substring(1);
+                        const targetElement = document.getElementById(targetId);
+                        if (targetElement) {
+                            const navHeight = navBar.offsetHeight;
+                            const elementPosition = targetElement.getBoundingClientRect().top;
+                            const offsetPosition = elementPosition + window.pageYOffset - navHeight;
+
+                            window.scrollTo({
+                                top: offsetPosition,
+                                behavior: 'smooth'
+                            });
+                        }
+                    } else if (href === '#') {
+                        // 로고 클릭 시 최상단으로 이동
+                        e.preventDefault();
+                            window.scrollTo({
+                                top: 0,
+                                behavior: 'smooth'
+                            });
+                    }
+                });
+            });
+            
+             // Hero CTA 버튼 클릭 시 부드러운 스크롤 적용
+            document.querySelector('.hero-cta-button').addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                   if (targetElement) {
+                        const navHeight = navBar.offsetHeight;
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - navHeight;
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+            });
+        });
+    </script>
 </body>
 </html>
