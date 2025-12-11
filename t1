@@ -149,49 +149,93 @@
         color: var(--text-sub);
     }
 
-    /* 인물 카드 스타일 추가 */
+    /* 인물 카드 스타일 추가 (단일 카드 강조) */
     .person-card-container {
         display: flex;
         gap: 1.5rem;
         margin-top: 1.5rem;
         flex-wrap: wrap;
+        justify-content: center; /* 카드가 하나만 남았을 때 중앙 정렬 */
     }
     .person-card {
-        flex: 1 1 45%; 
+        flex: 1 1 100%; /* 너비를 100%로 설정하여 확장 */
         min-width: 300px;
         background: rgba(20, 20, 40, 0.9);
         border: 2px solid var(--t1-red);
         border-radius: 12px;
-        padding: 1.5rem;
+        padding: 2rem;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
     }
     .person-card h3 {
         color: var(--t1-red);
-        font-size: 1.4rem;
-        margin-bottom: 0.5rem;
+        font-size: 1.8rem; /* 제목 확대 */
+        margin-bottom: 1rem;
         font-family: "Cinzel", serif;
-        border-bottom: 2px solid var(--lol-gold);
-        padding-bottom: 0.5rem;
+        border-bottom: 3px solid var(--lol-gold);
+        padding-bottom: 0.7rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
     }
-    .person-card.faker h3 {
-        background: linear-gradient(90deg, var(--lol-gold), #ffe9bf);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        border-bottom-color: var(--t1-red);
+    .person-card h3::before {
+        content: "⭐";
+        font-size: 1.2em;
     }
     .person-card p {
-        font-size: 0.95rem;
+        font-size: 1rem;
         color: var(--text-main);
-        margin-bottom: 0.8rem;
+        margin-bottom: 1rem;
     }
     .person-card ul {
-        list-style: disc;
+        list-style: none; /* 리스트 스타일 변경 */
+        padding-left: 0;
+        margin-top: 1rem;
+    }
+    .person-card ul li {
+        position: relative;
         padding-left: 1.5rem;
-        font-size: 0.9rem;
+        font-size: 0.95rem;
+        color: var(--text-sub);
+        margin-bottom: 0.5rem;
+        border-bottom: 1px dotted rgba(255, 255, 255, 0.1);
+        padding-bottom: 0.5rem;
+    }
+    .person-card ul li:last-child {
+        border-bottom: none;
+    }
+    .person-card ul li::before {
+        content: '▶';
+        color: var(--t1-red);
+        position: absolute;
+        left: 0;
+        font-weight: bold;
+        line-height: 1.5;
+    }
+    .zofgk-stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 1rem;
+        margin-top: 1.5rem;
+        padding: 1rem;
+        background: rgba(224, 25, 48, 0.1);
+        border-radius: 8px;
+    }
+    .zofgk-stats div {
+        text-align: center;
+        padding: 0.5rem;
+    }
+    .zofgk-stats strong {
+        display: block;
+        font-size: 1.6rem;
+        color: var(--lol-gold);
+        font-family: "Cinzel", serif;
+    }
+    .zofgk-stats span {
+        font-size: 0.85rem;
         color: var(--text-sub);
     }
-
-    /* 새로운 Faker 세부 섹션 스타일 */
+    
+    /* Faker 세부 섹션 스타일 */
     #faker-detail .card {
         border: 2px solid var(--lol-gold);
         background: rgba(10, 14, 25, 0.95);
@@ -313,6 +357,7 @@
         <ul>
           <li><a href="#history">T1 역사</a></li>
           <li><a href="#faker-detail">Faker</a></li>
+          <li><a href="#people">제오페구케</a></li>
           <li><a href="#records">압도적 기록</a></li>
           <li><a href="#trophy">주요 경력</a></li>
         </ul>
@@ -392,32 +437,29 @@
     </section>
 
     <section id="people">
-      <h2 class="section-title">✨ T1의 심장: 핵심 로스터와 상징</h2>
-      <p class="section-subtitle">T1의 역사를 관통하며 왕조를 이끈 상징적인 선수들과 로스터입니다.</p>
+      <h2 class="section-title">✨ 2022-2024 황금 세대: 제오페구케 로스터</h2>
+      <p class="section-subtitle">LoL e스포츠 역사상 가장 위대한 로스터 중 하나. 2022년 LCK 전승 우승을 시작으로 T1의 제 2의 왕조를 건설한 주역들입니다.</p>
         
       <div class="person-card-container">
         
-        <div class="person-card faker">
-          <h3>Faker (이상혁)</h3>
-          <p>
-            **리그 오브 레전드 역사상 최고의 선수 (GOAT)**. T1의 창단부터 현재까지 모든 왕조의 중심에 있었으며, T1의 모든 Worlds 우승 (6회)을 함께 달성한 유일한 선수입니다. 
-          </p>
-          <ul>
-            <li>**월즈 최다 우승자 (6회)**: T1의 모든 영광을 함께 함.</li>
-            <li>**최초의 모든 시드 우승**: 1, 2, 3, 4시드에서 모두 월즈 우승.</li>
-            <li>**대중적 인지도**: '롤은 몰라도 페이커는 안다'는 말이 있을 정도의 e스포츠 아이콘.</li>
-          </ul>
-        </div>
-        
         <div class="person-card">
-          <h3>제오페구케 (ZOFGK) 로스터</h3>
+          <h3>The Golden Lineup: ZOFGK</h3>
           <p>
-            **Zeus(최우제), Oner(문현준), Faker(이상혁), Gumayusi(이민형), Keria(류민석)** 로 구성된 2022-2024년의 로스터 (2025년 Zeus 이탈 전). T1의 새로운 왕조 시대를 열었습니다.
+            **Zeus(최우제), Oner(문현준), Faker(이상혁), Gumayusi(이민형), Keria(류민석)** 로 구성된 로스터는 LoL 역사상 가장 강력하고 화려한 시대를 이끌었습니다. 신구 조화와 압도적인 피지컬을 바탕으로 세체팀의 위상을 재정립했습니다.
           </p>
+          
+          <div class="zofgk-stats">
+              <div><strong>3</strong><span>Worlds 연속 결승 진출</span></div>
+              <div><strong>2</strong><span>Worlds 연속 우승 (23, 24)</span></div>
+              <div><strong>1</strong><span>LCK 전승 우승 (22 S)</span></div>
+              <div><strong>1</strong><span>EWC 우승 (24)</span></div>
+          </div>
+
           <ul>
-            <li>**특징**: 주도권 중심의 교전 지향적 팀 컬러로 변화. 빠른 스노우볼링 특화.</li>
-            <li>**주요 기록**: LCK 최초 전승 우승 (2022 S), Worlds 3년 연속 결승 진출, Worlds 2년 연속 우승 (2023, 2024).</li>
-            <li>**위상**: LCK 및 LoL e스포츠의 뷰어십을 책임지는 인기 로스터.</li>
+            <li>**Worlds 쓰리핏 달성 주역**: (2023, 2024, 2025) 중 2023년과 2024년 우승을 합작하며 쓰리핏의 핵심 골자를 이뤘습니다. (2025년은 Faker, Oner, Gumayusi, Keria 로스터로 달성)</li>
+            <li>**LCK 최초의 매치 전승 우승**: 2022년 LCK 스프링에서 단 한 번도 패배하지 않은 **18승 0패**의 기록을 세우며 불멸의 기록을 남겼습니다.</li>
+            <li>**젊은 피의 조화**: 당시 탑, 정글, 원딜, 서포터가 모두 2002년생 이후의 젊은 선수들로 구성되어 폭발적인 캐리력과 넓은 챔피언 폭을 자랑했습니다.</li>
+            <li>**최강의 바텀 라인**: **Gumayusi - Keria** 봇 듀오는 2년 연속 Worlds 우승을 합작하며 역대 최강의 바텀 듀오 중 하나로 평가받습니다.</li>
           </ul>
         </div>
 
@@ -515,4 +557,3 @@
 
 </body>
 </html>
-
