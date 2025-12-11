@@ -111,16 +111,16 @@
 
     <main class="team-selection">
         <a href="doosan.html" class="team-card doosan-theme">
-            <img src="doosan_logo.png" alt="두산 베어스 로고">
+            <img src="https://i.namu.wiki/i/ATeFCxxG--NfLbjqMcXkzt1OlPvsRarQEgVkWUPxm_8gtxt8i06yaV5tDGWdKF3qXBfOGkrosuCKBCFpkum2cHGIqnBRcRftenrR3SPHzo_n6WEdq2rOXwDjoyZy7eUH4mUzfbUNMC64B9loGreG5g.svg" alt="두산 베어스 로고">
             <h2>두산 베어스</h2>
         </a>
 
         <a href="kia.html" class="team-card kia-theme">
-            <img src="kia_logo.png" alt="KIA 타이거즈 로고">
+            <img src="https://i.namu.wiki/i/xBO8lp2WWX8VndvqqEpTDerYzlZwdWcDx4Ne1Q-8_MMvff1M52TElDedTFiId8Vhm5N6HHM_iY02AyxY7gUqfm8Mo6cgoQI-Mv-ty2PdIyNRBRtqU8-vVA6HZoN4bDXMGtJfsE1a3nlqMz02Whmb4A.svg" alt="KIA 타이거즈 로고">
             <h2>KIA 타이거즈</h2>
         </a>
 
-        <a href="t1.html" class="team-card t1-theme">
+        <a href="https://i.namu.wiki/i/u2hDqv1_seYcyJL9GYhdSHxlJGBkkQ1Bvim91_XiY_AgRasLHhmrB9qaB0YTWV-d8zkhjeiutEiWBYq455vJLai4x5_R_eL6yZQAIe2-Nu93csLXT-UllhJWSgjm1i7ECuUXWsZyx9RF_FwaY2Ggfg.svg" class="team-card t1-theme">
             <img src="t1_logo.png" alt="T1 로고">
             <h2>T1</h2>
         </a>
