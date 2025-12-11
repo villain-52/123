@@ -1,651 +1,696 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <title>T1 소개 | 역사와 압도적인 커리어 (Faker & 제오페구케 포함)</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <title>T1 소개 | 역사와 압도적인 커리어 (Faker & 제오페구케 포함)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
 
-  <style>
-    /* CSS 변수 설정 */
-    :root{
-      --t1-red: #e01930;
-      --lol-gold: #c89b3c;
-      --bg-dark: #050816;
-      --card-bg: rgba(10, 14, 25, 0.9);
-      --text-main: #e4e7f5;
-      --text-sub: #9da3c4;
-      --divider-color: rgba(200, 155, 60, 0.2);
-    }
-    /* 기본 리셋 및 전역 스타일 */
-    *{box-sizing: border-box; margin:0; padding:0;}
-    body{
-      font-family: "Noto Sans KR", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      /* 배경: 중앙을 기준으로 어두운 우주 느낌의 그라데이션 */
-      background: radial-gradient(circle at top, #1b2735 0%, #090a0f 45%, #050816 100%);
-      color:var(--text-main);
-      line-height:1.6;
-      min-height:100vh;
-    }
-    a{color:inherit; text-decoration:none;}
-    
-    /* 이미지 및 캡션 스타일 추가 */
-    img{
-      max-width:100%; 
-      height:auto; 
-      display:block; 
-      border-radius: 8px;
-    } 
-    figure{
-      margin: 1.5rem 0;
-      text-align: center;
-    }
-    figcaption{
-      font-size: 0.85rem; 
-      color: var(--lol-gold); 
-      margin-top: 0.5rem;
-    }
+    <style>
+        /* CSS 변수 설정 */
+        :root{
+            --t1-red: #e01930;
+            --lol-gold: #c89b3c;
+            --bg-dark: #050816;
+            --card-bg: rgba(10, 14, 25, 0.9);
+            --text-main: #e4e7f5;
+            --text-sub: #9da3c4;
+            --divider-color: rgba(200, 155, 60, 0.2);
+        }
+        /* 기본 리셋 및 전역 스타일 */
+        *{box-sizing: border-box; margin:0; padding:0;}
+        body{
+            font-family: "Noto Sans KR", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            /* 배경: 중앙을 기준으로 어두운 우주 느낌의 그라데이션 */
+            background: radial-gradient(circle at top, #1b2735 0%, #090a0f 45%, #050816 100%);
+            color:var(--text-main);
+            line-height:1.6;
+            min-height:100vh;
+        }
+        a{color:inherit; text-decoration:none;}
+        
+        /* 이미지 및 캡션 스타일 추가 */
+        img{
+            max-width:100%; 
+            height:auto; 
+            display:block; 
+            border-radius: 8px;
+        } 
+        figure{
+            margin: 1.5rem 0;
+            text-align: center;
+        }
+        figcaption{
+            font-size: 0.85rem; 
+            color: var(--lol-gold); 
+            margin-top: 0.5rem;
+        }
 
-    /* 헤더 및 네비게이션 */
-    header{
-      position: sticky;
-      top:0;
-      z-index:999;
-      background: linear-gradient(to right, rgba(5,8,22,0.95), rgba(10,10,20,0.95));
-      border-bottom: 1px solid var(--divider-color);
-      backdrop-filter: blur(10px);
-    }
-    .nav-inner{
-      max-width:1100px;
-      margin:0 auto;
-      padding:0.75rem 1.5rem;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-    }
-    .logo{display:flex; align-items:center; gap:0.6rem; font-family:"Cinzel", serif; letter-spacing:0.06em; text-transform:uppercase; font-size:1.1rem;}
-    /* T1 로고 마크 (이미지 사용) */
-    .logo-mark{
-        width:32px; 
-        height:32px;
-        /* 요청에 따라 'ex.jpg' 경로를 사용합니다. */
-        background-image: url("ex.jpg");
-        background-size: cover;
-        background-position: center;
-        border-radius: 50%;
-        margin-right: 0.5rem;
-        /* 기존 스타일 제거 후 이미지 대체 */
-        clip-path: none; 
-    }
-    .logo-mark img {
-        display: none; /* 배경 이미지 사용 시 내부 img 태그 숨김 */
-    }
-    nav ul{display:flex; gap:1.2rem; list-style:none; font-size:0.95rem;}
-    nav a{position:relative; padding-bottom:0.2rem; color:var(--text-sub); transition: color .2s ease;}
-    nav a::after{content:""; position:absolute; left:0; bottom:0; width:0; height:2px; background:linear-gradient(90deg, var(--lol-gold), var(--t1-red)); transition: width .2s ease;}
-    nav a:hover{color:var(--text-main);}
-    nav a:hover::after{width:100%;}
-    
-    /* 메인 콘텐츠 영역 */
-    main{max-width:1100px; margin:0 auto; padding:2.5rem 1.5rem 3rem;}
-    
-    /* 공통 섹션 스타일 */
-    section{margin-bottom:3.5rem;}
-    .section-title{font-family:"Cinzel", serif; font-size:clamp(1.2rem, 2vw + 0.5rem, 1.8rem); letter-spacing:0.06em; text-transform:uppercase; margin-bottom:0.75rem; display:inline-flex; align-items:center; gap:0.6rem; color:var(--lol-gold);}
-    .section-title::before{content:""; width:18px; height:2px; background:linear-gradient(90deg, var(--lol-gold), var(--t1-red)); display:inline-block;}
-    .section-subtitle{font-size:0.95rem; color:var(--text-sub); margin-bottom:1.5rem; border-left: 3px solid var(--t1-red); padding-left: 1rem;}
-    
-    /* 카드 스타일 */
-    .card{background:var(--card-bg); border-radius:18px; border:1px solid rgba(200,155,60,0.35); padding:1.5rem; box-shadow:0 0 25px rgba(0,0,0,0.9), 0 0 25px rgba(5,8,22,0.9); margin-bottom: 1.5rem;}
-    .card h3{font-size:1.15rem; margin-bottom:0.8rem; color:#ffe9bf; border-bottom: 1px dashed var(--divider-color); padding-bottom: 0.5rem;}
-    .card p{font-size:0.92rem; color:var(--text-main); margin-bottom: 1rem;}
+        /* 헤더 및 네비게이션 */
+        header{
+            position: sticky;
+            top:0;
+            z-index:999;
+            background: linear-gradient(to right, rgba(5,8,22,0.95), rgba(10,10,20,0.95));
+            border-bottom: 1px solid var(--divider-color);
+            backdrop-filter: blur(10px);
+        }
+        .nav-inner{
+            max-width:1100px;
+            margin:0 auto;
+            padding:0.75rem 1.5rem;
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+        }
+        .logo{display:flex; align-items:center; gap:0.6rem; font-family:"Cinzel", serif; letter-spacing:0.06em; text-transform:uppercase; font-size:1.1rem;}
+        /* T1 로고 마크 (이미지 사용) */
+        .logo-mark{
+            width:32px; 
+            height:32px;
+            /* 요청에 따라 'ex.jpg' 경로를 사용합니다. */
+            background-image: url("ex.jpg");
+            background-size: cover;
+            background-position: center;
+            border-radius: 50%;
+            margin-right: 0.5rem;
+            /* 기존 스타일 제거 후 이미지 대체 */
+            clip-path: none; 
+        }
+        .logo-mark img {
+            display: none; /* 배경 이미지 사용 시 내부 img 태그 숨김 */
+        }
+        nav ul{display:flex; gap:1.2rem; list-style:none; font-size:0.95rem;}
+        nav a{position:relative; padding-bottom:0.2rem; color:var(--text-sub); transition: color .2s ease;}
+        nav a::after{content:""; position:absolute; left:0; bottom:0; width:0; height:2px; background:linear-gradient(90deg, var(--lol-gold), var(--t1-red)); transition: width .2s ease;}
+        nav a:hover{color:var(--text-main);}
+        nav a:hover::after{width:100%;}
+        
+        /* 메인 콘텐츠 영역 */
+        main{max-width:1100px; margin:0 auto; padding:2.5rem 1.5rem 3rem;}
+        
+        /* 공통 섹션 스타일 */
+        section{margin-bottom:3.5rem;}
+        .section-title{font-family:"Cinzel", serif; font-size:clamp(1.2rem, 2vw + 0.5rem, 1.8rem); letter-spacing:0.06em; text-transform:uppercase; margin-bottom:0.75rem; display:inline-flex; align-items:center; gap:0.6rem; color:var(--lol-gold);}
+        .section-title::before{content:""; width:18px; height:2px; background:linear-gradient(90deg, var(--lol-gold), var(--t1-red)); display:inline-block;}
+        .section-subtitle{font-size:0.95rem; color:var(--text-sub); margin-bottom:1.5rem; border-left: 3px solid var(--t1-red); padding-left: 1rem;}
+        
+        /* 카드 스타일 */
+        .card{background:var(--card-bg); border-radius:18px; border:1px solid rgba(200,155,60,0.35); padding:1.5rem; box-shadow:0 0 25px rgba(0,0,0,0.9), 0 0 25px rgba(5,8,22,0.9); margin-bottom: 1.5rem;}
+        .card h3{font-size:1.15rem; margin-bottom:0.8rem; color:#ffe9bf; border-bottom: 1px dashed var(--divider-color); padding-bottom: 0.5rem;}
+        .card p{font-size:0.92rem; color:var(--text-main); margin-bottom: 1rem;}
 
-    /* 기록 하이라이트 그리드 */
-    .record-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 1.5rem;
-    }
-    .record-item {
-        background: rgba(224, 25, 48, 0.1);
-        border: 1px solid var(--t1-red);
-        border-radius: 12px;
-        padding: 1rem;
-        transition: all 0.3s ease;
-    }
-    .record-item:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(224, 25, 48, 0.3);
-    }
-    .record-item h4 {
-        color: var(--lol-gold);
-        font-family: "Cinzel", serif;
-        font-size: 1.25rem;
-        margin-bottom: 0.5rem;
-    }
-    .record-item p {
-        font-size: 0.9rem;
-        color: var(--text-sub);
-        margin: 0;
-    }
-    .record-item ul {
-        list-style: none;
-        padding-left: 0;
-        margin-top: 0.8rem;
-    }
-    .record-item ul li {
-        font-size: 0.85rem;
-        color: var(--text-main);
-        margin-bottom: 0.3rem;
-        position: relative;
-        padding-left: 1rem;
-    }
-    .record-item ul li::before {
-        content: '★';
-        color: var(--t1-red);
-        position: absolute;
-        left: 0;
-        font-size: 0.7rem;
-        line-height: 1.5;
-    }
+        /* 기록 하이라이트 그리드 */
+        .record-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        .record-item {
+            background: rgba(224, 25, 48, 0.1);
+            border: 1px solid var(--t1-red);
+            border-radius: 12px;
+            padding: 1rem;
+            transition: all 0.3s ease;
+        }
+        .record-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(224, 25, 48, 0.3);
+        }
+        .record-item h4 {
+            color: var(--lol-gold);
+            font-family: "Cinzel", serif;
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+        .record-item p {
+            font-size: 0.9rem;
+            color: var(--text-sub);
+            margin: 0;
+        }
+        .record-item ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 0.8rem;
+        }
+        .record-item ul li {
+            font-size: 0.85rem;
+            color: var(--text-main);
+            margin-bottom: 0.3rem;
+            position: relative;
+            padding-left: 1rem;
+        }
+        .record-item ul li::before {
+            content: '★';
+            color: var(--t1-red);
+            position: absolute;
+            left: 0;
+            font-size: 0.7rem;
+            line-height: 1.5;
+        }
 
-    /* 우승/준우승 경력 리스트 */
-    .trophy-list-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 1rem;
-        margin-top: 1.5rem;
-    }
-    .trophy-item {
-        background: rgba(200, 155, 60, 0.08);
-        border-left: 3px solid var(--lol-gold);
-        padding: 0.8rem;
-        border-radius: 6px;
-    }
-    .trophy-item.runner-up {
-        border-left: 3px solid var(--text-sub);
-        background: rgba(150, 150, 150, 0.08);
-    }
-    .trophy-item strong {
-        display: block;
-        font-size: 1rem;
-        color: var(--lol-gold);
-        margin-bottom: 0.2rem;
-    }
-    .trophy-item.runner-up strong {
-        color: var(--text-main);
-    }
-    .trophy-item span {
-        font-size: 0.85rem;
-        color: var(--text-sub);
-    }
+        /* 우승/준우승 경력 리스트 */
+        .trophy-list-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        .trophy-item {
+            background: rgba(200, 155, 60, 0.08);
+            border-left: 3px solid var(--lol-gold);
+            padding: 0.8rem;
+            border-radius: 6px;
+        }
+        .trophy-item.runner-up {
+            border-left: 3px solid var(--text-sub);
+            background: rgba(150, 150, 150, 0.08);
+        }
+        .trophy-item strong {
+            display: block;
+            font-size: 1rem;
+            color: var(--lol-gold);
+            margin-bottom: 0.2rem;
+        }
+        .trophy-item.runner-up strong {
+            color: var(--text-main);
+        }
+        .trophy-item span {
+            font-size: 0.85rem;
+            color: var(--text-sub);
+        }
 
-    /* 인물 카드 스타일 추가 (단일 카드 강조) */
-    .person-card-container {
-        display: flex;
-        gap: 1.5rem;
-        margin-top: 1.5rem;
-        flex-wrap: wrap;
-        justify-content: center; /* 카드가 하나만 남았을 때 중앙 정렬 */
-    }
-    .person-card {
-        flex: 1 1 100%; /* 너비를 100%로 설정하여 확장 */
-        min-width: 300px;
-        background: rgba(20, 20, 40, 0.9);
-        border: 2px solid var(--t1-red);
-        border-radius: 12px;
-        padding: 2rem;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-    }
-    .person-card h3 {
-        color: var(--t1-red);
-        font-size: 1.8rem; /* 제목 확대 */
-        margin-bottom: 1rem;
-        font-family: "Cinzel", serif;
-        border-bottom: 3px solid var(--lol-gold);
-        padding-bottom: 0.7rem;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-    }
-    .person-card h3::before {
-        content: "⭐";
-        font-size: 1.2em;
-    }
-    .person-card p {
-        font-size: 1rem;
-        color: var(--text-main);
-        margin-bottom: 1rem;
-    }
-    .person-card ul {
-        list-style: none; /* 리스트 스타일 변경 */
-        padding-left: 0;
-        margin-top: 1rem;
-    }
-    .person-card ul li {
-        position: relative;
-        padding-left: 1.5rem;
-        font-size: 0.95rem;
-        color: var(--text-sub);
-        margin-bottom: 0.5rem;
-        border-bottom: 1px dotted rgba(255, 255, 255, 0.1);
-        padding-bottom: 0.5rem;
-    }
-    .person-card ul li:last-child {
-        border-bottom: none;
-    }
-    .person-card ul li::before {
-        content: '▶';
-        color: var(--t1-red);
-        position: absolute;
-        left: 0;
-        font-weight: bold;
-        line-height: 1.5;
-    }
-    .zofgk-stats {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-        gap: 1rem;
-        margin-top: 1.5rem;
-        padding: 1rem;
-        background: rgba(224, 25, 48, 0.1);
-        border-radius: 8px;
-    }
-    .zofgk-stats div {
-        text-align: center;
-        padding: 0.5rem;
-    }
-    .zofgk-stats strong {
-        display: block;
-        font-size: 1.6rem;
-        color: var(--lol-gold);
-        font-family: "Cinzel", serif;
-    }
-    .zofgk-stats span {
-        font-size: 0.85rem;
-        color: var(--text-sub);
-    }
-    
-    /* Faker 세부 섹션 스타일 */
-    /* 이미지를 위해 Flexbox 컨테이너 추가 */
-    #faker-detail-content {
-        display: flex;
-        gap: 2rem;
-        align-items: flex-start;
-    }
-    #faker-detail-content .card {
-        flex: 2; /* 텍스트 부분이 더 많은 공간 차지 */
-        border: 2px solid var(--lol-gold);
-        background: rgba(10, 14, 25, 0.95);
-        padding: 2.5rem;
-    }
-    #faker-detail-image {
-        flex: 1; /* 이미지 부분이 남은 공간 차지 */
-        max-width: 300px;
-        min-width: 200px;
-        margin-top: 0;
-        padding-top: 2.5rem; /* 카드 패딩에 맞춤 */
-    }
-    #faker-detail-image img {
-        border: 2px solid var(--t1-red);
-        box-shadow: 0 0 15px rgba(224, 25, 48, 0.5);
-    }
+        /* 인물 카드 스타일 추가 (단일 카드 강조) */
+        .person-card-container {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center; /* 카드가 하나만 남았을 때 중앙 정렬 */
+        }
+        .person-card {
+            flex: 1 1 100%; /* 너비를 100%로 설정하여 확장 */
+            min-width: 300px;
+            background: rgba(20, 20, 40, 0.9);
+            border: 2px solid var(--t1-red);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+        /* 이미지 그리드를 위한 스타일 (수정됨: 단일 이미지 포커스) */
+        .person-image-grid {
+            display: flex;
+            justify-content: center; /* 중앙 정렬 */
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        .person-image-grid figure {
+            flex: 1 1 100%; /* 단일 이미지로 가득 채우기 */
+            max-width: 600px; /* 최대 너비 제한 (선택 사항) */
+            margin: 0;
+        }
+        .person-image-grid img {
+            border: 1px solid var(--lol-gold);
+            box-shadow: 0 0 10px rgba(200, 155, 60, 0.3);
+        }
+        .person-card h3 {
+            color: var(--t1-red);
+            font-size: 1.8rem; /* 제목 확대 */
+            margin-bottom: 1rem;
+            font-family: "Cinzel", serif;
+            border-bottom: 3px solid var(--lol-gold);
+            padding-bottom: 0.7rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .person-card h3::before {
+            content: "⭐";
+            font-size: 1.2em;
+        }
+        .person-card p {
+            font-size: 1rem;
+            color: var(--text-main);
+            margin-bottom: 1rem;
+        }
+        .person-card ul {
+            list-style: none; /* 리스트 스타일 변경 */
+            padding-left: 0;
+            margin-top: 1rem;
+        }
+        .person-card ul li {
+            position: relative;
+            padding-left: 1.5rem;
+            font-size: 0.95rem;
+            color: var(--text-sub);
+            margin-bottom: 0.5rem;
+            border-bottom: 1px dotted rgba(255, 255, 255, 0.1);
+            padding-bottom: 0.5rem;
+        }
+        .person-card ul li:last-child {
+            border-bottom: none;
+        }
+        .person-card ul li::before {
+            content: '▶';
+            color: var(--t1-red);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            line-height: 1.5;
+        }
+        .zofgk-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: rgba(224, 25, 48, 0.1);
+            border-radius: 8px;
+        }
+        .zofgk-stats div {
+            text-align: center;
+            padding: 0.5rem;
+        }
+        .zofgk-stats strong {
+            display: block;
+            font-size: 1.6rem;
+            color: var(--lol-gold);
+            font-family: "Cinzel", serif;
+        }
+        .zofgk-stats span {
+            font-size: 0.85rem;
+            color: var(--text-sub);
+        }
+        
+        /* Faker 세부 섹션 스타일 */
+        /* 이미지를 위해 Flexbox 컨테이너 추가 */
+        #faker-detail-content {
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+        }
+        #faker-detail-content .card {
+            flex: 2; /* 텍스트 부분이 더 많은 공간 차지 */
+            border: 2px solid var(--lol-gold);
+            background: rgba(10, 14, 25, 0.95);
+            padding: 2.5rem;
+        }
+        #faker-detail-image-group {
+            flex: 1; /* 이미지 부분이 남은 공간 차지 */
+            max-width: 300px;
+            min-width: 200px;
+            margin-top: 0;
+            padding-top: 2.5rem; /* 카드 패딩에 맞춤 */
+        }
+        #faker-detail-image-group figure {
+            margin-bottom: 2rem; /* 이미지 사이 간격 */
+        }
+        #faker-detail-image-group img {
+            border: 2px solid var(--t1-red);
+            box-shadow: 0 0 15px rgba(224, 25, 48, 0.5);
+        }
 
-    #faker-detail h3 {
-        font-size: 1.6rem;
-        color: #ffe9bf;
-        margin-bottom: 1rem;
-        border-bottom: 3px solid var(--t1-red);
-        padding-bottom: 0.7rem;
-    }
-    .faker-stats-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 1.5rem;
-        margin-top: 1.5rem;
-    }
-    .faker-stat-item {
-        background: rgba(200, 155, 60, 0.15);
-        border-left: 5px solid var(--lol-gold);
-        padding: 1rem;
-        border-radius: 6px;
-    }
-    .faker-stat-item strong {
-        display: block;
-        font-size: 1.8rem;
-        color: var(--t1-red);
-        font-family: "Cinzel", serif;
-        line-height: 1;
-        margin-bottom: 0.4rem;
-    }
-    .faker-stat-item span {
-        font-size: 0.9rem;
-        color: var(--text-main);
-    }
-    .faker-paragraph {
-        margin-top: 1rem;
-        padding-top: 1rem;
-        border-top: 1px dashed var(--divider-color);
-    }
-    .faker-paragraph p {
-        font-size: 1rem;
-        color: var(--text-sub);
-        margin-bottom: 0.8rem;
-    }
-    
-    /* 기타 기록 목록 스타일 */
-    .stat-list {
-        list-style: none;
-        padding: 0;
-        margin-top: 1rem;
-    }
-    .stat-list li {
-        padding: 0.5rem 0;
-        border-bottom: 1px dotted rgba(255, 255, 255, 0.1);
-        font-size: 0.95rem;
-        position: relative;
-        padding-left: 1.5rem;
-    }
-    .stat-list li::before {
-        content: '»';
-        color: var(--t1-red);
-        position: absolute;
-        left: 0;
-        font-weight: bold;
-    }
-    .stat-list li:last-child {
-        border-bottom: none;
-    }
-    .stat-list strong {
-        color: var(--lol-gold);
-    }
-    .note-block {
-        border: 1px solid rgba(224, 25, 48, 0.5);
-        background: rgba(224, 25, 48, 0.05);
-        padding: 1rem;
-        border-radius: 8px;
-        font-size: 0.85rem;
-        color: var(--text-sub);
-        margin-top: 2rem;
-    }
-    .note-block strong {
-        color: var(--t1-red);
-    }
+        #faker-detail h3 {
+            font-size: 1.6rem;
+            color: #ffe9bf;
+            margin-bottom: 1rem;
+            border-bottom: 3px solid var(--t1-red);
+            padding-bottom: 0.7rem;
+        }
+        .faker-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        .faker-stat-item {
+            background: rgba(200, 155, 60, 0.15);
+            border-left: 5px solid var(--lol-gold);
+            padding: 1rem;
+            border-radius: 6px;
+        }
+        .faker-stat-item strong {
+            display: block;
+            font-size: 1.8rem;
+            color: var(--t1-red);
+            font-family: "Cinzel", serif;
+            line-height: 1;
+            margin-bottom: 0.4rem;
+        }
+        .faker-stat-item span {
+            font-size: 0.9rem;
+            color: var(--text-main);
+        }
+        .faker-paragraph {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px dashed var(--divider-color);
+        }
+        .faker-paragraph p {
+            font-size: 1rem;
+            color: var(--text-sub);
+            margin-bottom: 0.8rem;
+        }
+        
+        /* 기타 기록 목록 스타일 */
+        .stat-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 1rem;
+        }
+        .stat-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px dotted rgba(255, 255, 255, 0.1);
+            font-size: 0.95rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        .stat-list li::before {
+            content: '»';
+            color: var(--t1-red);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        .stat-list li:last-child {
+            border-bottom: none;
+        }
+        .stat-list strong {
+            color: var(--lol-gold);
+        }
+        .note-block {
+            border: 1px solid rgba(224, 25, 48, 0.5);
+            background: rgba(224, 25, 48, 0.05);
+            padding: 1rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            color: var(--text-sub);
+            margin-top: 2rem;
+        }
+        .note-block strong {
+            color: var(--t1-red);
+        }
 
-    /* 트로피 섹션 이미지 스타일 */
-    #trophy-image-container {
-        margin-top: 2rem;
-        padding: 1rem;
-        background: rgba(20, 20, 40, 0.9);
-        border-radius: 12px;
-        border: 1px solid var(--lol-gold);
-    }
-    #trophy-image-container img {
-        border-radius: 6px;
-        box-shadow: 0 0 20px rgba(200, 155, 60, 0.5);
-    }
-    
-    /* 반응형 디자인 */
-    @media (max-width:840px){
-      nav ul{display:none;} 
-      main{padding:1.8rem 1.2rem 2.4rem;}
-      .trophy-list-grid {
-        grid-template-columns: 1fr;
-      }
-      .person-card-container {
-          flex-direction: column;
-      }
-      .person-card {
-          min-width: unset;
-      }
-      /* Faker 섹션 모바일 레이아웃 */
-      #faker-detail-content {
-          flex-direction: column;
-          gap: 1rem;
-      }
-      #faker-detail-image {
-          order: -1; /* 이미지를 상단으로 이동 */
-          max-width: 100%;
-          min-width: 100%;
-          padding-top: 0.5rem;
-      }
-      #faker-detail-content .card {
-          padding: 1.5rem;
-      }
-      .faker-stats-grid {
-          grid-template-columns: 1fr;
-      }
-    }
-  </style>
+        /* 트로피 섹션 이미지 스타일 */
+        #trophy-image-container {
+            margin-top: 2rem;
+            padding: 1rem;
+            background: rgba(20, 20, 40, 0.9);
+            border-radius: 12px;
+            border: 1px solid var(--lol-gold);
+        }
+        #trophy-image-container img {
+            border-radius: 6px;
+            box-shadow: 0 0 20px rgba(200, 155, 60, 0.5);
+        }
+        
+        /* 반응형 디자인 */
+        @media (max-width:840px){
+            nav ul{display:none;} 
+            main{padding:1.8rem 1.2rem 2.4rem;}
+            .trophy-list-grid {
+                grid-template-columns: 1fr;
+            }
+            .person-card-container {
+                flex-direction: column;
+            }
+            .person-card {
+                min-width: unset;
+            }
+            /* Faker 섹션 모바일 레이아웃 */
+            #faker-detail-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            #faker-detail-image-group {
+                order: -1; /* 이미지를 상단으로 이동 */
+                max-width: 100%;
+                min-width: 100%;
+                padding-top: 0.5rem;
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+            }
+            #faker-detail-image-group figure {
+                margin-bottom: 0;
+            }
+            #faker-detail-content .card {
+                padding: 1.5rem;
+            }
+            .faker-stats-grid {
+                grid-template-columns: 1fr;
+            }
+            .person-image-grid figure {
+                flex: 0 0 100%; /* 모바일에서 1열 배치 */
+            }
+        }
+    </style>
 </head>
 <body>
-  <a href="#main-content" style="position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;">Skip to content</a>
+    <a href="#main-content" style="position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;">Skip to content</a>
 
-  <header>
-    <div class="nav-inner">
-      <div class="logo">
-        <div class="logo-mark" aria-hidden="true">
-            <img src="ex.jpg" alt="T1 로고" style="width:100%; height:100%; object-fit: cover; border-radius: 50%;">
+    <header>
+        <div class="nav-inner">
+            <div class="logo">
+                <div class="logo-mark" aria-hidden="true">
+                    <img src="ex.jpg" alt="T1 로고" style="width:100%; height:100%; object-fit: cover; border-radius: 50%;">
+                </div>
+                <span>T1 LEGENDS</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#history">T1 역사</a></li>
+                    <li><a href="#faker-detail">Faker</a></li>
+                    <li><a href="#people">제오페구케</a></li>
+                    <li><a href="#records">압도적 기록</a></li>
+                    <li><a href="#trophy">주요 경력</a></li>
+                </ul>
+            </nav>
         </div>
-        <span>T1 LEGENDS</span>
-      </div>
-      <nav>
-        <ul>
-          <li><a href="#history">T1 역사</a></li>
-          <li><a href="#faker-detail">Faker</a></li>
-          <li><a href="#people">제오페구케</a></li>
-          <li><a href="#records">압도적 기록</a></li>
-          <li><a href="#trophy">주요 경력</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+    </header>
 
-  <main id="main-content">
-    
-    <section id="history">
-      <h2 class="section-title">⚔️ T1의 창단과 황금기: 시대의 지배자</h2>
-      <p class="section-subtitle">
-        2012년 12월 13일, SK telecom T1이라는 이름으로 창단. 리그 오브 레전드 e스포츠 역사에 가장 거대한 족적을 남긴 명문 팀입니다.
-      </p>
-
-      <div class="card">
-        <h3>왕조의 개막과 LCK 황금기 (2013-2017)</h3>
-        <p>
-          2013 LCK 서머 우승과 시즌 3 월드 챔피언십 우승을 달성하며 LCK 팀 중 최초로 월즈를 제패했습니다. 이후 5년간 지속된 LCK 황금기의 신호탄을 쏘아 올렸습니다. 2015년 통합 팀 체제 구축 후 2017년까지는 국내를 넘어 전 세계적으로 공인받는 왕조(Dynasty)로서 군림하며 월즈 3회 우승을 기록했습니다.
-        </p>
-        <p>
-            T1은 LCK에서 유일하게 승강전 경험이 없는 팀이며, LCK가 프랜차이즈를 도입함에 따라 이 불멸의 기록을 영원히 보유하게 되었습니다.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>제국의 부활 (2022-2025) - 월즈 쓰리핏 신화</h3>
-        <p>
-          2022년 스프링 LCK 역사상 최초 전승 우승이라는 범접 불가의 기록을 세웠습니다. 이후 2023년, 2024년 Worlds 연속 우승을 달성하며 동일 주전 로스터로 2년 연속 우승한 최초의 팀이 되었고, 2025년 월드 챔피언십까지 우승하며 전 세계 LoL 팀 최초로 월즈 쓰리핏 (3-peat) 이라는 영원한 신화를 기록했습니다.
-        </p>
-        <p>
-            현재 T1은 대한민국 프로 스포츠 클럽 한정 최다 국제 클럽 대항전 우승 기록을 보유하고 있습니다.
-        </p>
-      </div>
-    </section>
-    
-    <section id="faker-detail">
-        <h2 class="section-title">🌟 GOAT, The Unkillable Demon King: Faker</h2>
-        <p class="section-subtitle">
-            T1의 역사 그 자체이자 리그 오브 레전드의 상징. Faker 선수가 세운 개인 커리어의 금자탑입니다.
-        </p>
+    <main id="main-content">
         
-        <div id="faker-detail-content">
-            <figure id="faker-detail-image">
-                <img src="https://i.namu.wiki/i/lXk-QGwNN1SozkiftTC4o-hyHa9TFic6zqSKOU_Pr0zm03WnqwNiV7a29-RRSK5NzizWKxkUlh5pQ0fxDjU3OA.webp" alt="페이커 선수 단독 프로필 사진" id="faker-profile-image">
-                <figcaption>이상혁(Faker) 선수: 불멸의 전설</figcaption>
-            </figure>
-        
+        <section id="history">
+            <h2 class="section-title">⚔️ T1의 창단과 황금기: 시대의 지배자</h2>
+            <p class="section-subtitle">
+                2012년 12월 13일, SK telecom T1이라는 이름으로 창단. 리그 오브 레전드 e스포츠 역사에 가장 거대한 족적을 남긴 명문 팀입니다.
+            </p>
+
             <div class="card">
-                <h3>미드 라인의 살아있는 전설, 이상혁</h3>
+                <h3>왕조의 개막과 LCK 황금기 (2013-2017)</h3>
+                <figure>
+                    <img src="https://i.namu.wiki/i/g--0r8VdPLP1v_RsmiKkT4qhSRhKOu8Al9zveT0_v_vopaxRvm5NcXJ1ZkCMtngCFyR8iJb99EGH9eVbi1Wasw.webp" alt="2013년 SKT T1 K의 월즈 우승 트로피" />
+                    <figcaption>2013 Worlds 우승, 왕조의 시작을 알리다. **(예시 이미지)**</figcaption>
+                </figure>
                 <p>
-                    2013년 데뷔 이래 단 한 번도 팀을 옮기지 않고 T1에서 활동하며 팀의 모든 영광을 함께했습니다. 그의 커리어는 e스포츠를 넘어 스포츠 역사상 가장 위대한 선수 중 한 명으로 평가받습니다.
+                    2013 LCK 서머 우승과 **시즌 3 월드 챔피언십 우승**을 달성하며 LCK 팀 중 최초로 월즈를 제패했습니다. 이후 5년간 지속된 LCK 황금기의 신호탄을 쏘아 올렸습니다. 2015년 통합 팀 체제 구축 후 2017년까지는 국내를 넘어 전 세계적으로 공인받는 **왕조(Dynasty)**로서 군림하며 월즈 3회 우승을 기록했습니다.
                 </p>
-                
-                <div class="faker-stats-grid">
-                    <div class="faker-stat-item">
-                        <strong>6</strong>
-                        <span>Worlds Championship 우승 (단독 최다)</span>
+                <p>
+                    T1은 LCK에서 **유일하게 승강전 경험이 없는 팀**이며, LCK가 프랜차이즈를 도입함에 따라 이 불멸의 기록을 영원히 보유하게 되었습니다.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>제국의 부활 (2022-2025) - 월즈 쓰리핏 신화</h3>
+                <figure>
+                    <img src="https://i.namu.wiki/i/X-v-D3jdoMQnlQJdAZ2VBRegXqyf7iwkxredZCuC7WoGEOo6jcLeLLQaPSzOQeEnJJarVIHWF47vUYp-SE9QQA.webp" alt="월즈 쓰리핏 신화 관련사진" />
+                    <figcaption>2025월즈 우승 장면</figcaption>
+                </figure>
+                <p>
+                    2022년 스프링 **LCK 역사상 최초 전승 우승**이라는 범접 불가의 기록을 세웠습니다. 이후 2023년, 2024년 Worlds 연속 우승을 달성하며 **동일 주전 로스터로 2년 연속 우승한 최초의 팀**이 되었고, **2025년 월드 챔피언십까지 우승**하며 전 세계 LoL 팀 최초로 **월즈 쓰리핏 (3-peat)** 이라는 영원한 신화를 기록했습니다.
+                </p>
+                <p>
+                    현재 T1은 대한민국 프로 스포츠 클럽 한정 **최다 국제 클럽 대항전 우승 기록**을 보유하고 있습니다.
+                </p>
+            </div>
+        </section>
+        
+        <section id="faker-detail">
+            <h2 class="section-title">🌟 GOAT, The Unkillable Demon King: Faker</h2>
+            <p class="section-subtitle">
+                T1의 역사 그 자체이자 리그 오브 레전드의 상징. Faker 선수가 세운 개인 커리어의 금자탑입니다.
+            </p>
+            
+            <div id="faker-detail-content">
+                <div id="faker-detail-image-group">
+                    <figure>
+                        <img src="https://i.namu.wiki/i/lXk-QGwNN1SozkiftTC4o-hyHa9TFic6zqSKOU_Pr0zm03WnqwNiV7a29-RRSK5NzizWKxkUlh5pQ0fxDjU3OA.webp" alt="페이커 선수 단독 프로필 사진" id="faker-profile-image">
+                        <figcaption>이상혁(Faker) 선수: 불멸의 전설 **(예시 이미지)**</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="ex_faker_zed.jpg" alt="페이커 선수 제드 플레이 장면" id="faker-zed-image">
+                        <figcaption>페이커의 상징적인 챔피언, 제드 **(예시 이미지)**</figcaption>
+                    </figure>
+                </div>
+            
+                <div class="card">
+                    <h3>미드 라인의 살아있는 전설, 이상혁</h3>
+                    <p>
+                        2013년 데뷔 이래 단 한 번도 팀을 옮기지 않고 T1에서 활동하며 팀의 모든 영광을 함께했습니다. 그의 커리어는 e스포츠를 넘어 스포츠 역사상 가장 위대한 선수 중 한 명으로 평가받습니다.
+                    </p>
+                    
+                    <div class="faker-stats-grid">
+                        <div class="faker-stat-item">
+                            <strong>6</strong>
+                            <span>Worlds Championship 우승 (단독 최다)</span>
+                        </div>
+                        <div class="faker-stat-item">
+                            <strong>10+</strong>
+                            <span>LCK 우승 (LCK 최다 우승 미드 라이너)</span>
+                        </div>
+                        <div class="faker-stat-item">
+                            <strong>2000+</strong>
+                            <span>LCK/Worlds 통산 킬 (최초 달성)</span>
+                        </div>
+                        <div class="faker-stat-item">
+                            <strong>100+</strong>
+                            <span>Worlds에서 사용한 챔피언 수</span>
+                        </div>
                     </div>
-                    <div class="faker-stat-item">
-                        <strong>10+</strong>
-                        <span>LCK 우승 (LCK 최다 우승 미드 라이너)</span>
-                    </div>
-                    <div class="faker-stat-item">
-                        <strong>2000+</strong>
-                        <span>LCK/Worlds 통산 킬 (최초 달성)</span>
-                    </div>
-                    <div class="faker-stat-item">
-                        <strong>100+</strong>
-                        <span>Worlds에서 사용한 챔피언 수</span>
+                    
+                    <div class="faker-paragraph">
+                        <p>
+                            **압도적인 기록**: 메이저 국제 대회인 Worlds, MSI, EWC를 모두 우승하며 **'그랜드 슬램'**을 달성한 유일한 미드 라이너이며, LCK에서는 **최초로 2년 연속 All-Pro 퍼스트 팀**에 선정되는 등 롱런의 대명사입니다. 
+                        </p>
+                        <p>
+                            **상징성**: 그의 이름은 T1을 넘어 한국 e스포츠의 얼굴이며, **불사대마왕(The Unkillable Demon King)**이라는 별명은 그의 강력함과 끈기를 상징합니다.
+                        </p>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <section id="people">
+            <h2 class="section-title">✨ 2022-2024 황금 세대: 제오페구케 로스터</h2>
+            <p class="section-subtitle">LoL e스포츠 역사상 가장 위대한 로스터 중 하나. 2022년 LCK 전승 우승을 시작으로 T1의 제 2의 왕조를 건설한 주역들입니다.</p>
+            
+            <div class="person-card-container">
                 
-                <div class="faker-paragraph">
+                <div class="person-card">
+                    <h3>The Golden Lineup: ZOFGK</h3>
                     <p>
-                        압도적인 기록: 메이저 국제 대회인 Worlds, MSI, EWC를 모두 우승하며 '그랜드 슬램'을 달성한 유일한 미드 라이너이며, LCK에서는 최초로 2년 연속 All-Pro 퍼스트 팀에 선정되는 등 롱런의 대명사입니다. 
+                        **Zeus(최우제), Oner(문현준), Faker(이상혁), Gumayusi(이민형), Keria(류민석)** 로 구성된 로스터는 LoL 역사상 가장 강력하고 화려한 시대를 이끌었습니다. 신구 조화와 압도적인 피지컬을 바탕으로 세체팀의 위상을 재정립했습니다.
                     </p>
-                    <p>
-                        상징성: 그의 이름은 T1을 넘어 한국 e스포츠의 얼굴이며, 불사대마왕(The Unkillable Demon King)이라는 별명은 그의 강력함과 끈기를 상징합니다.
-                    </p>
+                    
+                    <div class="person-image-grid">
+                        <figure style="flex: 1 1 100%; max-width: 100%;">
+                            <img src="https://i.namu.wiki/i/kzch4L82sxvY53XQ3itrufk4bTIA2p1OeXpwZXPFZFiLpJp-uTnu1c_4r8XljVQReJQoffB2BTN_OIr9GxNfEQ.webp" alt="제우스, 오너, 페이커, 구마유시, 케리아 선수단 사진" />
+                            <figcaption>2024 Worlds 우승 로스터, 세계 최고의 라인업</figcaption>
+                        </figure>
+                    </div>
+                    <div class="zofgk-stats">
+                        <div><strong>3</strong><span>Worlds 연속 결승 진출</span></div>
+                        <div><strong>2</strong><span>Worlds 연속 우승 (23, 24)</span></div>
+                        <div><strong>1</strong><span>LCK 전승 우승 (22 S)</span></div>
+                        <div><strong>1</strong><span>EWC 우승 (24)</span></div>
+                    </div>
+
+                    <ul>
+                        <li>**Worlds 쓰리핏 달성 주역**: (2023, 2024, 2025) 중 2023년과 2024년 우승을 합작하며 쓰리핏의 핵심 골자를 이뤘습니다. (2025년은 Faker, Oner, Gumayusi, Keria 로스터로 달성)</li>
+                        <li>**LCK 최초의 매치 전승 우승**: 2022년 LCK 스프링에서 단 한 번도 패배하지 않은 **18승 0패**의 기록을 세우며 불멸의 기록을 남겼습니다.</li>
+                        <li>**젊은 피의 조화**: 당시 탑, 정글, 원딜, 서포터가 모두 2002년생 이후의 젊은 선수들로 구성되어 폭발적인 캐리력과 넓은 챔피언 폭을 자랑했습니다.</li>
+                        <li>**최강의 바텀 라인**: **Gumayusi - Keria** 봇 듀오는 2년 연속 Worlds 우승을 합작하며 역대 최강의 바텀 듀오 중 하나로 평가받습니다.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <hr style="border-color: var(--divider-color); margin: 3rem 0;">
+
+        <section id="records">
+            <h2 class="section-title">🏆 압도적인 커리어와 불멸의 기록들</h2>
+            <p class="section-subtitle">LoL e스포츠 역사상 '최다', '최초', '유일무이' 등 모든 수식어를 선점하며 T1이 세운 금자탑과 기록들을 정리했습니다.</p>
+
+            <div class="record-grid">
+                <div class="record-item">
+                    <h4>Worlds (월드 챔피언십) 기록</h4>
+                    <p>LoL e스포츠의 가장 중요한 무대에서 세운 독보적인 기록들입니다.</p>
+                    <ul>
+                        <li><strong>최다 우승 (6회)</strong>: 2013, 2015, 2016, 2023, 2024, 2025</li>
+                        <li><strong>최초이자 유일한 쓰리핏 (3-peat)</strong>: 3년 연속 월즈 우승 달성 (2023~2025)</li>
+                        <li>최초이자 유일한 2회 연속 우승 2회 달성 (15-16, 23-24)</li>
+                        <li>최초의 모든 시드(1~4시드) 자격으로 우승 및 결승 진출</li>
+                        <li>최다 결승 진출 (8회) 및 최다 연승 (19연승)</li>
+                        <li>최초의 단일/동일 로스터 **3년 연속** 결승 진출</li>
+                    </ul>
+                </div>
+
+                <div class="record-item">
+                    <h4>LCK (국내 리그) 기록</h4>
+                    <p>LCK의 황금기를 상징하며 세운 국내 리그 최강자의 기록들입니다.</p>
+                    <ul>
+                        <li><strong>최다 우승 (10회)</strong>: LCK 역사상 유일무이한 10회 우승</li>
+                        <li><strong>최초이자 유일한 전승 우승</strong>: 2013-2014 Winter (세트 전승), 2022 Spring (매치 전승)</li>
+                        <li>최초 3연속 우승 및 **유일한 2회 3연속 우승** 달성</li>
+                        <li>**유일한 승강전 無** 팀 (리그제 전환 이후)</li>
+                        <li>최다 업셋 우승 (5회) 및 유일한 **와일드 카드전 도장깨기** 우승</li>
+                        <li>최초 올프로 퍼스트 팀 단일 팀 수상 (2022 Spring)</li>
+                    </ul>
+                </div>
+
+                <div class="record-item">
+                    <h4>국제 대회 통합 기록</h4>
+                    <p>Worlds, MSI, EWC 등 메이저 국제 대회를 아우르는 통합 기록입니다.</p>
+                    <ul>
+                        <li><strong>메이저 국제 대회 최다 우승 (총 8회)</strong></li>
+                        <li>논 캘린더 및 커리어 **그랜드 슬램** 달성 (최초이자 유일)</li>
+                        <li>논 캘린더 및 커리어 **러너업 슬램** 달성 (최초이자 유일)</li>
+                        <li>메이저 국제 대회 최다 결승 진출 (13회)</li>
+                        <li>같은 해 MSI와 Worlds를 동시 우승한 유일한 팀 (2016, 2017)</li>
+                        <li>국제 대회가 열린 4대 주요 지역에서 모두 우승한 최초이자 유일한 팀</li>
+                    </ul>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <section id="people">
-      <h2 class="section-title">✨ 2022-2024 황금 세대: 제오페구케 로스터</h2>
-      <p class="section-subtitle">LoL e스포츠 역사상 가장 위대한 로스터 중 하나. 2022년 LCK 전승 우승을 시작으로 T1의 제 2의 왕조를 건설한 주역들입니다.</p>
-        
-      <div class="person-card-container">
-        
-        <div class="person-card">
-          <h3>The Golden Lineup: ZOFGK</h3>
-          <p>
-            Zeus(최우제), Oner(문현준), Faker(이상혁), Gumayusi(이민형), Keria(류민석) 로 구성된 로스터는 LoL 역사상 가장 강력하고 화려한 시대를 이끌었습니다. 신구 조화와 압도적인 피지컬을 바탕으로 세체팀의 위상을 재정립했습니다.
-          </p>
-          
-          <div class="zofgk-stats">
-            <div><strong>3</strong><span>Worlds 연속 결승 진출</span></div>
-            <div><strong>2</strong><span>Worlds 연속 우승 (23, 24)</span></div>
-            <div><strong>1</strong><span>LCK 전승 우승 (22 S)</span></div>
-            <div><strong>1</strong><span>EWC 우승 (24)</span></div>
-          </div>
+            <div class="note-block">
+                <strong>KeSPA Cup 및 First Stand Tournament:</strong> T1이 아직 우승하지 못한 유이한 메이저 대회입니다. 특히 KeSPA Cup은 결승조차 가본 적 없는 유난히 인연이 없는 대회로 꼽힙니다.
+            </div>
+        </section>
 
-          <ul>
-            <li>Worlds 쓰리핏 달성 주역: (2023, 2024, 2025) 중 2023년과 2024년 우승을 합작하며 쓰리핏의 핵심 골자를 이뤘습니다. (2025년은 Faker, Oner, Gumayusi, Keria 로스터로 달성)</li>
-            <li>LCK 최초의 매치 전승 우승: 2022년 LCK 스프링에서 단 한 번도 패배하지 않은 18승 0패의 기록을 세우며 불멸의 기록을 남겼습니다.</li>
-            <li>젊은 피의 조화: 당시 탑, 정글, 원딜, 서포터가 모두 2002년생 이후의 젊은 선수들로 구성되어 폭발적인 캐리력과 넓은 챔피언 폭을 자랑했습니다.</li>
-            <li>최강의 바텀 라인: Gumayusi - Keria 봇 듀오는 2년 연속 Worlds 우승을 합작하며 역대 최강의 바텀 듀오 중 하나로 평가받습니다.</li>
-          </ul>
-        </div>
+        <hr style="border-color: var(--divider-color); margin: 3rem 0;">
 
-      </div>
-    </section>
+        <section id="trophy">
+            <h2 class="section-title">🥇 주요 우승 및 준우승 경력</h2>
+            <p class="section-subtitle">창단부터 2025년까지 T1이 달성한 주요 메이저 대회 경력입니다.</p>
 
-    <hr style="border-color: var(--divider-color); margin: 3rem 0;">
+            <figure id="trophy-image-container">
+                <img src="https://i.namu.wiki/i/JKN_YS-Qam5hUGETl-lrHqEhwkwnrCTAJpGdKY3XPd28ohwHY4GzLRqR62yZpUL_ZG8dYib52skKyLZu8y0Jzg.webp" alt="T1의 주요 우승 트로피들 (Worlds, LCK, MSI 등)" id="trophy-group-image">
+                <figcaption>T1의 전설적인 우승 트로피 그룹 **(예시 이미지)**</figcaption>
+            </figure>
 
-    <section id="records">
-        <h2 class="section-title">🏆 압도적인 커리어와 불멸의 기록들</h2>
-        <p class="section-subtitle">LoL e스포츠 역사상 '최다', '최초', '유일무이' 등 모든 수식어를 선점하며 T1이 세운 금자탑과 기록들을 정리했습니다.</p>
-
-        <div class="record-grid">
-            <div class="record-item">
-                <h4>Worlds (월드 챔피언십) 기록</h4>
-                <p>LoL e스포츠의 가장 중요한 무대에서 세운 독보적인 기록들입니다.</p>
-                <ul>
-                    <li><strong>최다 우승 (6회)</strong>: 2013, 2015, 2016, 2023, 2024, 2025</li>
-                    <li><strong>최초이자 유일한 쓰리핏 (3-peat)</strong>: 3년 연속 월즈 우승 달성 (2023~2025)</li>
-                    <li>최초이자 유일한 2회 연속 우승 2회 달성 (15-16, 23-24)</li>
-                    <li>최초의 모든 시드(1~4시드) 자격으로 우승 및 결승 진출</li>
-                    <li>최다 결승 진출 (8회) 및 최다 연승 (19연승)</li>
-                    <li>최초의 단일/동일 로스터 3년 연속 결승 진출</li>
-                </ul>
+            <div class="card">
+                <h3>우승 경력 (메이저 대회 중심)</h3>
+                <div class="trophy-list-grid">
+                    <div class="trophy-item"><strong>Worlds Championship (6회)</strong> <span>'13, '15, '16, '23, '24, '25</span></div>
+                    <div class="trophy-item"><strong>Mid-Season Invitational (2회)</strong> <span>'16, '17</span></div>
+                    <div class="trophy-item"><strong>LCK (10회)</strong> <span>'13 서머, '13-'14 윈터, '15 스프링/서머, '16 스프링, '17 스프링, '19 스프링/서머, '20 스프링, '22 스프링</span></div>
+                    <div class="trophy-item"><strong>EWC (1회)</strong> <span>2024 Esports World Cup</span></div>
+                    <div class="trophy-item"><strong>기타 국제전 (2회)</strong> <span>'14 올스타전, '16 IEM 월드 챔피언십</span></div>
+                    <div class="trophy-item"><strong>리프트 라이벌즈 (1회)</strong> <span>2019 Rift Rivals</span></div>
+                </div>
             </div>
 
-            <div class="record-item">
-                <h4>LCK (국내 리그) 기록</h4>
-                <p>LCK의 황금기를 상징하며 세운 국내 리그 최강자의 기록들입니다.</p>
-                <ul>
-                    <li><strong>최다 우승 (10회)</strong>: LCK 역사상 유일무이한 10회 우승</li>
-                    <li><strong>최초이자 유일한 전승 우승</strong>: 2013-2014 Winter (세트 전승), 2022 Spring (매치 전승)</li>
-                    <li>최초 3연속 우승 및 유일한 2회 3연속 우승 달성</li>
-                    <li>유일한 승강전 無 팀 (리그제 전환 이후)</li>
-                    <li>최다 업셋 우승 (5회) 및 유일한 와일드 카드전 도장깨기 우승</li>
-                    <li>최초 올프로 퍼스트 팀 단일 팀 수상 (2022 Spring)</li>
-                </ul>
+            <div class="card">
+                <h3>준우승 경력</h3>
+                <div class="trophy-list-grid">
+                    <div class="trophy-item runner-up"><strong>Worlds Championship (2회)</strong> <span>'17, '22</span></div>
+                    <div class="trophy-item runner-up"><strong>Mid-Season Invitational (3회)</strong> <span>'15, '22, '25</span></div>
+                    <div class="trophy-item runner-up"><strong>LCK (6회)</strong> <span>'17 서머, '21 서머, '22 서머, '23 스프링/서머, '24 스프링</span></div>
+                    <div class="trophy-item runner-up"><strong>기타 (3회)</strong> <span>'14 마스터즈, '17 & '18 리프트 라이벌즈</span></div>
+                </div>
             </div>
+        </section>
 
-            <div class="record-item">
-                <h4>국제 대회 통합 기록</h4>
-                <p>Worlds, MSI, EWC 등 메이저 국제 대회를 아우르는 통합 기록입니다.</p>
-                <ul>
-                    <li><strong>메이저 국제 대회 최다 우승 (총 8회)</strong></li>
-                    <li>논 캘린더 및 커리어 그랜드 슬램 달성 (최초이자 유일)</li>
-                    <li>논 캘린더 및 커리어 러너업 슬램 달성 (최초이자 유일)</li>
-                    <li>메이저 국제 대회 최다 결승 진출 (13회)</li>
-                    <li>같은 해 MSI와 Worlds를 동시 우승한 유일한 팀 (2016, 2017)</li>
-                    <li>국제 대회가 열린 4대 주요 지역에서 모두 우승한 최초이자 유일한 팀</li>
-                </ul>
-            </div>
+    </main>
+
+    <footer>
+        <div style="max-width:1100px; margin:0 auto; padding:1.5rem; text-align:center; border-top:1px solid var(--divider-color); font-size:0.75rem; color:var(--text-sub);">
+            이 페이지는 리그 오브 레전드 프로팀 T1과 선수 Faker, 제오페구케 라인업을 사랑하는 팬이 만든 비공식 팬페이지입니다. Riot Games 및 T1과는 무관합니다.
         </div>
-
-        <div class="note-block">
-            <strong>KeSPA Cup 및 First Stand Tournament:</strong> T1이 아직 우승하지 못한 유이한 메이저 대회입니다. 특히 KeSPA Cup은 결승조차 가본 적 없는 유난히 인연이 없는 대회로 꼽힙니다.
-        </div>
-    </section>
-
-    <hr style="border-color: var(--divider-color); margin: 3rem 0;">
-
-    <section id="trophy">
-        <h2 class="section-title">🥇 주요 우승 및 준우승 경력</h2>
-        <p class="section-subtitle">창단부터 2025년까지 T1이 달성한 주요 메이저 대회 경력입니다.</p>
-
-        <figure id="trophy-image-container">
-            <img src="https://i.namu.wiki/i/JKN_YS-Qam5hUGETl-lrHqEhwkwnrCTAJpGdKY3XPd28ohwHY4GzLRqR62yZpUL_ZG8dYib52skKyLZu8y0Jzg.webp" alt="T1의 주요 우승 트로피들 (Worlds, LCK, MSI 등)" id="trophy-group-image">
-            <figcaption>T1의 전설적인 우승 트로피 그룹 (교체 필수)</figcaption>
-        </figure>
-
-        <div class="card">
-            <h3>우승 경력 (메이저 대회 중심)</h3>
-            <div class="trophy-list-grid">
-                <div class="trophy-item"><strong>Worlds Championship (6회)</strong> <span>'13, '15, '16, '23, '24, '25</span></div>
-                <div class="trophy-item"><strong>Mid-Season Invitational (2회)</strong> <span>'16, '17</span></div>
-                <div class="trophy-item"><strong>LCK (10회)</strong> <span>'13 서머, '13-'14 윈터, '15 스프링/서머, '16 스프링, '17 스프링, '19 스프링/서머, '20 스프링, '22 스프링</span></div>
-                <div class="trophy-item"><strong>EWC (1회)</strong> <span>2024 Esports World Cup</span></div>
-                <div class="trophy-item"><strong>기타 국제전 (2회)</strong> <span>'14 올스타전, '16 IEM 월드 챔피언십</span></div>
-                <div class="trophy-item"><strong>리프트 라이벌즈 (1회)</strong> <span>2019 Rift Rivals</span></div>
-            </div>
-        </div>
-
-        <div class="card">
-            <h3>준우승 경력</h3>
-            <div class="trophy-list-grid">
-                <div class="trophy-item runner-up"><strong>Worlds Championship (2회)</strong> <span>'17, '22</span></div>
-                <div class="trophy-item runner-up"><strong>Mid-Season Invitational (3회)</strong> <span>'15, '22, '25</span></div>
-                <div class="trophy-item runner-up"><strong>LCK (6회)</strong> <span>'17 서머, '21 서머, '22 서머, '23 스프링/서머, '24 스프링</span></div>
-                <div class="trophy-item runner-up"><strong>기타 (3회)</strong> <span>'14 마스터즈, '17 & '18 리프트 라이벌즈</span></div>
-            </div>
-        </div>
-    </section>
-
-  </main>
-
-  <footer>
-    <div style="max-width:1100px; margin:0 auto; padding:1.5rem; text-align:center; border-top:1px solid var(--divider-color); font-size:0.75rem; color:var(--text-sub);">
-        이 페이지는 리그 오브 레전드 프로팀 T1과 선수 Faker, 제오페구케 라인업을 사랑하는 팬이 만든 비공식 팬페이지입니다. Riot Games 및 T1과는 무관합니다.
-    </div>
-  </footer>
+    </footer>
 
 </body>
 </html>
-
-
-
